@@ -27,37 +27,34 @@
 #include<string.h>
 int main()
 {
-	int n;
-	std::cin>>n;
-	long sum=0;
-	int a[n];
-	for(int i=0;i<n;i++)
-	{
-		std::cin>>a[i];
-	}
-	std::sort(a,a+n);
-	int c2=0;
-	int max2=n-1;
-	int result=0;
-	while(c2!=max2&&c2<max2)
-	{
-		int min=a[c2];
-		int max=a[max2];
-		result+=max-min;
-		std::cout<<result<<","<<a[max2]-a[c2+1]<<","<<a[max2-1]-a[c2];
-		if(n%2==1&&c2+1==n/2)
-		{
-			result+=std::max(a[n-1]-a[c2+1],a[c2+1]-a[0]);
-			break;
-		}
-		else
-		{
-			result+=std::max(a[max2]-a[c2+1],a[max2-1]-a[c2]);
-		}
-		c2++;
-		max2--;
-		std::cout<<result<<std::endl;
-	}
-	std::cout<<result;
+    int n;
+    std::cin>>n;
+    long sum=0;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        std::cin>>a[i];
+    }
+    std::sort(a,a+n);
+    int c2=0;
+    int max2=n-1;
+    int result=0;
+    int last_max=0;
+    int last_min=0;
+    while(c2!=max2&&c2<max2)
+    {
+        int min=a[c2];
+        int max=a[max2];
+        result+=max-last_min+last_max-min;
+        last_min=min;
+        last_max=max;
+        c2++;
+        max2--;
+    }
+    if(n%2==1)
+    {
+    	result+=(last_max-a[n/2+1])>(a[n/2+1]-last_min)?(last_max-a[n/2+1]):(a[n/2+1]-last_min);
+    }
+    std::cout<<result<<std::endl;
 }
 
