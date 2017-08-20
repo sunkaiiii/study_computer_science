@@ -1,4 +1,4 @@
-/*
+﻿/*
  度度熊回家
 时间限制：1秒
 空间限制：32768K
@@ -29,29 +29,29 @@ int main()
 	int n;
 	std::cin>>n;
 	int a[n+2];
-	int result=0;
 	for(int i=0;i<n;i++)
 	{
 		std::cin>>a[i];
-		result+=a[i];
 	}
+    int result=100000;
 	for(int i=1;i<n-1;i++)
 	{
-		int try=0;
-		for(int j=0;j<n;j++)
+		int try2=0;
+		for(int j=1;j<n;j++)
 		{
 			if(j==i)
 				continue;
 			if(j-1==i)
 			{
-				try+=fabs(a[j]-a[j-2])
+				try2+=fabs(a[j]-a[j-2]);
 			}
 			else
 			{
-				try+=fabs(a[j]-a[j-1]);
+				try2+=fabs(a[j]-a[j-1]);
 			}
 		}
-		if(try<result)
-			result=try;
+		if(try2<result)
+			result=try2;
 	}
+    std::cout<<result<<std::endl;
 }
