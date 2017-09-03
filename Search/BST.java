@@ -71,7 +71,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     private void show(Node x) {
         if (x == null)
             return;
-        System.out.println(x.key);
+        System.out.print(x.key);
         show(x.left);
         show(x.right);
     }
