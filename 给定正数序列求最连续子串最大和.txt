@@ -1,0 +1,30 @@
+#include<iostream>
+#include<cstring>
+#include<algorithm>
+#include<map>
+int a[10000000];
+int main()
+{
+	int n=0;
+	for(int i=0;;i++)
+	{
+		if(std::cin>>a[i])
+			n++;
+		else
+			break;
+	}
+	int result=0;
+	for(int i=0;i<n;i++)
+	{
+		int add=0;
+		for(int j=i;j<n;j++)
+		{
+			add+=a[j];
+			if(add>result)
+			{
+				result=add;
+			}
+		}
+	}
+	std::cout<<result<<std::endl;
+}
