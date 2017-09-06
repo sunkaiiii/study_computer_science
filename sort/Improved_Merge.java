@@ -2,7 +2,7 @@ package sort;
 
 public class Improved_Merge {
     private static Comparable[] aux;
-    private static int m=5;
+    private static int m=3;
     public static void sort(Comparable[] a) {
         aux=new Comparable[a.length];
         sort(a,0,a.length-1);

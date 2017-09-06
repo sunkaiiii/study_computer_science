@@ -1,7 +1,5 @@
 package Search;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 public class RedBlackBST<Key extends Comparable<Key>, Value> {
     private Node root;
 
@@ -89,19 +87,5 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
             flipColors(h);
         h.N = size(h.left) + size(h.right) + 1;
         return h;
-    }
-
-    public void show() {
-        Node x = root;
-        show(x);
-        System.out.println();
-    }
-
-    private void show(Node x) {
-        if (x == null)
-            return;
-        System.out.print(x.key);
-        show(x.left);
-        show(x.right);
     }
 }
