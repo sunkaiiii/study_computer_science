@@ -100,15 +100,17 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\boost_1_65_1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\boost_1_65_1\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,6 +154,7 @@
     <ClCompile Include="auto_ptr_test.cpp" />
     <ClCompile Include="scoped_array_ptr_testcpp.cpp" />
     <ClCompile Include="scoped_ptr_test.cpp" />
+    <ClCompile Include="shared_array_test.cpp" />
     <ClCompile Include="shared_ptr_test.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
@@ -159,6 +162,7 @@
     <ClInclude Include="auto_ptr_test.h" />
     <ClInclude Include="scoped_array_ptr_test.h" />
     <ClInclude Include="scoped_ptr_test.h" />
+    <ClInclude Include="share_array_test.h" />
     <ClInclude Include="share_ptr_test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
