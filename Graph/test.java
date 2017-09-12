@@ -167,5 +167,10 @@ public class test {
 
 
         EdgeWeightedDiagraph edgeWeightedDiagraph=constructEdgeWeightedDiagraph();
+        DijkstraSP dijkstraSP=new DijkstraSP(edgeWeightedDiagraph,0);
+//        System.out.println(dijkstraSP.hasPathTo(4));
+        for(DirectedEdge e:dijkstraSP.pathTo(7)){
+            System.out.println(e.from());
+        }
     }
 }
