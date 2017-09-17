@@ -28,29 +28,27 @@ int main()
 {
   int t;
   std::cin>>t;
-  int ok=1;
   for(int i=0;i<t;i++)
   {
     int n;
     std::cin>>n;
     int a[n];
-    int count=0;
+    int n1=0,n4=0;
     for(int j=0;j<n;j++)
     {
       std::cin>>a[j];
       if(a[j]%4==0)
-      {
-        count+=3;
-      }
+        n4++;
+      else if(a[j]%2!=0)
+        n1++;
     }
-    if(count>=n)
-    {
+    if(n4>=n1||(n4>=n1-1&&(n4+n1)==n))
       std::cout<<"Yes"<<std::endl;
-    }
     else
-    {
       std::cout<<"No"<<std::endl;
-    }
   }
-
 }
+//寻找可以被4和不可以被2整除的数的个数
+//一个不可以被4和2整除的数周围必须有2个可以被4整除的数，除了第一个
+//那么对于每一个n1都必须有一个属于它的n4，如果没有n2，那第一个n1可以和第2个共有一个
+//所以就是 n4>=n1||(n2==0&&n4>=n1-1)
