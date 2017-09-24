@@ -1,10 +1,11 @@
-/*more的第一个实现版本*/
+/*more的第二个实现版本*/
 /*读取然后打印24行，并等待用户输入命令*/
+/*第二版将从/dev/tty中获得命令*/
 #include<stdio.h>
 #define PAGELINE 24
 #define LINELEN 512
 void do_more(FILE *);
-int see_more();
+int see_more(FILE *);
 int main(int ac,char *av[])
 {
   FILE *fp;
@@ -36,11 +37,18 @@ void do_more(FILE *fp)
   char line[LINELEN];
   int num_of_lines=0;
   int see_more(),reply;
+  FILE *fp_tty;
+  fp_tty=fopen("/dev/tty","r"); //读取cmd的stream
+  if(fp_tty==NULL)
+  {
+    perror("open tty filed ");
+    exit(1);
+  }
   while(fgets(line,LINELEN,fp)) //读取文本并打印在屏幕上
   {
     if(num_of_lines==PAGELINE) //是否已经输出满了整个屏幕？
     {
-      reply=see_more();
+      reply=see_more(fp_tty);
       if(reply==0)
         break;
       num_of_lines-=reply; //重置打印计数
@@ -51,12 +59,12 @@ void do_more(FILE *fp)
   }
 }
 
-int see_more()
+int see_more(FILE *cmd)
 {
   /*打印消息，等待用户输入，q代表退出，空格代表yes，回车代表一行*/
   int c;
   printf("\033[7m more?\033[m");
-  while((c=getchar())!=EOF)
+  while((c=getc(cmd))!=EOF)
   {
     if(c=='q')
       return 0;
