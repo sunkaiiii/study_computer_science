@@ -1,6 +1,7 @@
 /*
 对用户显示问题，接受用户输入，如果是y返回1,是n返回0
 在用户输入的时候关闭规范输入，使得在用户敲击的同时就可以得到输入的字符
+并忽略非法键
 */
 #include<stdio.h>
 #include<termios.h>
@@ -13,7 +14,7 @@ int main()
 {
   int response;
   tty_mode(0);
-  set_crmode();
+  set_cro_noecho_mode();
   response=get_reonse(QUESTION); //获取用户反馈
   tty_mode(1);
   return response;
@@ -25,7 +26,7 @@ int get_reonse(char *question)
   int input;
   while(1)
   {
-    switch(input=getchar())
+    switch(getchar())
     {
       case 'y':
       case 'Y':
@@ -34,19 +35,17 @@ int get_reonse(char *question)
       case 'N':
       case EOF:
         return 1;
-      default:
-        printf("\ncannot understand %c ",input);
-        printf("Please type y or no \n");
     }
   }
 }
 
-set_crmode()
+set_cro_noecho_mode()
 {
-  /*设置终端驱动*/
+  /*设置终端驱动,并设置不回显*/
   struct termios ttystate;
   tcgetattr(0,&ttystate);
   ttystate.c_lflag&=~ICANON; //无缓冲
+  ttystate.c_lflag&=~ECHO;
   ttystate.c_cc[VMIN]=1; //每次读取1个字符
   tcsetattr(0,TCSANOW,&ttystate); //写回终端驱动
 }
