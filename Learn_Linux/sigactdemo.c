@@ -29,7 +29,7 @@ int main()
   sigaddset(&blocked,SIGQUIT); //添加SIGQUIT到屏蔽名单中
   newhandler.sa_mask=blocked;
 
-  if(sigaction(SIGINT,&newhandler,NULL)==-1)
+  if(sigaction(SIGINT,&newhandler,NULL)==-1) //设置处理SIGINT，并设置处理SIGINT的时候屏蔽SIGQUIT
     perror("sigaction");
   else
     while(1)
