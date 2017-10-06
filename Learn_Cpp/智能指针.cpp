@@ -107,4 +107,15 @@ int main()
 	std::unique_ptr<int> p8;
 	p8.reset(p2.release()); //将所有权从p2转移到p3
 	std::cout<<"p8 int locate:"<<p8.get()<<" value:"<<*p8<<"\n";
+	/*注意，不要直接调用release方法*/
+	/*ralease方法一般跟随者reset方法一起使用*/
+	//p8.release() 此操作并不会释放原指针的资源，同时还会切断unique_ptr与指针的联系，造成内存泄漏
+	/*如果一定要执行release，不要忘记手动释放动态资源
+	auto i=p8.release();
+	delete i;
+	*/
+	/*weak_ptr*/
+	std::weak_ptr<int> wp(p3); //weak_ptr需要用一个shared_ptr来初始化他，弱共享不会改变p3的引用计数
+	/*同时，弱共享所指向的对象可能会被释放掉*/
+	std::cout<<*wp.lock()<<"\n"; //weak_ptr的lock会返回它所指的share_ptr(如果存在的话)
 }
