@@ -1,62 +1,54 @@
 #include<iostream>
-struct BinaryTreeNode
+struct ListNode
 {
 	int value;
-	BinaryTreeNode *left=NULL;
-	BinaryTreeNode *right=NULL;
+	ListNode *next;
 };
 
-bool DoesTree1HaveTree2(BinaryTreeNode* pRoot1,BinaryTreeNode* pRoot2)
+ListNode* Merge(ListNode* pHead1,ListNode* pHead2)
 {
-	if(pRoot2==NULL)
-		return true;
-	if(pRoot1==NULL)
-		return false;
-	if(pRoot1->value!=pRoot2->value)
-		return false;
-	return DoesTree1HaveTree2(pRoot1->left,pRoot2->left)&&DoesTree1HaveTree2(pRoot1->right,pRoot2->right);
-}
-
-bool HasSubTree(BinaryTreeNode* pRoot1,BinaryTreeNode* pRoot2)
-{
-	bool result=false;
-
-	if(pRoot1!=NULL&&pRoot2!=NULL)
+	if(pHead1->next==NULL)
+		return pHead2;
+	else if(pHead2->next==NULL)
+		return pHead1;
+	ListNode *pMerge=NULL;
+	if(pHead1->value<pHead2->value)
 	{
-		if(pRoot1->value==pRoot2->value)
-		{
-			result=DoesTree1HaveTree2(pRoot1,pRoot2);
-		}
-		if(!result)
-			result=HasSubTree(pRoot1->left,pRoot2);
-		if(!result)
-			result=HasSubTree(pRoot1->right,pRoot2);
+		pMerge=pHead1;
+		pMerge->next=Merge(pHead1->next,pHead2);
 	}
-	return result;
+	else
+	{
+		pMerge=pHead2;
+		pMerge->next=Merge(pHead1,pHead2->next);
+	}
+	return pMerge;
 }
-
 int main()
 {
-	BinaryTreeNode *head,*head2;
-	head=new BinaryTreeNode;
-	head2=new BinaryTreeNode;
-	head->value=8;
-	head->left=new BinaryTreeNode;
-	head->left->value=8;
-	head->left->left=new BinaryTreeNode;
-	head->left->left->value=9;
-	head->left->right=new BinaryTreeNode;
-	head->left->right->value=2;
-	head->left->right->left=new BinaryTreeNode;
-	head->left->right->left->value=4;
-	head->left->right->right=new BinaryTreeNode;
-	head->left->right->right->value=7;
-	head->right=new BinaryTreeNode;
-	head->right->value=7;
-	head2->value=8;
-	head2->left=new BinaryTreeNode;
-	head2->left->value=9;
-	head2->right=new BinaryTreeNode;
-	head2->right->value=2;
-	std::cout<<HasSubTree(head,head2)<<std::endl;
+	ListNode *head=new ListNode;
+	ListNode *node=head;
+	for(int i=0;i<10;i++)
+	{
+		std::cin>>node->value;
+		node->next=new ListNode;
+		node=node->next;
+		node->next=NULL;
+	}
+	ListNode *head2=new ListNode;
+	ListNode *node2=head2;
+	for(int i=0;i<8;i++)
+	{
+		std::cin>>node2->value;
+		node2->next=new ListNode;
+		node2=node2->next;
+		node2->next=NULL;
+	}
+	ListNode *mergeHead=Merge(head,head2);
+	while(mergeHead->next!=NULL)
+	{
+		std::cout<<mergeHead->value<<" ";
+		mergeHead=mergeHead->next;
+	}
+	std::cout<<std::endl;
 }

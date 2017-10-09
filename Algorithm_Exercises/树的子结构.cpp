@@ -58,5 +58,5 @@ int main()
 	head2->left->value=9;
 	head2->right=new BinaryTreeNode;
 	head2->right->value=2;
-	std::cout<<HasSubTree(head,head2)<<std::endl;
+	std::cout<<HasSubTree(NULL,NULL)<<std::endl;
 }
