@@ -1,0 +1,6 @@
+element occurs 112 times
+A set element contains  only a key
+Regardless of whether the  element
+When we fetch an element from a map
+we if the element is not found
+find returns
