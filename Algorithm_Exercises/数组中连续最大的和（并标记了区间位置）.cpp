@@ -29,7 +29,7 @@ int findMax(int a[],int n)
 			result=temp;
 			end=i;
 		}
-		if(max<a[i])
+		if(max<a[i]) //防止全负数的情况
 		{
 			max=a[i];
 			maxindex=i;
