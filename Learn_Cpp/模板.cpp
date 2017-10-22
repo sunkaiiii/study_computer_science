@@ -83,6 +83,34 @@ void f(int v1,int &v2)
 	std::cout<<v1<<" "<<++v2<<std::endl;
 }
 
+
+//Args是一个模板参数包；rest是一个函数参数包
+//Args表示零个或多个模板类型参数
+//rest表示零个货多个函数参数
+template<typename T,typename ...Args>
+void foo(const T &t,const Args& ...rest)
+{
+	std::cout<<sizeof...(Args)<<std::endl; //查看包中有多少个元素
+	std::cout<<sizeof...(rest)<<std::endl;
+}
+
+//一个可变参数的模板
+template<typename T>
+std::ostream &print(std::ostream &os,const T &t)
+{
+	return os<<t<<"\n"; //用来终止递归，并打印最后一个元素
+}
+template<typename T,typename... Args>
+std::ostream &print(std::ostream &os,const  T &t,const Args&... rest)
+{
+	os<<t<<" ";
+	return print(os,rest...); //递归调用，打印其他实参
+	//在这里我们只调用了两个实参，其结果是rest中的第一个实参被绑定到了T
+	//其余的实参形成了下一层递归print当中的调用参数包
+	//最终在最后一次递归之后，调用的参数为两个，根据模板重载原理
+	//将会调用print(std::ostream,const T)的print方法
+}
+
 int main()
 {
 	std::cout<<compare(2,1)<<std::endl; //模板默认实参的测试
@@ -104,4 +132,11 @@ int main()
 	std::cout<<"v1,v2: "<<v1<<" "<<v2<<"\n";
 	flip(f,v1,v2);
 	std::cout<<"v1,v2: "<<v1<<" "<<v2<<"\n";
+	int i=0;double d=3.14;std::string s="how now";
+	foo(i,s,42,d); //包中有3个参数
+	foo(s,42,"hi"); //包中有2个参数
+	foo(d,s); //包中有1个参数
+	foo("hi"); //空包
+
+	print(std::cout,1,2,3,4,5,4.4,"123123",'a',12);//可变参数打印7
 }
