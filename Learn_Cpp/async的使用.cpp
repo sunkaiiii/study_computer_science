@@ -34,7 +34,7 @@ int main()
 {
 	std::default_random_engine re{static_cast<unsigned int>(time(NULL)) };
 	std::uniform_real_distribution<double> random_num{ -500,500 };
-	std::uniform_int<int> r{ 1000,10000 };
+	std::uniform_int<int> r{ 1000,10000000 };
 	int size = r(re);
 	std::cout << "size=" << size << "\n";
 	auto start_random = std::bind(random_num,re);
