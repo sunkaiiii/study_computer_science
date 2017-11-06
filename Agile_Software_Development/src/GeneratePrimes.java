@@ -1,6 +1,8 @@
 /**
  * Created by sunkai on 2017/11/6
  */
+
+//重构前的一个能通过测试但是错误的函数执行方法
 public class GeneratePrimes {
     public static int[] generatePrimes(int maxValue) {
         if (maxValue >= 2) {
