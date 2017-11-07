@@ -1,3 +1,5 @@
+package GeneratePrimes;
+
 import java.util.Map;
 
 /**

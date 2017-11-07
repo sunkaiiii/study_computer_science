@@ -1,3 +1,5 @@
+package GeneratePrimes;
+
 /**
  * Created by sunkai on 2017/11/6
  */
