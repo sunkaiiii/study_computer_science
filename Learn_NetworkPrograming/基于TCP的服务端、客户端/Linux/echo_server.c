@@ -17,8 +17,10 @@ int main(int argc,char *argv[])
 
   struct sockaddr_in ser_adr,clnt_adr;
   socklen_t clnt_adr_sz;
-  if(argc!=2)
+  if(argc!=2){
     printf("Usage :%s <port>\n",argv[0]);
+    exit(1);
+  }
 
   serv_sock=socket(PF_INET,SOCK_STREAM,0);
   if(serv_sock==-1)
