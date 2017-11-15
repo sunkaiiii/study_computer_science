@@ -3,6 +3,7 @@
 #include<WS2tcpip.h> 
 void ErrorHandling(char *message);
 #define BUF_SIZE 30
+//接受文件的服务端，省略了一些错误判断
 int main(int argc, char *argv[])
 {
 	if (argc != 2)

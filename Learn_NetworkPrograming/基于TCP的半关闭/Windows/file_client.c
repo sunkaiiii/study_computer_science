@@ -30,9 +30,10 @@ int main(int argc, char *argv[])
 	servAdr.sin_port = htons(atoi(argv[2]));
 	connect(sock, (SOCKADDR*)&servAdr, sizeof(servAdr));
 	fopen_s(&fp,"receive.dat", "wb"); //vs2017下调用fopen编译不成功（需要声明用旧式函数或者用fopen_s);
-	while (recv(sock, buf, BUF_SIZE, 0) != 0)
+	int readCnt;
+	while ((readCnt=recv(sock, buf, BUF_SIZE, 0)) != 0)
 	{
-		fwrite(buf, BUF_SIZE, 1, fp);
+		fwrite((void*)buf, readCnt, 1, fp);
 	}
 	send(sock, "Thank you!", sizeof("Thank you!"),0);
 	fclose(fp);
