@@ -9,6 +9,7 @@ void CALLBACK ReadCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
 void CALLBACK WriteComRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
 
 //使用纯重叠IO模型实现回声服务器端，代码较多~
+//此模型的缺点：重复调用非阻塞模式的accept函数和已进入alertable wait 状态为目的的Sleepex函数将影响性能
 typedef struct
 {
 	SOCKET hClntSock;
