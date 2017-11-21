@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
 		//结构体变量的地址值与第一个成员的地址值相同，实际上也就是传递了成哥PER_IO_DATA结构体
 		WSARecv(handleInfo->hClntSock, &(ioInfo->wsaBuf), 1, &recvBytes, &flags, &(ioInfo->overlapped), NULL);
 	}
+	WSACleanup();
 	return 0;
 
 }
@@ -141,7 +142,7 @@ DWORD WINAPI EchoThreadMain(LPVOID pComPort)
 			//发送信息之后接受客户端信息
 			WSARecv(sock, &(ioInfo->wsaBuf), 1, NULL, &flags, &(ioInfo->overlapped), NULL);
 		}
-		else
+		else //完成的IO是WRITE
 		{
 			//完成IO为输出时执行else区域
 			puts("message sent!\n");
