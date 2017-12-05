@@ -1,9 +1,10 @@
 
+import Entity.Album;
+import Entity.Artist;
 import Entity.Track;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -64,9 +65,87 @@ public class main {
         //实际生产中，不宜使用这个方法
         int count=Stream.of(1,2,3).reduce(0,(acc,element)->acc+element);
         System.out.println(count);
+
+        //编写一个求和函数，计算流中所有数的和
+        System.out.println(addUp(Stream.of(1,2,3,4,5,6,7)));
+
+        //编写一个函数，接受艺术家列表作为参数，返回一个字符串列表，其中包含艺术家的姓名和国籍
+        List<Artist> artists=new ArrayList<>();
+        artists.add(new Artist("bob",null,"UK"));
+        artists.add(new Artist("Tom",null,"US"));
+        System.out.println(getNameAndCountry(artists));
+
+        //编写一个函数，接受专辑列表作为参数，返回一个有最少包含3首歌曲的专辑组成的列表
+        List<Album> albums=new ArrayList<>();
+        albums.add(new Album());
+        System.out.println(getMuiltiTrackAlbum(getMuiltiTrackAlbum(albums)));
+
+        //将外部迭代转为内部迭代
+//        int totalMembers=0;
+//        for(Artist artist:artists){
+//            Stream<Artist> members=artist.mumbers.stream();
+//            totalMembers+=members.count();
+//
+//        }
+//        System.out.println(totalMembers);
+//        //->转换
+//        int totalNumbers=artists.stream()
+//                .map(artist -> artist.mumbers.stream().count())
+//                .reduce(0L,(result,membercount)->result+membercount)
+//                .intValue();
+//        System.out.println(totalNumbers);
+
+        //在一个字符串列表中，找出包含最多小写字母的字符串
+        List<String> strings=new ArrayList<>();
+        strings.add("asd");
+        strings.add("12q34");
+        strings.add("!2");
+        System.out.println(findMaxSmallString(strings));
+
     }
+
+    public static int addUp(Stream<Integer> numbers){
+        return numbers.reduce(0,(result,number)->result+number);
+    }
+
+    public static List<String> getNameAndCountry(List<Artist> artists){
+        return artists.stream().map(artist -> artist.name+" "+artist.origin).collect(Collectors.toList());
+    }
+
+    public static List<Album> getMuiltiTrackAlbum(List<Album> albums){
+        return albums.stream().filter(album -> album.trakcs.size()>3).collect(Collectors.toList());
+    }
+
+    public static String findMaxSmallString(List<String> strings){
+        return strings.stream()
+                .max(Comparator.comparing(eachString->eachString.chars()
+                        .filter(Character::isLowerCase)
+                        .count())).get();
+    }
+
+
+    public Set<String> findLongTracks(List<Album> albums){
+        //原始代码
+        Set<String> trackNames=new HashSet<>();
+        for(Album album:albums){
+            for(Track track:album.trakcs){
+                if(track.length>60){
+                    String name=track.name;
+                    trackNames.add(name);
+                }
+            }
+        }
+
+        //重构之后的代码
+        return albums.stream()
+                .flatMap(album -> album.trakcs.stream())
+                .filter(track -> track.length>60)
+                .map(track -> track.name)
+                .collect(Collectors.toSet());
+
+    }
+
     private static boolean isDigit(char arg){
         return (arg>='0'&&arg<='9')?true:false;
     }
-
 }

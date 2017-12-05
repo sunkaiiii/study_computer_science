@@ -1,7 +1,14 @@
 package Entity;
 
+import java.util.List;
+
 public class Artist {
     public String name;
-    public String mumbers;
+    public List<Artist> mumbers;
     public String origin;
+    public Artist(String name,List<Artist> mumbers,String origin){
+        this.name=name;
+        this.mumbers=mumbers;
+        this.origin=origin;
+    }
 }
