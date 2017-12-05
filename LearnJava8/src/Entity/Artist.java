@@ -11,4 +11,8 @@ public class Artist {
         this.mumbers=mumbers;
         this.origin=origin;
     }
+
+    public String getName(){
+        return name;
+    }
 }
