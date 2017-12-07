@@ -15,4 +15,8 @@ public class Artist {
     public String getName(){
         return name;
     }
+
+    public List<Artist> getMembers(){
+        return mumbers;
+    }
 }
