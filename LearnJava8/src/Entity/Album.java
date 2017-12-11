@@ -12,6 +12,12 @@ public class Album {
     public Stream getMusicians(){
         return musicians.stream();
     }
+    public Artist getMainMusicians(){
+        return musicians.get(0);
+    }
+    public String getName(){
+        return name;
+    }
 
     public Album(){
         name="";

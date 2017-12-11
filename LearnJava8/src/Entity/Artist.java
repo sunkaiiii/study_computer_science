@@ -19,4 +19,7 @@ public class Artist {
     public List<Artist> getMembers(){
         return mumbers;
     }
+    public Boolean isSolo(){
+        return origin.equals("solo");
+    }
 }
