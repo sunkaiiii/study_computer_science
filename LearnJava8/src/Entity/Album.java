@@ -18,6 +18,9 @@ public class Album {
     public String getName(){
         return name;
     }
+    public Stream<Track> getTrakcs(){
+        return trakcs.stream();
+    }
 
     public Album(){
         name="";
