@@ -17,6 +17,34 @@ fun main(args:Array<String>){
     println(add(2,3,4,5,6,7,8,9))
     println(sayHello("aha"))
     println(multiply(4.0,5.0))
+
+
+    //kotlin中的赋值没有自动类型转换
+    val i:Short=1
+//    val j:Int=i //这句是无法编译通过的
+    val j:Int=i.toInt() //要显示调用
+
+    val s="@312124"
+    val s1="The value of i is $s" //字符串转义
+
+    //使用arrayOf创造一个数组
+    val aa= arrayOf("Hello","World")
+    //创建一个都是空的数组
+    var nullArray:Array<String?> = arrayOfNulls(2)
+    //创建一个数组，长度为10，包含从1到10的平方
+    val squars=Array<Int>(10,{i->(i+1)*(i+1)})
+    //创建一个空数组
+    val emptyArray:Array<String?> = emptyArray();
+
+    //创建基本类型的数组，kotlin对其有特殊的优化
+    val intArray= intArrayOf(1,2,3)
+    val normalArray= arrayOf(1,2,3)
+//    intArray并不是normalArray的子类
+
+    val s3="abc!#%#@TH35g3rwg4gw345uh3w4563wh4w5jne6gy456u"
+    val s4="abc!#%#@TH35g3rwg4gw345uh3w4563wh4w5jne6gy456u"
+    println(s3==s4)//比较对象是否相等
+    println(s3===s4)//比较引用是否相等
 }
 
 //定义一些函数
