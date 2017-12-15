@@ -52,11 +52,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="面向对象-继承.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="面向对象-继承.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/面向对象-继承.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="393">
+              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="面向对象高级-伴生对象.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/面向对象高级-伴生对象.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="28" column="78" lean-forward="false" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="面向对象-密封类.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/面向对象-密封类.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="空安全：安全调用和Elvis操作.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/空安全：安全调用和Elvis操作.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="空安全：let函数和!!操作符.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/空安全：let函数和!!操作符.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -89,6 +129,10 @@
         <option value="$PROJECT_DIR$/src/面向对象.kt" />
         <option value="$PROJECT_DIR$/src/面向对象-属性.kt" />
         <option value="$PROJECT_DIR$/src/面向对象-继承.kt" />
+        <option value="$PROJECT_DIR$/src/面向对象高级-伴生对象.kt" />
+        <option value="$PROJECT_DIR$/src/面向对象-密封类.kt" />
+        <option value="$PROJECT_DIR$/src/空安全：安全调用和Elvis操作.kt" />
+        <option value="$PROJECT_DIR$/src/空安全：let函数和!!操作符.kt" />
       </list>
     </option>
   </component>
@@ -159,34 +203,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.面向对象_继承Kt">
-    <configuration name="HelloWorldKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.空安全_let函数和__操作符Kt">
+    <configuration name="空安全_安全调用和Elvis操作Kt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="HelloWorldKt" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Learn_Kotlin" />
-      <envs />
-    </configuration>
-    <configuration name="流程控制Kt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="流程控制Kt" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Learn_Kotlin" />
-      <envs />
-    </configuration>
-    <configuration name="面向对象_创建类Kt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="面向对象_创建类Kt" />
+      <option name="MAIN_CLASS_NAME" value="空安全_安全调用和Elvis操作Kt" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -211,6 +231,30 @@
     <configuration name="面向对象_继承Kt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="面向对象_继承Kt" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Learn_Kotlin" />
+      <envs />
+    </configuration>
+    <configuration name="面向对象高级_伴生对象Kt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="面向对象高级_伴生对象Kt" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Learn_Kotlin" />
+      <envs />
+    </configuration>
+    <configuration name="空安全_let函数和__操作符Kt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="空安全_let函数和__操作符Kt" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -302,19 +346,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Kotlin.HelloWorldKt" />
-      <item index="1" class="java.lang.String" itemvalue="Kotlin.流程控制Kt" />
-      <item index="2" class="java.lang.String" itemvalue="Kotlin.面向对象_创建类Kt" />
-      <item index="3" class="java.lang.String" itemvalue="Kotlin.面向对象_属性Kt" />
-      <item index="4" class="java.lang.String" itemvalue="Kotlin.面向对象_继承Kt" />
+      <item index="0" class="java.lang.String" itemvalue="Kotlin.面向对象_属性Kt" />
+      <item index="1" class="java.lang.String" itemvalue="Kotlin.面向对象_继承Kt" />
+      <item index="2" class="java.lang.String" itemvalue="Kotlin.面向对象高级_伴生对象Kt" />
+      <item index="3" class="java.lang.String" itemvalue="Kotlin.空安全_安全调用和Elvis操作Kt" />
+      <item index="4" class="java.lang.String" itemvalue="Kotlin.空安全_let函数和__操作符Kt" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Kotlin.面向对象_继承Kt" />
-        <item index="1" class="java.lang.String" itemvalue="Kotlin.面向对象_属性Kt" />
-        <item index="2" class="java.lang.String" itemvalue="Kotlin.面向对象_创建类Kt" />
-        <item index="3" class="java.lang.String" itemvalue="Kotlin.流程控制Kt" />
-        <item index="4" class="java.lang.String" itemvalue="Kotlin.HelloWorldKt" />
+        <item index="0" class="java.lang.String" itemvalue="Kotlin.空安全_let函数和__操作符Kt" />
+        <item index="1" class="java.lang.String" itemvalue="Kotlin.空安全_安全调用和Elvis操作Kt" />
+        <item index="2" class="java.lang.String" itemvalue="Kotlin.面向对象高级_伴生对象Kt" />
+        <item index="3" class="java.lang.String" itemvalue="Kotlin.面向对象_继承Kt" />
+        <item index="4" class="java.lang.String" itemvalue="Kotlin.面向对象_属性Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -330,12 +374,12 @@
       <updated>1513244874404</updated>
       <workItem from="1513244875775" duration="562000" />
       <workItem from="1513245458162" duration="3002000" />
-      <workItem from="1513305040841" duration="3395000" />
+      <workItem from="1513305040841" duration="7733000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6959000" />
+    <option name="totallyTimeSpent" value="11297000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -354,7 +398,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27571115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27461708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -453,8 +497,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/面向对象-继承.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="393">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/面向对象高级-伴生对象.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="28" column="78" lean-forward="false" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/面向对象-密封类.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/空安全：安全调用和Elvis操作.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/空安全：let函数和!!操作符.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
           <folding />
         </state>
       </provider>

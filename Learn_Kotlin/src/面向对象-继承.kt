@@ -20,6 +20,12 @@ class Student(name:String):openPerson(name){
     override fun say()="i'm a student named $name,$age yeas old"
 }
 
+abstract class aAbstractClass //abstract不使用open修饰也可以继承
+interface aInterface{
+    var prop:Int //接口允许存在抽象变量，且只能是抽象的
+    fun foo(prop:Int)
+    fun bar()=println("bar") //允许接口有默认实现
+}
 
 fun main(args:Array<String>){
     val c1=openPerson("asd")
