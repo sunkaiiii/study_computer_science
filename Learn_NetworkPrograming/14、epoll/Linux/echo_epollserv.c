@@ -42,15 +42,17 @@ int main(int argc,char *argv[])
     error_handling("listen() error");
 
 
-  //设置EPOLL
+  //设置EPOLL,创建epoll需要的文件描述符
+  //在Linux 2.6.8之后，操作系统会忽略这个EPOLL_SIZE
   epfd=epoll_create(EPOLL_SIZE);
   ep_events=malloc(sizeof(struct epoll_event)*EPOLL_SIZE);
   event.events=EPOLLIN; //监控需要读取数据的情况
   event.data.fd=serv_sock; //要监控的套接字
+  //控制符包含“EPOLL_CTL_ADD","EPOLL_CTL_DEL","EPOLL_CTL_MOD"
   epoll_ctl(epfd,EPOLL_CTL_ADD,serv_sock,&event); //添加套接字
   while(1)
   {
-
+    //返回发生时间的文件描述符的个数，同时ep_events中包含着所有发生事件得到集合，最后参数timeout传入-1表示一直阻塞等待
     event_cnt=epoll_wait(epfd,ep_events,EPOLL_SIZE,-1);
 
     if(event_cnt==-1)

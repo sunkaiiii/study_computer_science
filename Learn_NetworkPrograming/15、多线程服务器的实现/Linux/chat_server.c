@@ -54,6 +54,7 @@ int main(int argc,char *argv[])
         clnt_socks[clnt_cnt++]=clnt_sock;
         pthread_mutex_unlock(&mutx);
 
+        //保存新创建的线程id的变量的地址值，传入null则以默认属性创建线程，相当于线程的main函数，参数
         pthread_create(&t_id,NULL,handle_clnt,(void*)&clnt_sock);
         pthread_detach(t_id); //调用detach不会像join一样使得当前进程阻塞，并且可以通过该函数引导销毁线程创建的内存空间
         printf("Connected client sock:%d IP:%s\n",clnt_sock,inet_ntoa(clnt_adr.sin_addr));
@@ -71,6 +72,7 @@ void *handle_clnt(void *arg)
     while((str_len=read(clnt_sock,msg,BUF_SIZE))!=0)
         send_msg(msg,str_len);
     pthread_mutex_lock(&mutx); //移除断开连接的客户端
+    //处理链接的数组
     for(i=0;i<clnt_cnt;++i)
     {
         if(clnt_sock==clnt_socks[i])

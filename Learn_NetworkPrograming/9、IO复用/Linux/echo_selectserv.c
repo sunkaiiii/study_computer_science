@@ -21,6 +21,7 @@ int main(int argc,char *argv[])
   int serv_sock,clnt_sock;
   struct sockaddr_in serv_adr,clnt_adr;
   struct timeval timeout;
+  //fd_set 是一个存有0和1的数组，如果为1，则该文件描述符是要监控的对象
   fd_set reads,cpy_reads;
 
   socklen_t adr_sz;
@@ -37,6 +38,7 @@ int main(int argc,char *argv[])
     error_handling("listen() error");
 
   FD_ZERO(&reads);
+  //在参数fd_set指向的变量中注册文件描述符fd:serv_sock的信息
   FD_SET(serv_sock,&reads);
   fd_max=serv_sock;
   while(1)
@@ -44,13 +46,14 @@ int main(int argc,char *argv[])
     cpy_reads=reads;
     timeout.tv_sec=5;
     timeout.tv_usec=5000;
-
+    //监事对象文件描述符的数量，待读取的fd_set，待无阻塞的fd_set,待发生异常的fd_set
     if((fd_num=select(fd_max+1,&cpy_reads,0,0,&timeout))==-1)
       break;
     if(fd_num==0)
-      printf("time out");
+      fputs("time out\n",stdout);
     for(i=0;i<fd_max+1;i++)
     {
+      //发生了读写事件变化
       if(FD_ISSET(i,&cpy_reads))
       {
         if(i==serv_sock) //连接请求

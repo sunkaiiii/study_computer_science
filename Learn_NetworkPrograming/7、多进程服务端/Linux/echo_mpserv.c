@@ -27,10 +27,11 @@ int main(int argc,char *argv[])
   socklen_t adr_sz;
   int str_len,state;
   char buf[BUF_SIZE];
-  act.sa_handler=read_childproc;
+  act.sa_handler=read_childproc; //当信号捕获时，触发的方法
+  //初始化信号集合
   sigemptyset(&act.sa_mask);
   act.sa_flags=0;
-  state=sigaction(SIGCHLD,&act,0);
+  state=sigaction(SIGCHLD,&act,0); //捕获子进程的进程终止信号
   serv_sock=socket(PF_INET,SOCK_STREAM,0);
   memset(&serv_adr,0,sizeof(serv_adr));
   serv_adr.sin_family=AF_INET;
@@ -67,7 +68,7 @@ int main(int argc,char *argv[])
       return 0;
     }
     else
-      close(clnt_sock); //余客户端连接的任务由子进程完成
+      close(clnt_sock); //客户端连接的任务由子进程完成
   }
   close(serv_sock);
   return 0;
@@ -77,7 +78,7 @@ void read_childproc(int sig)
 {
   pid_t pid;
   int status;
-  pid=waitpid(-1,&status,WNOHANG); //防止僵尸进程
+  pid=waitpid(-1,&status,WNOHANG); //防止僵尸进程，传入-1等同于使用wait()
   printf("removed pro id :%d\n",pid);
 }
 
