@@ -90,6 +90,7 @@ func main() {
 	fmt.Println(intsToString(ints))
 
 	//声明常量
+	//使用itoa，常量表达式会从0开始依次类推
 	type Weekday int
 	const (
 		Sunday Weekday = iota
