@@ -58,6 +58,23 @@ func readFile() error {
 	return nil
 }
 
+//匿名函数
+//函数返回一个函数，后者包含下一次要用到的平方数
+func squares() func() int {
+	var x int
+	return func() int {
+		x++
+		return x * x
+	}
+}
+
 func main() {
-	readFile()
+	//测试匿名函数
+	f := squares()
+	fmt.Println(f())
+	fmt.Println(f())
+	fmt.Println(f())
+	fmt.Println(f())
+	//可以看到函数里面变量的生命周期不再由他们的作用域决定
+	//变量x在squares返回后依然存在，不过这个时候是隐藏在匿名函数里面的
 }

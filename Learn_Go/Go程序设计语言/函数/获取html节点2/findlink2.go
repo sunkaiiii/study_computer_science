@@ -37,6 +37,7 @@ func findLinks(url string) ([]string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("parsing %s as HTML :%v", url, err)
 	}
+	defer forEachNode(doc, startElement, endElement)
 	return visit(nil, doc), nil
 }
 
@@ -53,4 +54,37 @@ func visit(links []string, n *html.Node) []string {
 		links = visit(links, c)
 	}
 	return links
+}
+
+//使用函数变量，将每个节点的操作逻辑从遍历树状结构中分开
+func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
+	//两个函数是可选的
+	//pre前序调用
+	//post后序调用
+	if pre != nil {
+		pre(n)
+	}
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		forEachNode(c, pre, post)
+	}
+	if post != nil {
+		post(n)
+	}
+}
+
+//给forEachNode提供两个函数作为参数
+var depth int
+
+func startElement(n *html.Node) {
+	if n.Type == html.ElementNode {
+		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
+		depth++
+	}
+}
+
+func endElement(n *html.Node) {
+	if n.Type == html.ElementNode {
+		depth--
+		fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
+	}
 }
