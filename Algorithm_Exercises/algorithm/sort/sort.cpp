@@ -4,6 +4,8 @@
 #include<time.h>
 #include<iostream>
 #include<algorithm>
+std::vector<int> mergeSortPartition(std::vector<int> &result, int64_t p, int64_t r);
+std::vector<int> merge(std::vector<int> &left, std::vector<int> &right);
 std::vector<int> generateVector(long long n) {
 	std::uniform_int_distribution<int> u(-INT32_MAX, INT32_MAX);
 	std::default_random_engine engine(time(0));
@@ -48,10 +50,64 @@ void quickSort(std::vector<int> &elements,int64_t   p, int64_t r) {
 	quickSort(elements, q + 1, r);
 }
 
+
+void mergeSort(std::vector<int> &elements, int64_t p, int64_t r) {
+	std::vector<int> result=elements;
+	elements =mergeSortPartition(result, p, r);
+}
+
+std::vector<int> mergeSortPartition(std::vector<int> &result, int64_t p, int64_t r) {
+	if (result.size() <= 1) {
+		return result;
+	}
+	auto mid = result.size() / 2;
+	std::vector<int> leftPart(result.begin(), result.begin() + mid);
+	std::vector<int> rightPart(result.begin() + mid + 1, result.end());
+	auto left=mergeSortPartition(leftPart, 0, mid);
+	auto right=mergeSortPartition(rightPart, mid + 1, r);
+	return merge(left, right);
+}
+
+std::vector<int> merge(std::vector<int> &left, std::vector<int> &right) {
+	std::vector<int> result;
+	int i=0, j = 0;
+	while (i < left.size() && j < right.size()) {
+		if (left[i] < right[j]) {
+			result.push_back(left[i++]);
+		}
+		else {
+			result.push_back(right[j++]);
+		}
+	}
+	while (i < left.size()) {
+		result.push_back(left[i++]);
+	}
+	while (j < right.size()) {
+		result.push_back(right[j++]);
+	}
+	return result;
+}
+
+void selectSort(std::vector<int> &elements) {
+	for (size_t i = 0; i < elements.size(); i++) {
+		size_t min = i;
+		for (size_t j = i; j < elements.size(); j++) {
+			if (elements[min] > elements[j]) {
+				min = j;
+			}
+		}
+		std::swap(elements[i], elements[min]);
+	}
+}
+
 int main() {
-	auto a = generateVector(10000000L);
+	auto a = generateVector(10000L);
+	std::sort(a.begin(), a.end(), [](int i, int j) {
+		return i > j;
+	});
 	auto b = a;
 	auto c = a;
+	auto d = a;
 	uint64_t start_time = time(0);
 	quickSort(a, 0, a.size() - 1);
 	uint64_t end_time = time(0);
@@ -64,7 +120,12 @@ int main() {
 	std::cout << end_time - start_time << "Ãë\n";
 
 	start_time = end_time;
-	std::stable_sort(c.begin(), c.end());
+	mergeSort(c, 0, c.size());
+	end_time = time(0);
+	std::cout << end_time - start_time << "Ãë\n";
+
+	start_time = end_time;
+	selectSort(d);
 	end_time = time(0);
 	std::cout << end_time - start_time << "Ãë\n";
 	
