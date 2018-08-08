@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/binary"
 	"fmt"
+	"io"
 	"sort"
 )
 
@@ -119,6 +121,52 @@ func inMemSort(in <-chan int) <-chan int {
 	return out
 }
 
+func multimerge(in1, in2 <-chan int) <-chan int {
+	out := make(chan int)
+	go func() {
+		v1, ok1 := <-in1
+		v2, ok2 := <-in2
+		for ok1 || ok2 {
+			if !ok2 || (ok1 && v1 <= v2) {
+				out <- v1
+				v1, ok1 = <-in1
+			} else {
+				out <- v2
+				v2, ok2 = <-in2
+			}
+		}
+		close(out)
+	}()
+	return out
+}
+
+func readerSource(reader io.Reader) <-chan int {
+	out := make(chan int)
+	go func() {
+		buffer := make([]byte, 8)
+		for {
+			n, err := reader.Read(buffer)
+			if n > 0 {
+				v := int(binary.BigEndian.Uint64(buffer))
+				out <- v
+			}
+			if err != nil {
+				break
+			}
+		}
+		close(out)
+	}()
+	return out
+}
+
+func writerSink(writer io.Writer, in <-chan int) {
+	for v := range in {
+		buffer := make([]byte, 8)
+		binary.BigEndian.PutUint64(buffer, uint64(v))
+
+	}
+}
+
 func main() {
 	// r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	// size := 10
@@ -136,7 +184,7 @@ func main() {
 	// fmt.Println(a)
 	// endTime = time.Since(startTime)
 	// fmt.Println(endTime)
-	p := inMemSort(arraySource(1, 2, 3, 4, 5))
+	p := multimerge(inMemSort(arraySource(3, 1, 9, 2, 4)), inMemSort(arraySource(6, 4, 2, 7, 5)))
 	for i := range p {
 		fmt.Println(i)
 	}
