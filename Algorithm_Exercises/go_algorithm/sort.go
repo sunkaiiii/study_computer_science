@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/binary"
 	"fmt"
-	"io"
 	"math/rand"
 	"runtime"
 	"sort"
@@ -115,7 +113,6 @@ func inMemSort(in <-chan int) <-chan int {
 			a = append(a, v)
 		}
 		sort.Ints(a)
-
 		for _, v := range a {
 			out <- v
 		}
@@ -154,25 +151,6 @@ func readerSource(a []int) <-chan int {
 	return out
 }
 
-func writerSink(writer io.Writer, in <-chan int) {
-	for v := range in {
-		buffer := make([]byte, 8)
-		binary.BigEndian.PutUint64(buffer, uint64(v))
-		writer.Write(buffer)
-	}
-}
-
-func randomSource(count int) <-chan int {
-	out := make(chan int)
-	go func() {
-		for i := 0; i < count; i++ {
-			out <- rand.Int()
-		}
-		close(out)
-	}()
-	return out
-}
-
 func mergeN(inputs ...<-chan int) <-chan int {
 	if len(inputs) == 1 {
 		return inputs[0]
@@ -197,7 +175,7 @@ func startMultiSort(a []int, chunkCount int) <-chan int {
 }
 
 func main() {
-	size := 50000000
+	size := 100000000
 	var a []int
 	for i := 0; i < size; i++ {
 		a = append(a, rand.Int())
@@ -207,49 +185,9 @@ func main() {
 	// endTime := time.Since(startTime)
 	// fmt.Println(endTime)
 
-	// startTime = time.Now()
-	// mergeSortMuiltiProcess(a)
-	// fmt.Println(a)
-	// endTime = time.Since(startTime)
-	// fmt.Println(endTime)
-	// p := multimerge(inMemSort(arraySource(3, 1, 9, 2, 4)), inMemSort(arraySource(6, 4, 2, 7, 5)))
-	// for i := range p {
-	// 	fmt.Println(i)
-	// }
-
-	// const filename = "small.in"
-	// const n = 64
-	// file, err := os.Create(filename)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// defer file.Close()
-	// p := randomSource(n)
-	// writer := bufio.NewWriter(file)
-	// writerSink(writer, p)
-	// writer.Flush()
-	// file, err = os.Open(filename)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// defer file.Close()
-	// count := 0
-	// p = readerSource(bufio.NewReader(file), -1)
-	// for v := range p {
-	// 	fmt.Println(v)
-	// 	if count > 500 {
-	// 		break
-	// 	}
-	// 	count++
-	// }
-	// startTime := time.Now()
-	// sort.Ints(a)
-	// endTime := time.Since(startTime)
-	// fmt.Println(endTime)
-
-	work := runtime.NumCPU()
+	work := float32(runtime.NumCPU()) * 1.5
 	startTime := time.Now()
-	p := startMultiSort(a, work)
+	p := startMultiSort(a, int(work))
 	<-p
 	endTime := time.Since(startTime)
 	fmt.Println(endTime)
@@ -258,4 +196,5 @@ func main() {
 	sort.Ints(a)
 	endTime = time.Since(startTime)
 	fmt.Println(endTime)
+
 }
