@@ -101,10 +101,7 @@ void selectSort(std::vector<int> &elements) {
 }
 
 int main() {
-	auto a = generateVector(10000L);
-	std::sort(a.begin(), a.end(), [](int i, int j) {
-		return i > j;
-	});
+	auto a = generateVector(80000000L);
 	auto b = a;
 	auto c = a;
 	auto d = a;
@@ -119,14 +116,14 @@ int main() {
 	end_time = time(0);
 	std::cout << end_time - start_time << "취\n";
 
-	start_time = end_time;
-	mergeSort(c, 0, c.size());
-	end_time = time(0);
-	std::cout << end_time - start_time << "취\n";
+	//start_time = end_time;
+	//mergeSort(c, 0, c.size());
+	//end_time = time(0);
+	//std::cout << end_time - start_time << "취\n";
 
-	start_time = end_time;
-	selectSort(d);
-	end_time = time(0);
-	std::cout << end_time - start_time << "취\n";
+	//start_time = end_time;
+	//selectSort(d);
+	//end_time = time(0);
+	//std::cout << end_time - start_time << "취\n";
 	
 }
