@@ -2,6 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<string>
+#include<math.h>
 
 int findMax(int investments[4][6],std::vector<std::vector<int>> result,const  int i, const int j) {
 	int max = result[i - 1][0] + investments[i][j];
@@ -101,11 +102,75 @@ void LCS(const std::string s1, const std::string s2) {
 		inner(s1, trace, i, j);
 	};
 	findTrace(s1,trance,m-1,n-1);
+	//最终时间复杂度O(N方)
 }
+
+void traceBack(int n, std::vector<int> l);
+int length(int i);
+void compress(std::vector<int> origin) {
+	const static int maxLength = 256;
+	const static int header = 11;
+	std::vector<int> s;
+	std::vector<int> b;
+	std::vector<int> l;
+	s.push_back(0);
+	b.push_back(0);
+	l.push_back(0);
+	std::vector<int> p{ 0 };
+	for (int value : origin) {
+		p.push_back(value);
+	}
+	for (int i = 1; i < p.size(); i++){
+		b.push_back(length(p[i]));
+		int bmax = b[i];
+		s.push_back(s[i - 1] + bmax);
+		l.push_back(1);
+		for (int j = 2; j <= std::min(i, maxLength);j++) {
+			if (bmax < b[i - j + 1]) {
+				bmax = b[i - j + 1];
+			}
+			if (s[i] > s[i - j] + j * bmax) {
+				s[i] = s[i - j] + j * bmax;
+				l[i] = j;
+			}
+		}
+		s[i] +=  header;
+	}
+	for (int count : s) {
+		std::cout << count << " ";
+	}
+	std::cout << std::endl;
+	std::cout << s[p.size() - 1]<<std::endl;
+	traceBack(p.size()-1,l);
+}
+
+int length(int i) {
+	int count = 0;
+	while (i > 0) {
+		i = i >> 1;
+		count++;
+	}
+	return count;
+}
+
+void traceBack(int n, std::vector<int> l) {
+	std::vector<int> c;
+	while (n != 0) {
+		c.push_back(l[n]);
+		n -= l[n];
+	}
+	for (int i : c) {
+		std::cout << i << " ";
+	}
+	std::cout << std::endl;
+}
+
 
 int main() {
 	//InvestmentQuesttion();
-	std::string s1, s2;
-	std::cin >> s1 >> s2;
-	LCS(s1, s2);
+	//std::string s1, s2;
+	//std::cin >> s1 >> s2;
+	//LCS(s1, s2);
+	std::vector<int> p{ 10,12,15,255,1,2};
+	compress(p);
 }
