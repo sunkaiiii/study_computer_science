@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image/color"
 	"math"
+	"sync"
 )
 
 type Point struct {
@@ -61,10 +62,52 @@ func main() {
 	//但是他们并不是基类于继承的关系
 	//p.Distance(cp) 这句编译是不通过的
 	p.Distance(cp.Point) //Distance方法需要的是一个Point，需要显示的传递
+
+	distanceFromP := p.Distance //方法变量
+	fmt.Println(distanceFromP(q))
+	var orgin Point
+	fmt.Println(distanceFromP(orgin))
+	scaleP := p.ScaleBy
+	scaleP(2) //p的数据会因此改变
+	scaleP(3)
+	scaleP(10)
+
+	scaleP2 := (*Point).ScaleBy //方法表达式
+	scaleP2(&p, 2)
+	fmt.Println(p)
+	fmt.Printf("%T\n", scaleP2)
 }
 
 //结构体的组合
 type ColoredPoint struct {
 	Point
 	Color color.RGBA
+}
+
+//下面这个例子展示了一个简单的缓存实现，其中使用了两个包级的变量：互斥锁和map，互斥锁会保护map的数据
+var (
+	mu      sync.Mutex //保护mapping
+	mapping = make(map[string]string)
+)
+
+func LookUp(key string) string {
+	mu.Lock()
+	v := mapping[key]
+	mu.Unlock()
+	return v
+}
+
+//下面这个版本的功能和上面完全相同，但是将两个相关变量放到了一个包级别变量cache中
+var cache = struct {
+	sync.Mutex
+	mapping map[string]string
+}{
+	mapping: make(map[string]string),
+}
+
+func LookUp2(key string) string {
+	cache.Lock()
+	v := cache.mapping[key]
+	cache.Unlock()
+	return v
 }
