@@ -115,7 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bitCompress.cpp" />
+    <ClCompile Include="investment.cpp" />
+    <ClCompile Include="LCS.cpp" />
+    <ClCompile Include="maxSum.cpp" />
     <ClCompile Include="源.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitCompress.h" />
+    <ClInclude Include="investment.h" />
+    <ClInclude Include="LCS.h" />
+    <ClInclude Include="maxSum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

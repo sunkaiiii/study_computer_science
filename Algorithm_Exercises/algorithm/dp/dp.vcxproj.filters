@@ -18,5 +18,31 @@
     <ClCompile Include="源.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LCS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="investment.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bitCompress.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="maxSum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitCompress.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="investment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LCS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="maxSum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
