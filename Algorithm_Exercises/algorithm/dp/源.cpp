@@ -26,8 +26,9 @@ int main() {
 	//LCS(s1, s2);
 	//std::vector<int> p{ 10,12,15,255,1,2,1,1,2,2,1,1};
 	//compress(p);
-	auto v = generateVector(100);
-	findMaxViolence(v);
-	findMaxByDivide(v);
-	findMaxByDp(v);
+	//auto v = generateVector(5000);
+	//findMaxViolence(v);
+	//findMaxByDivide(v);
+	//findMaxByDp(v);
+
 }
