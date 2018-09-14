@@ -1,6 +1,29 @@
 #include"greedySelect.h"
 #include"schedule.h"
+#include"huffman.h"
 #include<iostream>
+
+void frontErgodicTree(std::shared_ptr<TreeNode> root) {
+	std::cout << root->node.n << " ";
+	if (root->left != nullptr) {
+		frontErgodicTree(root->left);
+	}
+	if (root->right != nullptr) {
+		frontErgodicTree(root->right);
+	}
+}
+
+void middleErgodicTree(std::shared_ptr<TreeNode> root) {
+	if (root->left != nullptr) {
+		middleErgodicTree(root->left);
+	}
+	std::cout << root->node.n << " ";
+	if (root->right != nullptr) {
+		middleErgodicTree(root->right);
+	}
+}
+
+
 int main() {
 	//int n;
 	//std::cin >> n;
@@ -16,13 +39,29 @@ int main() {
 	//}
 
 	//服务问题
+	//int n;
+	//std::cin >> n;
+	//std::vector<Customer> customers;
+	//while (n--) {
+	//	struct Customer customer;
+	//	std::cin >> customer.serveTime >> customer.hopeTime;
+	//	customers.push_back(customer);
+	//}
+	//std::cout << schedule(customers) << std::endl;
+
 	int n;
 	std::cin >> n;
-	std::vector<Customer> customers;
+	std::list<TreeNode> nodes;
 	while (n--) {
-		struct Customer customer;
-		std::cin >> customer.serveTime >> customer.hopeTime;
-		customers.push_back(customer);
+		struct TreeNode node;
+		std::cin >> node.node.n;
+		nodes.push_back(node);
+		
 	}
-	std::cout << schedule(customers) << std::endl;
+	auto root = huffman(nodes);
+	frontErgodicTree(root);
+	std::cout << std::endl;
+	middleErgodicTree(root);
+	std::cout << std::endl;
+	system("pause");
 }
