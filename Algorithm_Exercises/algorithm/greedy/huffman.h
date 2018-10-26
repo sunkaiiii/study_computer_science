@@ -23,16 +23,22 @@ struct TreeNode {
 };
 
 std::shared_ptr<TreeNode> huffman(std::list<TreeNode> nodes) {
+	//对所有的权值进行排序
 	nodes.sort();
 	std::shared_ptr<TreeNode> root = nullptr;
 	while (nodes.size() > 1) {
+		//创建新的父节点
 		std::shared_ptr<TreeNode> rootNode = std::make_shared<TreeNode>();
+		//把当前链表的最前面节点当做新父节点的叶子结点
 		rootNode->left = std::make_shared<TreeNode>(nodes.front());;
 		nodes.pop_front();
 		rootNode->right = std::make_shared<TreeNode>(nodes.front());;
 		nodes.pop_front();
-		rootNode->node.n = rootNode->left->node.n + rootNode->right->node.n;;
+		//权值相加
+		rootNode->node.n = rootNode->left->node.n + rootNode->right->node.n;
+		//更新顶部节点
 		root = rootNode;
+		//按照权值，将新的节点插入到有序链表中
 		auto node = nodes.begin();
 		for (;;) {
 			if (node == nodes.end()) {

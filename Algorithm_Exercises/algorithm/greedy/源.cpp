@@ -56,12 +56,12 @@ int main() {
 		struct TreeNode node;
 		std::cin >> node.node.n;
 		nodes.push_back(node);
-		
 	}
 	auto root = huffman(nodes);
-	frontErgodicTree(root);
-	std::cout << std::endl;
-	middleErgodicTree(root);
-	std::cout << std::endl;
+
+	//frontErgodicTree(root);
+	//std::cout << std::endl;
+	//middleErgodicTree(root);
+	//std::cout << std::endl;
 	system("pause");
 }
