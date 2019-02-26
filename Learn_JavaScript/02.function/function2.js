@@ -130,3 +130,65 @@ obj.getAge(2015);
 //请使用箭头函数简化排序时传入的函数
 var arr = [10, 20, 1, 2];
 arr.sort((x,y)=>x-y);
+
+//generator是ES6标准引入的新的数据类型。
+//一个generator看上去象一个函数，但可以返回多次。
+//和Python的generator很像。
+function* foo(x){
+    yield x+1;
+    yield x+2;
+    return x+3;
+} //通过yield可以返回多次
+//实例，使用yield返回斐波那契数列
+function* fib(max){
+    var
+        t,
+        a=0,
+        b=1,
+        n=0;
+    while(n<max){
+        yield a;
+        [a,b]=[b,a+b];
+        n++;
+    }
+    return;
+}
+var f=fib(5);
+f.next();
+f.next();
+f.next();
+f.next();
+f.next();
+f.next(); //value:undefined,done:true
+//next会执行generator代码，每次遇到yield x就返回一个对象{value:x,done:true/false}
+//第二种方式是使用for循环
+for(var x of fib(10)){
+    console.log(x);
+}
+//使用generator，就可以很好的处理异步代码
+/*
+try {
+    r1 = yield ajax('http://url-1', data1);
+    r2 = yield ajax('http://url-2', data2);
+    r3 = yield ajax('http://url-3', data3);
+    success(r3);
+}
+catch (err) {
+    handle(err);
+}
+*/
+//练习
+//要生成一个自增id，可以编写一个next_id()函数
+//需要一个全局变量
+var current_id=0;
+function next_id(){
+    current_id++;
+    return current_id;
+}
+//使用generator
+function* next_id2(){
+    var a=0;
+    while(true){
+        yield ++a;
+    }
+}
