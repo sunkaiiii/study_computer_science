@@ -37,6 +37,28 @@ public class cp1Main {
             System.out.println(file);
         }
     }
+
+    private void memoryLeak(){
+        int[] bigArray=new int[300000];
+        //对bigArray做一些计算
+        int result=compute(bigArray);
+        //告知jvm回收bigArray
+        bigArray=null;
+        //因为程序在这里处理用户输入，会使得方法一直没有退出。
+        //如果没有手动的把bigArray标记为null，就将会一直无法回收他
+        //造成内存泄漏
+        for(;;){
+            handleInput(result);
+        }
+    }
+
+    private void handleInput(int result) {
+    }
+
+    private int compute(int[] bigArray) {
+        return 0;
+    }
+
     public static void main(String[] args) {
         cp1Main cp1Main=new cp1Main();
         cp1Main.testClosure();
