@@ -2,7 +2,7 @@ package cp1;
 
 import java.io.File;
 
-public class cp1Main {
+public class Cp1Main {
     interface ValueGetter {
         int getValue();
     }
@@ -60,7 +60,7 @@ public class cp1Main {
     }
 
     public static void main(String[] args) {
-        cp1Main cp1Main=new cp1Main();
+        Cp1Main cp1Main=new Cp1Main();
         cp1Main.testClosure();
     }
 
