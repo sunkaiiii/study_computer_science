@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e650a2c2-8b94-4cd5-85f9-c3beaefc38de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cp2/BirthdayDiary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cp2/Cp2Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cp2/CustomClassloadingExamples.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cp1/cp1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cp1/Cp1Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cp2/Cp2Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cp2/Cp2Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cp2/Cp2Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+            <state relative-caret-position="127">
+              <caret line="236" column="38" lean-forward="true" selection-start-line="236" selection-start-column="38" selection-end-line="236" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,20 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cp2/BirthdayDiary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#171#172#0" expanded="true" />
-                <element signature="e#196#197#0" expanded="true" />
-                <element signature="e#499#500#0" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
-                <element signature="e#1437#1438#0" expanded="true" />
-                <element signature="e#1475#1476#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="132">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -104,8 +94,9 @@
         <option value="$PROJECT_DIR$/src/cp1/cp1Main.java" />
         <option value="$PROJECT_DIR$/src/cp1/Multitask.java" />
         <option value="$PROJECT_DIR$/src/cp1/WaitingQueue.java" />
-        <option value="$PROJECT_DIR$/src/cp2/Cp2Main.java" />
         <option value="$PROJECT_DIR$/src/cp2/BirthdayDiary.java" />
+        <option value="$PROJECT_DIR$/src/cp2/CustomClassloadingExamples.java" />
+        <option value="$PROJECT_DIR$/src/cp2/Cp2Main.java" />
       </list>
     </option>
   </component>
@@ -121,7 +112,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -145,6 +135,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,11 +205,13 @@
       <workItem from="1562112825815" duration="1596000" />
       <workItem from="1562199580068" duration="3528000" />
       <workItem from="1562206860157" duration="573000" />
+      <workItem from="1562229489795" duration="1445000" />
+      <workItem from="1562281423411" duration="3014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7801000" />
+    <option name="totallyTimeSpent" value="12260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1040" y="23" width="640" height="948" extended-state="0" />
@@ -232,7 +225,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32943925" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32827103" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -243,7 +236,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32943925" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -330,6 +323,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bbc.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11564" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cp1/Cp1Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
@@ -355,28 +353,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cp2/Cp2Main.java">
+    <entry file="file://$PROJECT_DIR$/src/cp2/BirthdayDiary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+        <state relative-caret-position="132">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="552" column="18" selection-start-line="552" selection-start-column="18" selection-end-line="552" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cp2/CustomClassloadingExamples.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cp2/BirthdayDiary.java">
+    <entry file="file://$PROJECT_DIR$/src/cp2/Cp2Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="127">
+          <caret line="236" column="38" lean-forward="true" selection-start-line="236" selection-start-column="38" selection-end-line="236" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#171#172#0" expanded="true" />
-            <element signature="e#196#197#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
           </folding>
         </state>
       </provider>
