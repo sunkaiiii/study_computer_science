@@ -267,13 +267,13 @@ public class Cp2Main {
 
     public static void main(String[] args){
         Cp2Main cp2Main=new Cp2Main();
-//        cp2Main.testStream();
-//        cp2Main.testRegex();
-//        System.out.println(0.2-0.3);
-//        cp2Main.fileIO();
-//        cp2Main.httpRequest();
-//        cp2Main.reflect();
-//        System.out.println(commonAncestor(cp2Main.getClass(),String.class));
+        cp2Main.testStream();
+        cp2Main.testRegex();
+        System.out.println(0.2-0.3);
+        cp2Main.fileIO();
+        cp2Main.httpRequest();
+        cp2Main.reflect();
+        System.out.println(commonAncestor(cp2Main.getClass(),String.class));
         try {
             cp2Main.invocationHandler();
             cp2Main.methodType();
