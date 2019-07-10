@@ -1,4 +1,4 @@
-package cp1;
+package Java_in_a_Nutshell.part1;
 
 //一种所谓"优雅结束"模式
 public class Multitask implements Runnable {

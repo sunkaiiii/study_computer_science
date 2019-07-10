@@ -1,4 +1,4 @@
-package java8_in_action.cp2;
+package java8_in_action.part2;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -74,13 +74,13 @@ public class Main {
         //等效可以写成这个代码
         System.out.println(menu.stream().count());
 
-        //找到菜中能力昂最小的菜
+        //找到菜中能量最小的菜
         Comparator<Dish> dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);
         Optional<Dish> mostCalorieDish = menu.stream().collect(Collectors.maxBy(dishCaloriesComparator));
 
         //汇总操作
         int totalCalories = menu.stream().collect(Collectors.summingInt(Dish::getCalories));
-        //计算平均能力昂
+        //计算平均能量
         double aveCalories = menu.stream().collect(Collectors.averagingInt(Dish::getCalories));
         System.out.println("total calories:" + totalCalories);
         System.out.println("average calories:" + aveCalories);

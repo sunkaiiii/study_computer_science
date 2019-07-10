@@ -1,4 +1,4 @@
-package cp2;
+package Java_in_a_Nutshell.part2;
 
 import java.time.LocalDate;
 import java.time.Month;

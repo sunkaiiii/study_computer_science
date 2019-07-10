@@ -1,4 +1,4 @@
-package cp1;
+package Java_in_a_Nutshell.part1;
 
 import java.util.LinkedList;
 

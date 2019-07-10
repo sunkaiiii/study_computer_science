@@ -1,4 +1,4 @@
-package cp1;
+package Java_in_a_Nutshell.part1;
 
 import java.io.File;
 
@@ -28,7 +28,7 @@ public class Cp1Main {
 
     private void labmdaTest1(){
         //过滤器模式的lambda表达式
-        File dir=new File("/src/cp1");
+        File dir=new File("/src/Java_in_a_Nutshell.part1");
         String[] fileList=dir.list((f,s)->{return s.endsWith(".java");});
         if(fileList==null){
             return;

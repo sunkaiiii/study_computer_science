@@ -1,4 +1,4 @@
-package cp1;
+package Java_in_a_Nutshell.part1;
 
 //一个简单的线程安全的单例模式
 public class Singleton {

@@ -1,4 +1,4 @@
-package java8_in_action.cp1;
+package java8_in_action.part1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

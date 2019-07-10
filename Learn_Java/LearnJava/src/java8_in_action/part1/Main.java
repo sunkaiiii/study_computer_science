@@ -1,8 +1,7 @@
-package java8_in_action.cp1;
+package java8_in_action.part1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.time.Period;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;

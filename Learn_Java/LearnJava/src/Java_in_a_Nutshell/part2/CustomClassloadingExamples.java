@@ -1,4 +1,4 @@
-package cp2;
+package Java_in_a_Nutshell.part2;
 
 import java.io.IOException;
 import java.lang.reflect.Method;

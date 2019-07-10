@@ -1,4 +1,4 @@
-package java8_in_action.cp2;
+package java8_in_action.part2;
 
 public class WordCounter {
     //因为Java没有元组，创建一个新类来把状态封装起来

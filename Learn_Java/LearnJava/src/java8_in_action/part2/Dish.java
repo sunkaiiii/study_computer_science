@@ -1,4 +1,4 @@
-package java8_in_action.cp2;
+package java8_in_action.part2;
 
 public class Dish {
     private final String name;

@@ -1,6 +1,4 @@
-package cp2;
-
-import jdk.dynalink.linker.support.Lookup;
+package Java_in_a_Nutshell.part2;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -12,7 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.channels.Channel;
@@ -25,7 +22,6 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Cp2Main {
     private void testStream(){
@@ -106,7 +102,7 @@ public class Cp2Main {
 
     private void fileIO(){
         //oldStyle
-        try(BufferedReader in=new BufferedReader(new FileReader("./cp2/Cp2Main.java"))){
+        try(BufferedReader in=new BufferedReader(new FileReader("Java_in_a_Nutshell/part2/Cp2Main.java"))){
             StringBuilder sb=new StringBuilder();
             String line;
             while((line=in.readLine())!=null){
