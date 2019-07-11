@@ -1,6 +1,12 @@
 package java8_in_action.part3;
 
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -22,6 +28,125 @@ public class Main {
         multiInherite();
         ApplyOptionalToAvoidNullPointerException();
         handleAsyncQuestions();
+        newTimeClasses();
+    }
+
+    private static void newTimeClasses() {
+        //创建一个LocalDate
+        //使用静态工厂
+        LocalDate date = LocalDate.of(2014, 3, 18);
+        printLocalDateInfomation(date);
+        //还可以从工厂方法从从系统时钟中获取当前日期
+        LocalDate today = LocalDate.now();
+        printLocalDateInfomation(today);
+        //类似的，一天当中的时间可以使用LocalTime表示
+        var time = LocalTime.of(13, 45, 20);
+        printTimeInformation(time);
+        //LocalTime和LocalDate都可以通过解析字符串来创建
+        date = LocalDate.parse("2014-03-18");
+        time = LocalTime.parse("13:45:22");
+        printLocalDateInfomation(date);
+        printTimeInformation(time);
+        //合并日期时间的LocalDateTime
+        var dt1 = LocalDateTime.of(2014, Month.MARCH, 18, 13, 45, 20);
+        var dt2 = LocalDateTime.of(date, time);
+        var dt3 = date.atTime(13, 45, 20);
+        var dt4 = time.atDate(date);
+        var convertTime = dt1.toLocalTime();
+        //使用between方法获取两个时间的时间间隔
+        var d1 = Duration.between(LocalTime.now(), LocalTime.of(12, 0, 0));
+        var d2 = Duration.between(Instant.now(), Instant.ofEpochSecond(4));
+        System.out.println(d1 + " " + d2);
+        //如果要对年月日建模，可以使用period类
+        var tenDays = Period.between(LocalDate.of(2014, 3, 8), LocalDate.of(2014, 3, 18));
+        //还有很多别的方法
+        var threeMinutes = Duration.ofMinutes(3);
+        var threeMinutes2 = Duration.of(3, ChronoUnit.MINUTES);
+        var tenDays2 = Period.ofDays(10);
+        var threeWeeks = Period.ofWeeks(3);
+        var twoYearSixMonthsOneDay = Period.of(2, 6, 1);
+
+        //修改LocalDate对象。这会创建一个副本，不会修改原对象
+        var date1 = LocalDate.of(2014, 3, 18);
+        var date2 = date1.withYear(2011);
+        var date3 = date2.withDayOfMonth(25);
+        var date4 = date3.with(ChronoField.MONTH_OF_YEAR, 9);
+        //还有加减乘除
+        date1 = date1.plusWeeks(1);
+        date2 = date2.minusYears(3);
+        date3 = date3.plus(6, ChronoUnit.MONTHS);
+        //使用TemporalAdjuster进行更加灵活的定制
+        date4 = date1.with(TemporalAdjusters.nextOrSame(DayOfWeek.FRIDAY));
+        //如果么有找到自己想要的TemporalAdjust接口
+        //可以自行实现接口定制
+        //该接口实现是日期向后移动一天；
+        //如果当天是周六或者周日，则返回下一个周一
+        date4 = date.with((temporal) -> {
+            var dow = DayOfWeek.of(temporal.get(ChronoField.DAY_OF_WEEK));
+            int dayToAdd = 1;
+            if (dow == DayOfWeek.FRIDAY) {
+                dayToAdd = 3;
+            } else if (dow == DayOfWeek.SATURDAY) {
+                dayToAdd = 2;
+            }
+            return temporal.plus(dayToAdd, ChronoUnit.DAYS);
+        });
+
+        //打印输出及解析日期-时间对象
+        date= LocalDate.of(2014,3,18);
+        var s1=date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        var s2=date.format(DateTimeFormatter.BASIC_ISO_DATE);
+        System.out.println(s1);
+        System.out.println(s2);
+        //那么反过来解析，也可以这么搞
+        date1=LocalDate.parse("20140318",DateTimeFormatter.BASIC_ISO_DATE);
+        //使用静态工厂方法，创造指定模式的格式器
+        var formatter=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println(date1.format(formatter));
+        date1=LocalDate.parse(date1.format(formatter),formatter);
+        //如果还不满足，想要更加细粒度的控制
+        //可以使用DateTimeFormatterBuilder
+        var italianFormatter=new DateTimeFormatterBuilder()
+                .appendText(ChronoField.DAY_OF_MONTH)
+                .appendLiteral(". ")
+                .appendText(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral(" ")
+                .appendText(ChronoField.YEAR)
+                .parseCaseInsensitive()
+                .toFormatter();
+        System.out.println(date1.format(italianFormatter));
+
+        //处理时区问题
+        var romeZone=ZoneId.of("Europe/Rome");
+        var zt1=date.atStartOfDay(ZoneId.of("Europe/Rome"));
+        var dateTime=LocalDateTime.of(2014,Month.MARCH,18,13,45);
+        var zt2=dateTime.atZone(romeZone);
+        var instant=Instant.now();
+        var zdt3=instant.atZone(romeZone);
+        //通过ZoneID，还可以将LocalDateTime转换为Instant
+        var instantFromDateTime=dateTime.atZone(romeZone); //这句编译失败
+        //也可以反向处理
+        Instant instant1=Instant.now();
+        var timeFromInstant=LocalDateTime.ofInstant(instant,romeZone);
+        System.out.println(timeFromInstant);
+        //ZoneOffSet表示时区时间的偏差
+        var newYorkOffset=ZoneOffset.of("-05:00"); //这个不是很推荐使用
+        OffsetDateTime dateTimeInNewYork=OffsetDateTime.of(dateTime,newYorkOffset);
+    }
+
+    private static void printTimeInformation(LocalTime time) {
+        System.out.println("hour:" + time.getHour());
+        System.out.println("minute:" + time.getMinute());
+        System.out.println("second:" + time.getSecond());
+    }
+
+    private static void printLocalDateInfomation(LocalDate date) {
+        System.out.println("year:" + date.getYear());
+        System.out.println("month:" + date.getMonth());
+        System.out.println("day:" + date.getDayOfMonth());
+        System.out.println("week:" + date.getDayOfWeek());
+        System.out.println("lengthOfMonth:" + date.lengthOfMonth());
+        System.out.println("leep:" + date.isLeapYear());
     }
 
     private static void handleAsyncQuestions() {
