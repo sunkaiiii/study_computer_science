@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
@@ -20,7 +21,10 @@ public class Main {
         defaultFunction();
         multiInherite();
         ApplyOptionalToAvoidNullPointerException();
+        handleAsyncQuestions();
+    }
 
+    private static void handleAsyncQuestions() {
         //使用异步API
         Shop shop = new Shop("Bestshop");
         long start = System.nanoTime();
@@ -37,24 +41,47 @@ public class Main {
         long retrievalTime = ((System.nanoTime()) - start) / 1_000_000;
         System.out.println("Price returned after " + retrievalTime + " msecs");
         //同步方法在遍历时候要不断等待，这可能需要好几秒的时间
-        //因为电脑最高线程有8个，所以这里创建8个让问题突显
-        List<Shop> shops = IntStream.rangeClosed(1,8).mapToObj(i->new Shop(String.valueOf(i))).collect(Collectors.toList());
+        //因为电脑最高线程有8个，所以这里创建30个让问题突显
+        List<Shop> shops = IntStream.rangeClosed(1, 1).mapToObj(i -> new Shop(String.valueOf(i))).collect(Collectors.toList());
         start = System.nanoTime();
-        System.out.println(Shop.findPrices(shops,"myPhone27S"));
+        System.out.println(Shop.findPrices(shops, "myPhone27S"));
         long duration = (System.nanoTime() - start) / 1_000_000;
         System.out.println("Done in " + duration + " msecs");
         //使用并行流会好一些，但仍有改进空间
         start = System.nanoTime();
-        System.out.println(Shop.findPricesParalle(shops,"myPhone27S"));
+        System.out.println(Shop.findPricesParalle(shops, "myPhone27S"));
         duration = (System.nanoTime() - start) / 1_000_000;
         System.out.println("Done in " + duration + " msecs");
         //使用CompletableFuture之后会发现它的执行时间要比并行流慢
         //原因在于并行流为每个线程都分配了一个任务
         //而线程池的大小正好等同于电脑CPU的核心数
-        //所以8个任务正合适
         start = System.nanoTime();
-        System.out.println(Shop.findPricesAsync(shops,"myPhone27S"));
+        System.out.println(Shop.findPricesAsync(shops, "myPhone27S"));
         duration = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Done in " + duration + " msecs");
+        //使用自定义执行器，时间大大缩短
+        start = System.nanoTime();
+        System.out.println(Shop.advanceFindPricesAsync(shops, "myPhone27S"));
+        duration = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Done in " + duration + " msecs");
+        //以最简单的方式使用Discount服务的findPrices方法
+        //会发现耗时惊人
+        shops = IntStream.rangeClosed(1, 10).mapToObj(i -> new Shop(String.valueOf(i))).collect(Collectors.toList());
+        start = System.nanoTime();
+        System.out.println(Shop.findDiscountPrices(shops, "myPhone27S"));
+        duration = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Done in " + duration + " msecs");
+        //这时候就又需要completableFuture登场了
+        start = System.nanoTime();
+        System.out.println(Shop.advancedFindDiscountPrices(shops, "hahhaha"));
+        duration = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Done in " + duration + " msecs");
+        //响应式异步调用
+        final long newstart = System.nanoTime();
+        CompletableFuture[] futures = Shop.findPricesStream(shops, "asdad")
+                .map(f -> f.thenAccept(s -> System.out.println(s + " (done in " + ((System.nanoTime() - newstart) / 1_000_000) + " msecs)"))).toArray(CompletableFuture[]::new);
+        CompletableFuture.allOf(futures).join(); //allOf会等待所有的任务，如果使用anyOf，就只会等到一个。
+        duration = (System.nanoTime() - newstart) / 1_000_000;
         System.out.println("Done in " + duration + " msecs");
     }
 
