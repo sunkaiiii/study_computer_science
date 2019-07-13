@@ -156,6 +156,11 @@ public class Main {
         //使用结合器
         //((10*2)*2)*2
         System.out.println(repeat(3, (Integer x) -> 2 * x).apply(10));
+
+        //再Java中调用Scala
+        UnderstandScala.helloBeer();
+        UnderstandScala.rangeForeach();
+        UnderstandScala.understandScala();
     }
 
 }
