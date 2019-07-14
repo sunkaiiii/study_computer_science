@@ -9,7 +9,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.stream.*;
 
 public class Main {
-    private static List<Dish> getList() {
+    public static List<Dish> getList() {
         return Arrays.asList(
                 new Dish("pork", false, 800, Dish.Type.MEAT),
                 new Dish("beef", false, 700, Dish.Type.MEAT),

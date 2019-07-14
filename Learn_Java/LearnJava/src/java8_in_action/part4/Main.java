@@ -1,13 +1,17 @@
 package java8_in_action.part4;
 
+import java8_in_action.part2.Dish;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.DoubleUnaryOperator;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -161,6 +165,20 @@ public class Main {
         UnderstandScala.helloBeer();
         UnderstandScala.rangeForeach();
         UnderstandScala.understandScala();
+
+        //将streamForker用于实践
+        //这是一个异步的操作，getResult会立即返回并交由future实现
+        Stream<Dish> menuStream= java8_in_action.part2.Main.getList().stream();
+        StreamForker.Results results= new StreamForker<>(menuStream).fork("shortMenu", s->s.map(Dish::getName).collect(Collectors.joining(", ")))
+                .fork("totalCalories",s->s.mapToInt(Dish::getCalories).sum())
+                .fork("mostCaloricDish",s-> s.reduce((d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2).get())
+                .fork("dishesByType",s->s.collect(Collectors.groupingBy(Dish::getType)))
+                .getResults();
+        System.out.println("Short menu:" + results.get("shortMenu"));
+        System.out.println("Total calories: "+results.get("totalCalories"));
+        System.out.println("Most caloric dish: "+results.get("mostCaloricDish"));
+        System.out.println("Dishes by type: "+results.get("dishesByType"));
+
     }
 
 }
