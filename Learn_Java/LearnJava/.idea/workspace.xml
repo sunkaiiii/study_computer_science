@@ -4,14 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/java8_in_action/part3/Shop.java" description="        CompletableFuture&lt;Double&gt; futurePrice=new ..." line="23" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e650a2c2-8b94-4cd5-85f9-c3beaefc38de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/java8_in_action/part4/StreamForker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java8_in_action/part_additional/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LearnJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LearnJava.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java8_in_action/part2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java8_in_action/part2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java8_in_action/part4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java8_in_action/part4/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="e650a2c2-8b94-4cd5-85f9-c3beaefc38de" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,15 +42,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java8_in_action/part_additional/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+            <state relative-caret-position="416">
+              <caret line="79" column="50" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#810#811#0" expanded="true" />
                 <element signature="e#840#841#0" expanded="true" />
                 <element signature="e#887#888#0" expanded="true" />
                 <element signature="e#917#918#0" expanded="true" />
-                <element signature="e#3278#3279#0" expanded="true" />
+                <element signature="e#3301#3302#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,7 +128,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1099" />
+    <option name="x" value="922" />
     <option name="y" value="23" />
     <option name="width" value="581" />
     <option name="height" value="948" />
@@ -211,38 +204,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main (3)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java8_in_action.part3.Main" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="No2_Java8_in_Action.part3.Main" />
       <module name="LearnJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java8_in_action.part3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java8_in_action.part4.Main" />
-      <module name="LearnJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java8_in_action.part4.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java8_in_action.part_additional.Main" />
-      <module name="LearnJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java8_in_action.part_additional.*" />
+          <option name="PATTERN" value="No2_Java8_in_Action.part3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -251,11 +218,37 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java8_in_action.part2.Main" />
+      <option name="MAIN_CLASS_NAME" value="No2_Java8_in_Action.part4.Main" />
       <module name="LearnJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java8_in_action.part2.*" />
+          <option name="PATTERN" value="No2_Java8_in_Action.part4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="No2_Java8_in_Action.part_additional.Main" />
+      <module name="LearnJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="No2_Java8_in_Action.part_additional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="No2_Java8_in_Action.part2.Main" />
+      <module name="LearnJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="No2_Java8_in_Action.part2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -280,12 +273,12 @@
       <module name="LearnJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java8_in_action.part3.*" />
+          <option name="PATTERN" value="No2_Java8_in_Action.part3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="java8_in_action.part3" />
-      <option name="MAIN_CLASS_NAME" value="java8_in_action.part3.Point" />
+      <option name="PACKAGE_NAME" value="No2_Java8_in_Action.part3" />
+      <option name="MAIN_CLASS_NAME" value="No2_Java8_in_Action.part3.Point" />
       <option name="METHOD_NAME" value="testComparingTwoPoints" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -333,7 +326,7 @@
       <workItem from="1562917472077" duration="165000" />
       <workItem from="1562992578188" duration="4103000" />
       <workItem from="1563064992792" duration="40000" />
-      <workItem from="1563065046646" duration="6209000" />
+      <workItem from="1563065046646" duration="6495000" />
     </task>
     <servers />
   </component>
@@ -346,10 +339,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78258000" />
+    <option name="totallyTimeSpent" value="78544000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1099" y="23" width="581" height="948" extended-state="0" />
+    <frame x="391" y="50" width="581" height="948" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.4025974" />
@@ -361,7 +354,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2885514" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2885514" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -767,15 +760,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java8_in_action/part_additional/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+        <state relative-caret-position="416">
+          <caret line="79" column="50" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#810#811#0" expanded="true" />
             <element signature="e#840#841#0" expanded="true" />
             <element signature="e#887#888#0" expanded="true" />
             <element signature="e#917#918#0" expanded="true" />
-            <element signature="e#3278#3279#0" expanded="true" />
+            <element signature="e#3301#3302#0" expanded="true" />
           </folding>
         </state>
       </provider>
