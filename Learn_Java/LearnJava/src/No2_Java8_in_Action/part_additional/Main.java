@@ -99,7 +99,7 @@ public class Main {
             init();
         }
 
-        private void init() {
+        private static void init() {
             System.out.println("beginning initialise");
         }
     }
