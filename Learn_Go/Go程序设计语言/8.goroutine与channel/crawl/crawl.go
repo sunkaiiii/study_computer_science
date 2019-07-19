@@ -47,11 +47,26 @@ func crawl(url string) []string {
 	return list
 }
 
+var cancel = make(chan struct{})
+
+func done() {
+	cancel <- struct{}{}
+}
+
 func extract(url string) ([]string, error) {
 	//在这个版本里，并不是直接把href原封不动的添加存放在链接的slice中
 	//而是将他解析成基于当前文档相对路径的resp.Request.URL，结果的链接是绝对路径的形式
 	//这样就可以递归的调用http.GET
-	resp, err := http.Get(url)
+	select {
+	case <-cancel:
+		return nil, nil
+	default:
+
+	}
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Cancel = cancel
+	resp, err := http.DefaultClient.Do(req)
+	// resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
 	}

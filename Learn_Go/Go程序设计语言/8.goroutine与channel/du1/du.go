@@ -10,7 +10,22 @@ import (
 	"time"
 )
 
+var done = make(chan struct{})
+
+func cancelled() bool {
+	select {
+	case <-done:
+		return true
+	default:
+		return false
+	}
+}
+
 func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
+	defer n.Done()
+	if cancelled() { //如果轮询状态是取消，就直接返回
+		return
+	}
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
 			n.Add(1)
@@ -27,7 +42,11 @@ func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
 var sema = make(chan struct{}, 100)
 
 func dirents(dir string) []os.FileInfo {
-	sema <- struct{}{}
+	select { //这种select操作可以将取消时的延迟从几百毫秒降低到几十毫秒
+	case sema <- struct{}{}:
+	case <-done:
+		return nil
+	}
 	defer func() {
 		<-sema
 	}()
@@ -70,6 +89,12 @@ func main() {
 loop:
 	for {
 		select {
+		case <-done: //如果发送了close doen的广播，则程序将会执行完收尾工作之后关闭
+			for size := range fileSizes {
+				nfiles++
+				nbytes += size
+				return
+			}
 		case size, ok := <-fileSizes:
 			if !ok {
 				break loop
