@@ -1,6 +1,7 @@
 #include"greedySelect.h"
 #include"schedule.h"
 #include"huffman.h"
+#include "Dijkstra.h"
 #include<iostream>
 
 void frontErgodicTree(std::shared_ptr<TreeNode> root) {
@@ -25,31 +26,30 @@ void middleErgodicTree(std::shared_ptr<TreeNode> root) {
 
 
 int main() {
-	//int n;
-	//std::cin >> n;
-	//std::vector<Activity> activities;
-	//while (n--) {
-	//	struct Activity activity;
-	//	std::cin >> activity.startTime >> activity.endTime;
-	//	activities.push_back(activity);
-	//}
-	//auto result = select(activities);
-	//for (Activity activity : result) {
-	//	std::cout << activity.startTime << "," << activity.endTime << std::endl;
-	//}
+	int n;
+	std::cin >> n;
+	std::vector<Activity> activities;
+	while (n--) {
+		struct Activity activity;
+		std::cin >> activity.startTime >> activity.endTime;
+		activities.push_back(activity);
+	}
+	auto result = select(activities);
+	for (Activity activity : result) {
+		std::cout << activity.startTime << "," << activity.endTime << std::endl;
+	}
 
 	//服务问题
-	//int n;
-	//std::cin >> n;
-	//std::vector<Customer> customers;
-	//while (n--) {
-	//	struct Customer customer;
-	//	std::cin >> customer.serveTime >> customer.hopeTime;
-	//	customers.push_back(customer);
-	//}
-	//std::cout << schedule(customers) << std::endl;
+	std::cin >> n;
+	std::vector<Customer> customers;
+	while (n--) {
+		struct Customer customer;
+		std::cin >> customer.serveTime >> customer.hopeTime;
+		customers.push_back(customer);
+	}
+	std::cout << schedule(customers) << std::endl;
 
-	int n;
+	//哈夫曼树
 	std::cin >> n;
 	std::list<TreeNode> nodes;
 	while (n--) {
@@ -59,9 +59,17 @@ int main() {
 	}
 	auto root = huffman(nodes);
 
-	//frontErgodicTree(root);
-	//std::cout << std::endl;
-	//middleErgodicTree(root);
-	//std::cout << std::endl;
+	frontErgodicTree(root);
+	std::cout << std::endl;
+	middleErgodicTree(root);
+	std::cout << std::endl;
+
+	
+	//最短路径问题
+	auto distances=findRoad(1, getExample());
+	for (int distance : distances) {
+		std::cout << distance << ",";
+	}
+	std::cout << std::endl;
 	system("pause");
 }
