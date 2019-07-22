@@ -17,7 +17,7 @@
 #include <errno.h> //声明了c错误代码和一些错误处理函数
 #include <string.h> //最常用的处理string的方法
 
-#include "get_num.h" //声明这里用到的一些数字处理方法
+#include "get_number.h" //声明这里用到的一些数字处理方法
 
 #include "error_functions.h"
 
