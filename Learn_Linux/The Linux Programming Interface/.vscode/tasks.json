@@ -6,7 +6,11 @@
             "command": "/usr/bin/gcc",
             "args": [
                 "-g",
+                "-I",
+                "${workspaceFolder}/lib",
                 "${file}",
+                "${workspaceFolder}/libtlpi.a",
+                "${workspaceFolder}/libtlpi.a",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

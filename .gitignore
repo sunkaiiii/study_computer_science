@@ -3,3 +3,9 @@
 *.opendb
 Debug/
 *.class
+*.o
+*.a
+Learn_Linux/The Linux Programming Interface/Makefile.inc
+Learn_Linux/The Linux Programming Interface/lib/Makefile.std
+Learn_Linux/The Linux Programming Interface/lib/Makefile
+Learn_Linux/The Linux Programming Interface/fileio/Makefile
