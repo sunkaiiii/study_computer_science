@@ -10,7 +10,7 @@ int main(int argc,char *argv[])
 {
     char *username, *password, *encrypted, *p;
     struct passwd *pwd;
-    struct swpd *swpd;
+    struct spwd *swpd;
     Boolean authOK;
     size_t len;
     long lnmax;
@@ -31,11 +31,11 @@ int main(int argc,char *argv[])
     pwd=getpwnam(username);
     if(pwd==NULL)
         fatal("could not get password record");
-    spad=getspnam(username);
+    swpd=getspnam(username);
     if(swpd==NULL && errno==EACCES)
         fatal("no permission to read shadow password file");
     if(swpd != NULL) //如果找到了shadowPassword
-        pwd->pw_passwd=spwd->sp_pwdp; //用这个shadowPassword
+        pwd->pw_passwd=swpd->sp_pwdp; //用这个shadowPassword
     password=getpass("Password: ");
     //加密密码并立即清除纯文本的记录
     encrypted=crypt(password,pwd->pw_passwd);
