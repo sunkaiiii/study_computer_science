@@ -21,9 +21,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="MaximumClique.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Nqueens.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaximumClique.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

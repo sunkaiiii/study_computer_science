@@ -124,9 +124,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MaximumClique.cpp" />
     <ClCompile Include="Nqueens.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MaximumClique.h" />
     <ClInclude Include="Nqueens.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
