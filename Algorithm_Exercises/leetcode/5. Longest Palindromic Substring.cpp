@@ -1,39 +1,36 @@
 #include <iostream>
+#include <unordered_map>
 #include<string>
 using std::string;
-//Given a string s, find the longest palindromic substring in s.You may assume that the maximum length of s is 1000.
-//Runtime: 752 ms, faster than 5.01% of C++ online submissions for Longest Palindromic Substring.
-//Memory Usage : 8.7 MB, less than 95.11 % of C++ online submissions for Longest Palindromic Substring.
+//Runtime: 212 ms, faster than 18.73 % of C++ online submissions for Longest Palindromic Substring.
+//Memory Usage : 17.5 MB, less than 36.24 % of C++ online submissions for Longest Palindromic Substring.
 string longestPalindrome(string s) {
-	int bound = -1;
-	string result;
-	for (auto i = s.begin(); i != s.end(); i++) {
-		if (s.end() - i < bound)
-			return result;
-		for (auto p = s.end(); p != i; p--) {
-			if (s.end() - i < bound)
-				return result;
-			auto cur = i;
-			auto tail = p;
-			while (*(--tail) != *i);
-			bool ok = true;
-			auto j = tail;
-			while (true) {
-				if (j == cur || j - cur < 0)
+	string result = s.substr(0,1);
+	std::unordered_map<char, std::vector<int>> temp;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (temp.find(s[i]) != temp.end()) {
+			for (int tempsi : temp[s[i]]) {
+				int left = tempsi;
+				int right = i;
+				if (right - left + 1 < result.length())
 					break;
-				if (*(++cur) != *(--j)) {
-					ok = false;
+				bool ok = true;
+				while (left < right && ok)
+				{
+					if (s[++left] != s[--right])
+					{
+						ok = false;
+					}
+				}
+				if (ok && result.length() < i - tempsi+ 1)
+				{
+					result = s.substr(tempsi, i - tempsi + 1);
 					break;
 				}
-			}
-			if (ok) {
-				if (tail - i > bound) {
-					result = s.substr(i - s.begin(), tail - i + 1);
-					bound = tail - i;
-				}
-				break;
 			}
 		}
+		temp[s[i]].push_back(i);
 	}
 	return result;
 }
