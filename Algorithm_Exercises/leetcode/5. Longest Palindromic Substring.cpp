@@ -1,42 +1,44 @@
 #include <iostream>
 #include <unordered_map>
-#include<string>
+#include <string>
+#include <vector>
 using std::string;
-//Runtime: 212 ms, faster than 18.73 % of C++ online submissions for Longest Palindromic Substring.
-//Memory Usage : 17.5 MB, less than 36.24 % of C++ online submissions for Longest Palindromic Substring.
-string longestPalindrome(string s) {
-	string result = s.substr(0,1);
-	std::unordered_map<char, std::vector<int>> temp;
-	for (int i = 0; i < s.length(); i++)
-	{
-		if (temp.find(s[i]) != temp.end()) {
-			for (int tempsi : temp[s[i]]) {
-				int left = tempsi;
-				int right = i;
-				if (right - left + 1 < result.length())
-					break;
-				bool ok = true;
-				while (left < right && ok)
-				{
-					if (s[++left] != s[--right])
-					{
-						ok = false;
-					}
-				}
-				if (ok && result.length() < i - tempsi+ 1)
-				{
-					result = s.substr(tempsi, i - tempsi + 1);
-					break;
-				}
-			}
-		}
-		temp[s[i]].push_back(i);
-	}
-	return result;
+//Runtime: 16 ms, faster than 84.00% of C++ online submissions for Longest Palindromic Substring.
+//Memory Usage: 8.8 MB, less than 84.62% of C++ online submissions for Longest Palindromic Substring.
+void findPalindrome(string &s,int i,int j, int &len,int &left)
+{
+    while(i>=0&&j<s.size()&&s[i]==s[j])
+    {
+        i--;
+        j++;
+    }
+    i++;
+    j--;
+    if(j-i+1>len)
+    {
+        len=j-i+1;
+        left=i;
+    }
 }
 
+string longestPalindrome(string s) {
+    int n=s.length();
+    if(n<2)
+        return s;
+    int left=0,len=0;
+    for(int i=0;i<n;i++)
+    {
+        findPalindrome(s,i,i, len,left);
+        if(i+1!=n&&s[i]==s[i+1]){
+        findPalindrome(s, i, i+1, len,left);
+        }
+    }
+    return s.substr(left,len);
+}
+
+
 int main() {
-	string s;
-	std::cin >> s;
-	std::cout << longestPalindrome(s)<<std::endl;
+    string s;
+    std::cin >> s;
+    std::cout << longestPalindrome(s)<<std::endl;
 }
