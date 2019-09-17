@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e650a2c2-8b94-4cd5-85f9-c3beaefc38de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LearnJava/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp3/data/bank.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LearnJava/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp3/data/bank.test" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/c_cpp_properties.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/c_cpp_properties.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/launch.json" afterDir="false" />
@@ -36,12 +38,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+            <state relative-caret-position="391">
+              <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -138,7 +140,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="948" />
@@ -151,6 +153,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,7 +189,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,7 +233,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Main (3)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="No3_Concurrency_Programming_with_Java_NOT_RECOMMEND.cp6.Main" />
       <module name="LearnJava" />
@@ -250,6 +252,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.javferna.packtpub.mastering.news.rss.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="No2_Java8_in_Action.part1.Main" />
+      <module name="LearnJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="No2_Java8_in_Action.part1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -379,6 +394,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (2)" />
@@ -426,6 +442,7 @@
       <workItem from="1563270859837" duration="1967000" />
       <workItem from="1563528776933" duration="4000" />
       <workItem from="1566280306746" duration="318000" />
+      <workItem from="1567405968773" duration="655000" />
     </task>
     <servers />
   </component>
@@ -438,13 +455,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115284000" />
+    <option name="totallyTimeSpent" value="115939000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="948" extended-state="0" />
+    <frame x="0" y="24" width="1680" height="948" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15323566" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15506716" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -599,8 +616,8 @@
     <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter07/ObjectFilter/src/com/javferna/packtpub/mastering/objectFilter/concurrent/ConcurrentMain.java" />
     <entry file="file://$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+        <state relative-caret-position="391">
+          <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
         </state>
       </provider>
     </entry>
