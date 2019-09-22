@@ -37,7 +37,7 @@ static void listFiles(const char *dirpath)
 int main(int argc, char *argv[])
 {
     if(argc>1&&strcmp(argv[1],"--help")==0)
-        usageErr("%s [dir...]\n",argv[0];
+        usageErr("%s [dir...]\n",argv[0]);
     if(argv==1)
         listFiles(".");
     else

@@ -1,5 +1,6 @@
 #include <sys/stat.h>
 #include <limits.h>
+#include <stdio.h>
 #include "tlpi_hdr.h"
 
 #define BUF_SIZE PATH_MAX
@@ -9,7 +10,7 @@ int main(int argc,char *argv[])
     struct stat statbuf;
     char buf[BUF_SIZE];
     ssize_t numBytes;
-    if(argv!=2||strcmp(argv[1],"--help")==0)
+    if(argc!=2||strcmp(argv[1],"--help")==0)
         usageErr("%s pathname\n",argv[0]);
     if(lstat(argv[1],&statbuf)==-1)
         errExit("lstat");
