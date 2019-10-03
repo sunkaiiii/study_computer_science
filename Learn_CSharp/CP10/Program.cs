@@ -42,10 +42,7 @@ namespace CP10
                 Console.WriteLine(element);
 
             }
-            String a = "123";
-            String b = "123";
-            String c = new string("123");
-            Console.WriteLine(a == c);
+
         }
     }
 }
