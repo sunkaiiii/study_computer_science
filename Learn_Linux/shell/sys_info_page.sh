@@ -21,12 +21,27 @@ report_disk_space () {
 }
 
 report_home_space() {
+	local format="%8s%10s%10s\n"
+	local i dir_list total_files total_dirs total_size user_name
 	if [[ $(id -u) -eq 0 ]]; then
-		cat <<- _EOF_
-			<H2>Home Space Utilisation (All Users)</H2>
-			<PRE>$(du -sh /home/*)</PRE>
-		_EOF_
+		dir_list=/home/*
+		user_name="All Users"
+	else
+		dir_list=$HOME
+		user_name=$USER
 	fi
+	echo "<H2>Home Space Tuilisation ($user_name)</H2>"
+	for i in $dir_list; do
+		total_files=$(find $i -type f | wc -l)
+		total_dirs=$(find $i -type d | wc -l)
+		total_size=$(du -sh $i | cut -f 1)
+		echo "<H3>$i</H3>"
+		echo "<PRE>"
+		printf "$format" "Dirs" "Files" "Size"
+		printf "$format" "----" "----" "----"
+		printf "$format" "$total_dirs" "$total_files" "$total_size"
+		echo "</PRE>"
+	done
 	return
 }
 
