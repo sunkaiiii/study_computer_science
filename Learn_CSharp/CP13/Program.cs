@@ -59,7 +59,7 @@ namespace CP13
 
             Func<string> stringFunc = () => "";
             Func<object> objectFunc = () => new object();
-            Func<object> combined = objectFunc + stringFunc;
+            Func<object> combined = objectFunc + stringFunc; //多播委托与可变性不能混用，代码可以编译，但是会抛出异常。
             Console.WriteLine(combined());
         }
     }
