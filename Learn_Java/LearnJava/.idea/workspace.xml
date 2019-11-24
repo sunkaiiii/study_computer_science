@@ -2,15 +2,88 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e650a2c2-8b94-4cd5-85f9-c3beaefc38de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP10/CP10.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP10/NullUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP10/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP10/StreamUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/CP11.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/DateTimeRange.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/Defect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/NotificationSubscription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/Project.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/SampleData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/Severity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/StaticCounter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/Status.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP11/UserType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP13/CP13.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP13/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP14/CP14.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP14/HelloWorld.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP14/Helper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP14/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP15/AsyncHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP15/AsyncTask.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP15/CP15.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP15/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP16/CP16.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP16/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP2/CP2.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP2/Person.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP2/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP3/CP3.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP3/Pair.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP3/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP4/CP4.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP4/PartialComparer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP4/Person.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP4/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP5/CP5.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP5/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP6/CP6.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP6/InterationSample.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP6/IterationSampleIterator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP6/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP8/CP8.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP8/Person.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP8/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP9/CP9.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/CP9/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp/CP1.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp/Product.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp/ProductNameComparer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp/Supplier.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/Learn_CSharp/data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/CP12.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/Defect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/FakeQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/FakeQueryProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/Logger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/NotificationSubscription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/Project.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/RandomElementHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/SampleData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/Severity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/StaticCounter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/Status.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/UserType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp12/XmlSampleData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/Exp1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/Exp2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/Generated.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/Handwritten.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/NonStaticStringHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learn_CSharp/cp7/cp7.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LearnJava/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp3/data/bank.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LearnJava/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp3/data/bank.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/c_cpp_properties.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/c_cpp_properties.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learn_Linux/The Linux Programming Interface/.vscode/tasks.json" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +109,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,119 +137,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/NewsBuffer.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/NewsWriter.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/RSSDataCapture.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/NewsTask.java" />
-        <option value="$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter04/MyNewsReader/src/com/javferna/packtpub/mastering/news/rss/core/Main.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/NewsSystem.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/Main.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp4/Timer.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/LevenshteinDistance.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/BestMatchingData.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/BestMatchingSerialCalculation.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/WordsLoader.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/paralle/BestMatchingBasicConcurrentCalculation.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/paralle/BestMatchingBasicTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/paralle/BestMatchingAdvancedConcurrentCalculation.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/Main.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/basic/Document.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/basic/DocumentParser.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/parallel/IndexingTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/serial/SerialIndex.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/basic/IndexingFunctions.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/parallel/InvertedIndexTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/parallel/ConcurrentIndexing.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/parallel/MultipleIndexingTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/parallel/MultipleInvertedIndexTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/textIndexing/parallel/MultipleConcurrentIndexing.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java/cp5/find_string/paralle/BestMatchingAdvancedConcurrentCalculation.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/MultipleConcurrentIndexing.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Word.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Keyword.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/DocumentParser.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Document.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/serial/SerialwordExtraction.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Individual.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/GeneticOperators.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/serial/SerialGeneticAlgorithm.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/DataLoader.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/ShareData.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/GeneticPhaser.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/SharedData.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/ConcurrentGeneticTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/ConcurrentGeneticAlgorithm.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/Main.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/CensusData.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/Filter.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/FilterData.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/serial/SerialSearch.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/paralle/TaskManager.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/paralle/IndividualTask.java" />
-        <option value="$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/CensusDataLoader.java" />
-        <option value="$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="948" />
   </component>
+  <component name="ProjectId" id="1U392DCPMclKu8wZEXYcyWhducj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="No2_Java8_in_Action" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearnJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="No2_Java8_in_Action" type="462c0819:PsiDirectoryNode" />
-              <item name="part1" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -443,6 +398,7 @@
       <workItem from="1563528776933" duration="4000" />
       <workItem from="1566280306746" duration="318000" />
       <workItem from="1567405968773" duration="655000" />
+      <workItem from="1574574207006" duration="123000" />
     </task>
     <servers />
   </component>
@@ -454,77 +410,19 @@
       <configuration name="Point.testComparingTwoPoints" configurationId="JUnit" />
     </history-entry>
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115939000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1680" height="948" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15506716" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49863014" weight="0.28738317" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50136983" side_tool="true" weight="0.28738317" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3271028" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32961783" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" weight="0.32876712" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3884712" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28738317" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3271028" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32961783" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -532,95 +430,15 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/No2_Java8_in_Action/part4/StreamForker.java</url>
           <line>41</line>
-          <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp3/paralle/KnnClassifierParallelIndividual.java</url>
           <line>25</line>
-          <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/serial/SerialIndex.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/basic/IndexingFunctions.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/concurrent/ExecutorCompletionService.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/IndexingTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/ConcurrentIndexing.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/basic/DocumentParser.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/MultipleIndexingTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/InvertedIndexTask.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter05/TextIndexing/src/com/javferna/packtpub/mastering/textIndexing/concurrent/MultipleConcurrentIndexing.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/MultipleInvertedIndexTask.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/concurrent/ExecutorService.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/find_string/paralle/BestMatchingAdvancedConcurrentCalculation.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/KeywordExtraction/src/com/javferna/packtpub/mastering/keywordExtraction/common/Word.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/KeywordExtraction/src/com/javferna/packtpub/mastering/keywordExtraction/common/Keyword.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/KeywordExtraction/src/com/javferna/packtpub/mastering/keywordExtraction/common/Document.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/KeywordExtraction/src/com/javferna/packtpub/mastering/keywordExtraction/common/DocumentParser.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/DocumentParser.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/HashMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Word.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Keyword.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Document.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/serial/SerialwordExtraction.java" />
-    <entry file="file://$PROJECT_DIR$/data/kn57_dist.txt" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp5/textIndexing/parallel/MultipleConcurrentIndexing.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/DataLoader.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/GeneticAlgorithm/src/com/javferna/packtpub/mastering/geneticAlgorithm/common/DataLoader.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/Individual.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/basic/GeneticOperators.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/serial/SerialGeneticAlgorithm.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/GeneticAlgorithm/src/com/javferna/packtpub/mastering/geneticAlgorithm/serial/SerialGeneticAlgorithm.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/GeneticAlgorithm/src/com/javferna/packtpub/mastering/geneticAlgorithm/common/GeneticOperators.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/GeneticAlgorithm/src/com/javferna/packtpub/mastering/geneticAlgorithm/common/Individual.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/GeneticPhaser.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/SharedData.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter06/GeneticAlgorithm/src/com/javferna/packtpub/mastering/geneticAlgorithm/concurrent/SharedData.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/ConcurrentGeneticTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/parallel/ConcurrentGeneticAlgorithm.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp6/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/Filter.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/FilterData.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/serial/SerialSearch.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/paralle/TaskManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/No2_Java8_in_Action/part2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="200" column="37" selection-start-line="200" selection-start-column="37" selection-end-line="200" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/No2_Java8_in_Action/part2/ForkJoinSumCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-          <folding>
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/CensusData.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/paralle/IndividualTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/No3_Concurrency_Programming_with_Java_NOT_RECOMMEND/cp7/search/basic/CensusDataLoader.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Mastering-Concurrency-Programming-with-Java-9-Second-Edition/Chapter07/ObjectFilter/src/com/javferna/packtpub/mastering/objectFilter/concurrent/ConcurrentMain.java" />
-    <entry file="file://$PROJECT_DIR$/src/No2_Java8_in_Action/part1/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
