@@ -11,6 +11,7 @@
                 "${file}",
                 "${workspaceFolder}/libtlpi.a",
                 "${workspaceFolder}/libtlpi.a",
+                "${workspaceFolder}/signals/signal_functions.a",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
