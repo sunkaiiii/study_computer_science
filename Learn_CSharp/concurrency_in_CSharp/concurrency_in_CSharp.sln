@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CP1", "concurrency_in_CShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CP2", "CP2\CP2.csproj", "{8BB27F5A-4786-40FB-8D41-5E71AC34DBA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CP3", "CP3\CP3.csproj", "{4AF19CAF-4D1B-4F01-A6E1-00D042C48F9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CP4", "CP4\CP4.csproj", "{5B1EFA6E-17C5-4981-8FD8-6735C8EBBEE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +23,13 @@ Global
 		{8BB27F5A-4786-40FB-8D41-5E71AC34DBA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB27F5A-4786-40FB-8D41-5E71AC34DBA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BB27F5A-4786-40FB-8D41-5E71AC34DBA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF19CAF-4D1B-4F01-A6E1-00D042C48F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF19CAF-4D1B-4F01-A6E1-00D042C48F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF19CAF-4D1B-4F01-A6E1-00D042C48F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF19CAF-4D1B-4F01-A6E1-00D042C48F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1EFA6E-17C5-4981-8FD8-6735C8EBBEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1EFA6E-17C5-4981-8FD8-6735C8EBBEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1EFA6E-17C5-4981-8FD8-6735C8EBBEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1EFA6E-17C5-4981-8FD8-6735C8EBBEE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
