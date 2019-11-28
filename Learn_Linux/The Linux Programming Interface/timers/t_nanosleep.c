@@ -35,6 +35,7 @@ int main(int argc,char *argv[])
 
     for(;;)
     {
+        //每次中断后，会得到剩余的时间，并重新开始休眠
         s=nanosleep(&request,&remain);
         if(s==-1&&errno!=EINTR)
             errExit("nanosleep");
