@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch", // 配置名称，将会在启动配置的下拉菜单中显示
+            "type": "cppdbg", // 配置类型，这里只能为cppdbg
+            "request": "launch", // 请求配置类型，可以为launch（启动）或attach（附加）
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",  //最终会运行这个文件, 也就是编译生成之后的文件, 默认是 a.exe
+            "args": [], // 程序调试时传递给程序的命令行参数，一般设为空即可
+            "stopAtEntry": false, // 设为true时程序将暂停在程序入口处，一般设置为false
+            "cwd": "${workspaceFolder}", // 调试程序时的工作目录，一般为${workspaceRoot}即代码所在目录
+            "environment": [],
+            "externalConsole": false,  //是否运行在弹出的控制台上, 如果写false的话, 似乎就什么都没有了 // 调试时是否显示控制台窗口，一般设置为true显示控制台
+            "MIMode": "gdb", 
+            "miDebuggerPath": "gdb.exe",   //这里需要填写gdb的地址 //miDebugger的路径，注意这里要与MinGw的路径对应
+            "preLaunchTask": "build" //跟此运行相关的 任务的名字  // 调试会话开始前执行的任务，一般为编译程序，c++为g++, c为gcc
+        }
+    ]
+}

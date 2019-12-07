@@ -1,0 +1,18 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build", // 任务的名字, 跟上面 launch.json 的 perLaunchTask 值相对应
+            "type": "shell", // 使用命令行的类型
+            "command": "gcc", // 使用的编译命令
+            "args": [ // 参数
+                "-g",
+                "${file}",
+                "-o",
+                "${fileBasenameNoExtension}.exe",
+            ],
+        }
+    ]
+}
