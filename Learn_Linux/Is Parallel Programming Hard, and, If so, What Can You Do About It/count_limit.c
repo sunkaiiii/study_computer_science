@@ -14,6 +14,7 @@ global count和globalreserve的和小于等于globalcountmax的值
 每个线程的counter值小于等于该线程的countermax的值
 */
 
+//清零当前线程的每线程计数，适当调整全局变量的值
 static void globalize_count(void)
 {
     globalcount+=counter;
@@ -22,6 +23,7 @@ static void globalize_count(void)
     countermax=0;
 }
 
+//可以简单地认为是globalize_count()的反向操作
 static void balance_count(void)
 {
     countermax=globalcountmax-globalcount-globalreserve;
