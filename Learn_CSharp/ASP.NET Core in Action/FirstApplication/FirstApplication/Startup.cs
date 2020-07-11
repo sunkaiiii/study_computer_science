@@ -29,6 +29,8 @@ namespace FirstApplication
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseWelcomePage("/");
+            //handle excetpion
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -36,16 +38,11 @@ namespace FirstApplication
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
+            //app.UseStatusCodePages(); //handle HTTP code error
+            app.UseStatusCodePagesWithReExecute("/error/{0}"); //more typical way to handle the code
             app.UseRouting();
-
-            app.UseAuthorization();
-
+            app.UseStaticFiles();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
