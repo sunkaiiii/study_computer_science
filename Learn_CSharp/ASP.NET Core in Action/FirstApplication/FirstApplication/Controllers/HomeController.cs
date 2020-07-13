@@ -33,5 +33,17 @@ namespace FirstApplication.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //an action requried pamameters
+        public IActionResult Search(SearchModel searchModel)
+        {
+            if(ModelState.IsValid)
+            {
+                var viewModel = "do some search";
+                return View(viewModel);
+            }
+
+            return Redirect("/");
+        }
     }
 }
