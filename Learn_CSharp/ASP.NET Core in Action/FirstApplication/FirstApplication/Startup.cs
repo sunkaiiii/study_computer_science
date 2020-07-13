@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -46,8 +47,17 @@ namespace FirstApplication
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "start_checkout",
+                    pattern: "checkout",
+                    defaults: new { controller = "Payment", action = "StartProcess" }); //define default controller and action for a specific url
+                endpoints.MapControllerRoute(
+                    name: "view_currency",
+                    pattern: "{currency}/convert/{*others}", //pattern consists of a parameter for currency, a literal segment, and a catch-all parameter
+                    constraints: new {currency=new LengthRouteConstraint(3)},
+                    defaults: new { controller = "Currencies", action = "View" }); //multiple routes with anonymous types
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"); //define global convention pattern
                 
             });
         }
