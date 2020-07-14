@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="main-content">
+    @RenderBody()
+</div>
+<div class="side-bar">
+    @RenderSection("Sidebar",required:true)
+</div>
+@RenderSection("Scripts",required:false)

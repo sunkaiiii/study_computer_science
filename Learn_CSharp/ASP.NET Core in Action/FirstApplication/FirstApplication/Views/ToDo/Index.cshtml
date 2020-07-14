@@ -1,0 +1,20 @@
+﻿@model ToDoItemViewModel
+@{
+    var htmlTags = "<h4>Tag</h4>";
+    Layout = "_Layout2";
+    ViewData["Title"] = "ToDo Page";
+    // load to do list with partial view
+<h1>
+    @Model.Title
+</h1>
+<h2>
+    @htmlTags
+    @Html.Raw(htmlTags)
+</h2>
+<h3>
+    @ViewData["Message"]
+</h3>
+<ul>
+
+    @await Html.PartialAsync("_ToDo", Model)    
+</ul>

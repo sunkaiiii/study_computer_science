@@ -1,4 +1,5 @@
 ﻿using System;
+using FirstApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApplication.Controllers
@@ -30,6 +31,11 @@ namespace FirstApplication.Controllers
         public IActionResult View(string code)
         {
             return Content(code);
+        }
+
+        public IActionResult Checkout(UserBindingModel model) //binding with a complex model
+        {
+            return Content(model.ToString());
         }
     }
 }

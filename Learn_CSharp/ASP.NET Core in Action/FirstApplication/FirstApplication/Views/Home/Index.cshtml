@@ -1,8 +1,22 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    var tasks = new List<String> { "Buy milk", "Buy eggs", "But bread" };
+    Layout = "_TwoColumn";
+}
+@section Sidebar{
+    <p>This is the sidebar content</p>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>
+    Tasks to complete
+</h1>
+<ul>
+
+    @for (var i = 0; i < tasks.Count; i++)
+    {
+        var task = tasks[i];
+        <li>@i-@task</li>
+    }
+</ul>
+<p>
+    Copyright @DateTime.Now.Year &copy;
+</p>
