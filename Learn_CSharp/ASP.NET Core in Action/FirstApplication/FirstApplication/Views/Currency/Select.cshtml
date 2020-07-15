@@ -1,0 +1,6 @@
+﻿@model SelectListsViewModel
+
+
+<select asp-for="SelectedValue1" asp-items="Model.Items"></select> 
+<select asp-for="SelectedValue2" asp-items="Model.Items" size="@Model.Items.Count()"></select>
+<select asp-for="MultiValues" asp-items="Model.Items"></select>

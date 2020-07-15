@@ -1,0 +1,33 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+<h1>@ViewData["Title"]</h1>
+<form asp-action="Checkout" asp-controller="Currency">
+    <div class="form-group">
+        <input class="form-control" asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="example">
+        <h1>Example of input</h1>
+        <input asp-for="Dec" asp-format="0.000"/>
+        <textarea asp-for="Multiline"></textarea>
+    </div>
+</form>
+

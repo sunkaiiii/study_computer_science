@@ -1,0 +1,15 @@
+﻿@model SelectListGroupViewModel
+
+<select id="SelectedValues" name="SelectedValues" multiple="multiple">
+    <optgroup label="Dynamic">
+        <option value="js">JavaScirpt</option>
+        <option value="python">Python</option>
+    </optgroup>
+    <optgroup label="Static Languages">
+        <option value="cpp">C++</option>
+    </optgroup>
+    <option value="csharp">C#</option>
+</select>
+<select asp-for="SelectedValues" asp-items="Model.ItemsWithGroups">
+    <option value="">**Not selected**</option>
+</select>

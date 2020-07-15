@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApplication.Controllers
 {
-    public class CurrencyController:Controller
+    public class CurrencyController : Controller
     {
         public IActionResult Index()
         {
             var url = Url.Action(nameof(View), "Currency", new { code = "USD" }); //generating URLs based on an action
-            return Content(string.Format("The URL is {0}",url));
+            return Content(string.Format("The URL is {0}", url));
         }
 
         public IActionResult Generating()
@@ -37,5 +37,41 @@ namespace FirstApplication.Controllers
         {
             return Content(model.ToString());
         }
+
+        public IActionResult UserView()
+        {
+            return View();
+        }
+
+        public IActionResult Select()
+        {
+            return View(new SelectListsViewModel());
+        }
+
+        public IActionResult SelectGroup()
+        {
+            return View(new SelectListGroupViewModel());
+        }
+
+        [HttpGet]
+        public IActionResult Convert()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Convert(CurrencyConverterModel model)
+        {
+            if(model.CurrencyFrom==model.CurrencyTo)
+            {
+                ModelState.AddModelError(string.Empty, "Cannot convert currency to itself");
+            }
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            return RedirectToAction("Index", "Checkout");
+        }
+
     }
 }

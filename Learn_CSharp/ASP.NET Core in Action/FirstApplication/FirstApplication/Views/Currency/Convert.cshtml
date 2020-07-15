@@ -1,0 +1,26 @@
+﻿@model CurrencyConverterModel
+    <ul class="nav navbar-nav">
+        <li>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+        </li>
+    </ul>
+    <environment include="Testing,Staging">
+        <div class="warning">You are currently on a testing environment</div>
+    </environment>
+    <form asp-controller="Currency" asp-action="Convert">
+        <div class="convert" asp-validation-summary="All">
+            <input asp-for="CurrencyFrom" class="form-control" />
+            <span asp-validation-for="CurrencyFrom" />
+            <input asp-for="Quantity" class="form-control" />
+            <span asp-validation-for="Quantity" />
+            <input asp-for="CurrencyTo" class="form-control" />
+            <span asp-validation-for="CurrencyTo" />
+            <button>submit</button>
+        </div>
+    </form>
