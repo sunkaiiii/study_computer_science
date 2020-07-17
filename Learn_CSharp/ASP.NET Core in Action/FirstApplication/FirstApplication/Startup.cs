@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirstApplication.Controllers;
+using FirstApplication.Services;
+using FirstApplication.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +28,15 @@ namespace FirstApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddEmailSender(); //call the extension method
+
+            //every time will create a new one
+            //services.AddTransient<DataContext>();
+            //services.AddTransient<Repository>();
+
+            //this will use same instance for each request
+            services.AddScoped<DataContext>();
+            services.AddScoped<Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
