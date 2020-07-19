@@ -1,0 +1,9 @@
+{
+  "StoreDetails": {
+    "Name": "Head office",
+    "Location": {
+      "Latitude": 50.5,
+      "Longtitude": -4.0
+    }
+  }
+}

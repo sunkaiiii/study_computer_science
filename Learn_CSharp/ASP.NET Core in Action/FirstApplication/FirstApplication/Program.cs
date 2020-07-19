@@ -18,9 +18,18 @@ namespace FirstApplication
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(AddAppConfiguration)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static void AddAppConfiguration(HostBuilderContext hostingContext, IConfigurationBuilder config)
+        {
+            //Loading from multiple providers
+            config.AddJsonFile("sharedSettings.json", optional: true)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange:true)  //rebuilt if the appsettings.json file changes
+                .AddEnvironmentVariables();
+        }
     }
 }

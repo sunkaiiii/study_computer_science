@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FirstApplication.Models;
+using Microsoft.Extensions.Options;
+using FirstApplication.Utils;
 
 namespace FirstApplication.Controllers
 {
@@ -13,9 +15,10 @@ namespace FirstApplication.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IOptions<HomePageSetting> options)
         {
             _logger = logger;
+            Console.WriteLine(options.Value.Title);
         }
 
         public IActionResult Index()
