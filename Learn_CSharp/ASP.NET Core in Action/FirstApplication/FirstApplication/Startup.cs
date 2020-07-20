@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FirstApplication.Controllers;
 using FirstApplication.Entities;
+using FirstApplication.Filters;
 using FirstApplication.Services;
 using FirstApplication.Utils;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +44,10 @@ namespace FirstApplication
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(connectString); //specify the database provider in the customization options
+            });
+            services.AddMvc(options =>
+            {
+                //options.Filters.Add<LogResourceFilter>(); //add filter globally 
             });
         }
 

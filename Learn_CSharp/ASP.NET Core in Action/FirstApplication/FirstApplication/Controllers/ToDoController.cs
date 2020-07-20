@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirstApplication.Filters;
 using FirstApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,8 @@ namespace FirstApplication.Controllers
 {
     public class ToDoController : Controller
     {
+        //Applying filters to an action method
+        [LogResourceFilter]
        public IActionResult Index()
         {
             ViewData["Message"]="You ToDo List"; //use view data to pass message`
