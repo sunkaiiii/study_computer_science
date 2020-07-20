@@ -15,10 +15,12 @@ namespace FirstApplication.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IOptions<HomePageSetting> options)
+        public HomeController(ILogger<HomeController> logger, IOptions<HomePageSetting> options, IOptionsSnapshot<HomePageSetting>optionsSnapshot)
         {
             _logger = logger;
+            //the difference between IOptions and IOptionsSnapshot is IOptions is singleton, while IOptionsSnapshot is created when it is needed.
             Console.WriteLine(options.Value.Title);
+            Console.WriteLine(optionsSnapshot.Value.Title); 
         }
 
         public IActionResult Index()

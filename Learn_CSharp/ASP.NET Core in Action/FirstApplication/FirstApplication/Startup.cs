@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FirstApplication.Controllers;
+using FirstApplication.Entities;
 using FirstApplication.Services;
 using FirstApplication.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,6 +39,11 @@ namespace FirstApplication
             //this will use same instance for each request
             services.AddScoped<DataContext>();
             services.AddScoped<Repository>();
+            var connectString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(connectString); //specify the database provider in the customization options
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
