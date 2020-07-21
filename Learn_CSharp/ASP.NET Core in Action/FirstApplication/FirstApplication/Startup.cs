@@ -10,6 +10,7 @@ using FirstApplication.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,11 @@ namespace FirstApplication
             {
                 //options.Filters.Add<LogResourceFilter>(); //add filter globally 
             });
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.Password.RequiredLength = 10) //inject identity
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<AppDbContext>();
+            //services.AddTransient<IEmailSender, AuthMessageSender>();
+            //services.AddTransient<ISmsSender, AuthMessageSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +74,7 @@ namespace FirstApplication
             app.UseStatusCodePagesWithReExecute("/error/{0}"); //more typical way to handle the code
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
