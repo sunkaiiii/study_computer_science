@@ -12,6 +12,9 @@ using ApplicationWithAuthentication.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ApplicationWithAuthentication.Requirements;
+using Microsoft.AspNetCore.Authorization;
+using ApplicationWithAuthentication.Handler;
 
 namespace ApplicationWithAuthentication
 {
@@ -34,6 +37,21 @@ namespace ApplicationWithAuthentication
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("CanEnterSecurity", policyBuilder => policyBuilder.RequireClaim("BoradingPassNumber")); //Defines the policy requirements using authrosationPolicyBuilder
+                options.AddPolicy("CanAccessLounge", policyBuilder =>
+                {
+                    policyBuilder.AddRequirements(
+                        new MinimumAgeRequirement(18),
+                        new AllowedInLoungeRequirement());
+                });
+                options.AddPolicy("CanManageRecipe", policyBuilder => { policyBuilder.AddRequirements(new IsRecipeOwnerRequirement()); }) ;
+            });
+            services.AddSingleton<IAuthorizationHandler, MinimumAageHandler>();
+            services.AddSingleton<IAuthorizationHandler, IsAirlineEmployeeHandler>();
+            services.AddSingleton<IAuthorizationHandler, FrequentFlyerHandler>();
+            services.AddScoped<IAuthorizationHandler, IsRecipeOwnerHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

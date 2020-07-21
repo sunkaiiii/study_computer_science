@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ApplicationWithAuthentication.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApplicationWithAuthentication.Controllers
 {
@@ -32,6 +33,12 @@ namespace ApplicationWithAuthentication.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [Authorize]
+        public IActionResult AuthedUsersOnly() //This action can only be executed by authenticated users
+        {
+            return View();
         }
     }
 }
