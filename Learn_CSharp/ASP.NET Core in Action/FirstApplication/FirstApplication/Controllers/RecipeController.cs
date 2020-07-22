@@ -9,6 +9,7 @@ using FirstApplication.Models;
 using FirstApplication.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace FirstApplication.Controllers
 {
@@ -17,10 +18,12 @@ namespace FirstApplication.Controllers
     {
         readonly AppDbContext _context;
         readonly RecipeService _service;
-        public RecipeController(AppDbContext context, RecipeService service)
+        private readonly ILogger _log;
+        public RecipeController(AppDbContext context, RecipeService service, ILogger<RecipeController> log) //inject service and ILogger
         {
             _context = context;
             _service = service;
+            _log = log;
         }
         public int CreateRecipe(CreateRecipeCommand cmd)
         {
@@ -38,7 +41,9 @@ namespace FirstApplication.Controllers
 
         public ICollection<Recipe> GetRecipes()
         {
-           return _context.Recipes.Where(r => r.IsDeleted).ToList();
+           var recipe = _context.Recipes.Where(r => r.IsDeleted).ToList();
+            _log.LogInformation("Loaded {RecipeList} recipes", recipe.Count);
+            return recipe;
         }
 
         public ActionResult<Recipe> GetRecipe(int id)
@@ -49,6 +54,7 @@ namespace FirstApplication.Controllers
         [HttpGet("{controller}/Get/{id}"), EnsureRecipeExists, AddLastModifiedHeader]
         public IActionResult Get(int id)
         {
+            _log.LogInformation("getID called");
             return Ok(id);
         }
 
