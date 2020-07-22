@@ -56,6 +56,10 @@ namespace FirstApplication
                 .AddEntityFrameworkStores<AppDbContext>();
             //services.AddTransient<IEmailSender, AuthMessageSender>();
             //services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowShoppingApp", policy => policy.WithOrigins("http://shopping.com").AllowAnyMethod()); //Configureing a CORS policy to allow requests from a specific origin
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,6 +80,7 @@ namespace FirstApplication
             app.UseRouting();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseCors("AllowShoppingApp"); //Adds CORS middleware and uses AllowShopping App as the default policy
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
