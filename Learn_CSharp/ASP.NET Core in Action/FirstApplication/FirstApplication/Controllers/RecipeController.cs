@@ -25,6 +25,10 @@ namespace FirstApplication.Controllers
             _service = service;
             _log = log;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
         public int CreateRecipe(CreateRecipeCommand cmd)
         {
             var recipe = new Recipe

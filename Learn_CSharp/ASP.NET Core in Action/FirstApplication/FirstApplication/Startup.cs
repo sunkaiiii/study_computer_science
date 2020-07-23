@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using FirstApplication.Controllers;
 using FirstApplication.Entities;
 using FirstApplication.Filters;
+using FirstApplication.Middleware;
 using FirstApplication.Services;
 using FirstApplication.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing.Constraints;
@@ -42,6 +44,7 @@ namespace FirstApplication
             //this will use same instance for each request
             services.AddScoped<DataContext>();
             services.AddScoped<Repository>();
+            services.AddSingleton<RecipeService>();
             var connectString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -81,6 +84,29 @@ namespace FirstApplication
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseCors("AllowShoppingApp"); //Adds CORS middleware and uses AllowShopping App as the default policy
+            // app.Map("/ping", branch => //using the map extension to create branching middleware pipeline
+            //{
+            //    branch.Run(async (context) =>
+            //    {
+            //        context.Response.ContentType = "text/plain";
+            //        await context.Response.WriteAsync("pong");
+            //    });
+            //});
+            app.Use(async (context, next) => //Using the Use method tor replace the Map method
+            {
+                if (context.Request.Path.StartsWithSegments("/ping"))
+                {
+                    context.Response.ContentType = "text/plain";
+                    await context.Response.WriteAsync("pong");
+                }
+                else
+                {
+                    await next();
+                }
+            });
+
+            app.UseMiddleware<HeadersMiddleware>(); //add headers to a response using custom component
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

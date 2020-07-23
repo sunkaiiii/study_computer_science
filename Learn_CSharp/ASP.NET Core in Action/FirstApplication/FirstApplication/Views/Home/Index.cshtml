@@ -20,3 +20,7 @@
 <p>
     Copyright @DateTime.Now.Year &copy;
 </p>
+<footer>
+    <system-info add-machine="false" add-os="true"></system-info>
+</footer>
+@await Component.InvokeAsync("Recipes", new { numberOfRecipes = 3 })
