@@ -1,5 +1,6 @@
 ﻿using StandardLibraries;
 using System;
+using System.Linq;
 
 namespace Algorithm
 {
@@ -15,12 +16,8 @@ namespace Algorithm
         }
         static void Main(string[] args)
         {
-            Scanner scanner = new Scanner(Console.In);
-            Console.WriteLine(scanner.HasNext());
-            Console.WriteLine(scanner.ReadLong());
-            Console.WriteLine(scanner.HasNext());
-            Console.WriteLine(scanner.ReadLong());
-            Console.WriteLine(scanner.HasNext());
+            Console.WriteLine(StdIn.HasNextLine());
+            Console.WriteLine(StdIn.ReadLine());
             //Console.WriteLine(Gcd(64, 24));
         }
     }

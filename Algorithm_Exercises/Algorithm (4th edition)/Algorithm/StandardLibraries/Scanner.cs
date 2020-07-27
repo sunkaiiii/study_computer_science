@@ -1,138 +1,287 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace StandardLibraries
 {
-    public class Scanner
+    internal class Scanner
     {
         string currentWord;
+        string currentLine;
         System.IO.TextReader reader;
-        public Scanner(System.IO.TextReader reader)
+        internal Scanner(System.IO.TextReader reader)
         {
             this.reader = reader;
-            ReadNextWord();
+        }
+
+        private void ReadNextLine()
+        {
+            if(currentLine!=null)
+            {
+                return;
+            }
+            currentLine = reader.ReadLine();
         }
 
         private void ReadNextWord()
         {
+            if(currentWord!=null)
+            {
+                return;
+            }
             System.Text.StringBuilder sb = new StringBuilder();
             char nextChar;
             int next;
             do
             {
-                char peek = (char)reader.Peek();
-                while (sb.Length == 0 && (char.IsWhiteSpace(peek) || peek =='\r'||peek=='\n'||char.IsSeparator(peek)))
-                {
-                    reader.Read();
-                    peek = (char)reader.Peek();
-                }
-                    
                 next = reader.Read();
                 if (next < 0)
                     break;
                 nextChar = (char)next;
-                if (char.IsWhiteSpace(nextChar)||nextChar.ToString().Equals(Environment.NewLine))
+                if (char.IsWhiteSpace(nextChar))
                     break;
                 sb.Append(nextChar);
             } while (true);
+            while ((reader.Peek() >= 0) && (char.IsWhiteSpace((char)reader.Peek())))
+                reader.Read();
             if (sb.Length > 0)
                 currentWord = sb.ToString();
             else
                 currentWord = null;
         }
 
-        public string ReadALine()
+
+        internal bool HasNextChar()
         {
-            string currentLine;
-            try
-            {
-                currentLine = reader.ReadLine();
-            }catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                currentLine = null;
-            }
             ReadNextWord();
-            return currentLine;
+            return currentWord != null && currentWord.Length > 0 && !char.IsWhiteSpace(currentWord[0]);
         }
 
-        public bool IsEmpty()
+        internal bool HasNextLine()
+        {
+            ReadNextLine();
+            return currentLine != null;
+        }
+
+        private void ClearCache()
+        {
+            currentWord = null;
+            currentLine = null;
+        }
+
+        internal string ReadLine()
+        {
+            try
+            {
+                ReadNextLine();
+                return currentLine;
+            }
+            finally
+            {
+                ClearCache();
+            }
+        }
+
+        internal bool IsEmpty()
         {
             return reader.Peek() >= 0;
         }
 
-        public string ReadAll()
+        internal string ReadAll()
         {
+            ClearCache();
             return reader.ReadToEnd();
-            
         }
 
-        public bool HasNextInt()
+        internal bool HasNextInt()
         {
+            ReadNextWord();
             if (currentWord == null)
                 return false;
             int dummy;
             return int.TryParse(currentWord, out dummy);
         }
 
-        public int NextInt()
+        internal int ReadInt()
         {
-            ReadNextWord();
-            return int.Parse(currentWord);
+            try
+            {
+                ReadNextWord();
+                return int.Parse(currentWord);
+            }
+            finally
+            {
+                ClearCache();
+            }
+
         }
 
-        public bool HasNextDouble()
+        internal bool HasNextDouble()
         {
+            ReadNextWord();
             if (currentWord == null)
                 return false;
             double dummy;
             return double.TryParse(currentWord, out dummy);
         }
 
-        public double NextDouble()
+        internal bool HasNextLong()
         {
             ReadNextWord();
-            return double.Parse(currentWord);
+            if(currentWord==null)
+            {
+                return false;
+            }
+            long dummy;
+            return long.TryParse(currentWord, out dummy);
         }
 
-        public short ReadShort()
-        {
-            ReadNextWord();
-            return short.Parse(currentWord);
-        }
-
-        public long ReadLong()
+        internal double ReadDouble()
         {
             try
             {
+                ReadNextWord();
+                return double.Parse(currentWord);
+            }finally
+            {
+                ClearCache();
+            }
+
+        }
+
+        internal short ReadShort()
+        {
+            try
+            {
+                ReadNextWord();
+                return short.Parse(currentWord);
+            }finally
+            {
+                ClearCache();
+            }
+
+        }
+
+        internal long ReadLong()
+        {
+            try
+            {
+                ReadNextWord();
                 return long.Parse(currentWord);
+            }finally
+            {
+                ClearCache();
+            }
+
+        }
+
+        internal float ReadFloat()
+        {
+            try
+            {
+                ReadNextWord();
+                return float.Parse(currentWord);
+            }finally
+            {
+                ClearCache();
+            }
+ 
+        }
+
+        internal bool? ReadBool()
+        {
+            ReadNextWord();
+            try
+            {
+                string value = currentWord;
+                if ("true".Equals(value.ToLower())) return true;
+                if ("false".Equals(value.ToLower())) return false;
+                if ("1".Equals(value)) return true;
+                if ("0".Equals(value)) return false;
+                return null;
+            }finally
+            {
+                ClearCache();
+            }
+
+        }
+
+        internal char ReadChar()
+        {
+            ReadNextWord();
+            char returnValue = currentWord[0];
+            currentWord = new string(currentWord.ToCharArray(), 1, currentWord.ToCharArray().Length - 1);
+            return returnValue;
+        }
+
+        internal string[] ReadAllLines()
+        {
+            ClearCache();
+            List<string> result = new List<string>();
+            string line;
+            while ((line=ReadLine())!=null)
+            {
+                result.Add(line);
+            }
+            return result.ToArray() ;
+        }
+
+        internal int[] ReadInts()
+        {
+            List<int> result = new List<int>();
+            while(HasNextInt())
+            {
+                result.Add(ReadInt());
+            }
+            return result.ToArray();
+        }
+
+        internal double[] ReadDoubles()
+        {
+            List<double> result = new List<double>();
+            while(HasNextDouble())
+            {
+                result.Add(ReadDouble());
+            }
+            return result.ToArray();
+        }
+
+        internal long[] ReadLongs()
+        {
+            List<long> result = new List<long>();
+            while(HasNextLong())
+            {
+                result.Add(ReadLong());
+            }
+            return result.ToArray();
+        }
+
+        internal string[] ReadStrings()
+        {
+            List<string> result = new List<string>();
+            while(HasNext())
+            {
+                result.Add(Read());
+            }
+            return result.ToArray();
+        }
+
+        internal string Read()
+        {
+            try
+            {
+                ReadNextWord();
+                return currentWord;
             }
             finally
             {
-                ReadNextWord();
+                ClearCache();
             }
         }
-
-        public float ReadFloat()
+        internal bool HasNext()
         {
             ReadNextWord();
-            return float.Parse(currentWord);  
-        }
-
-        public bool? ReadBool()
-        {
-            ReadNextWord();
-            string value = currentWord;
-            if ("true".Equals(value.ToLower())) return true;
-            if ("false".Equals(value.ToLower())) return false;
-            if ("1".Equals(value)) return true;
-            if ("0".Equals(value)) return false;
-            return null;
-        }
-
-        public bool HasNext()
-        {
             return currentWord != null;
         }
     }

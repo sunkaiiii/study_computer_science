@@ -4,23 +4,49 @@ using System.Text.RegularExpressions;
 
 namespace StandardLibraries
 {
-    public sealed class StdIn
+    public static  class StdIn
     {
-        private static readonly string CHARSET_NAME = "UTF-8";
-        private static readonly CultureInfo LOCALE = CultureInfo.CurrentCulture;
-        private static readonly Regex EMPTY_PATTERN = new Regex("");
-        private static readonly Regex EVERYTHING_PATTERN = new Regex("\\A");
-        private static Scanner scanner;
-        
-        public static bool IsEmpty()
-        {
-            //Console.In.
-            return !scanner.HasNext();
-        }
+        private static Scanner scanner = new Scanner(Console.In);
 
-        //public static bool HasNextLine()
-       // {
-            
-       // }
+        public static bool IsEmpty()=>!scanner.HasNext();
+        
+
+        public static bool HasNextLine()=> scanner.HasNextLine();
+        
+
+        public static bool HasNextChar()=>scanner.HasNextChar();
+        
+
+        public static string ReadLine()=> scanner.ReadLine();
+  
+
+        public static char ReadChar()=> scanner.ReadChar();
+        
+
+        public static string ReadAll()=>scanner.ReadAll();
+      
+
+        public static int ReadInt() => scanner.ReadInt();
+
+        public static double ReadDouble() => scanner.ReadDouble();
+
+        public static float ReadFloat() => scanner.ReadFloat();
+
+        public static long ReadLong() => scanner.ReadLong();
+
+        public static short ReadShort() => scanner.ReadShort();
+
+        public static bool? ReadBoolean() => scanner.ReadBool();
+
+        public static string[] ReadAllStrings() => scanner.ReadStrings();
+
+        public static string[] ReadAllLines() => scanner.ReadAllLines();
+
+        public static int[] ReadAllInts() => scanner.ReadInts();
+
+        public static long[] ReadAllLongs() => scanner.ReadLongs();
+
+        public static double[] ReadAllDoubles() => scanner.ReadDoubles();
+
     }
 }
