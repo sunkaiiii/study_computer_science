@@ -1,5 +1,7 @@
-﻿using StandardLibraries;
+﻿using Chapter1;
+using StandardLibraries;
 using System;
+using System.Collections;
 using System.Linq;
 
 namespace Algorithm
@@ -14,27 +16,50 @@ namespace Algorithm
             int r = p % q;
             return Gcd(q, r);
         }
+
+        //二分查找
+        //数组必须是有序的
+        public static int Rank(int key, int[] a)
+        {
+            int lo = 0;
+            int hi = a.Length;
+            while(lo<hi)
+            {
+                int mid = lo + (hi - lo) / 2;
+                if (key < a[mid]) hi = mid - 1;
+                else if (key > a[mid]) lo = mid + 1;
+                else return mid;
+            }
+            return -1;
+        }
+
+        private static void TestRank()
+        {
+            int[] ints = StdIn.ReadAllInts();
+            Array.Sort(ints);
+            while (!StdIn.IsEmpty())
+            {
+                int key = StdIn.ReadInt();
+                if (Rank(key, ints) < 0)
+                    StdOut.Println(key); //如果不在名单里 则打印
+            }
+        }
         static void Main(string[] args)
         {
-            int n = 3;
-            double[] probabilities = { 0.5, 0.3, 0.1, 0.1 };
-            int[] frequencies = { 5, 3, 1, 1 };
-            string[] a = "A B C D E F G".Split(" ");
-
-            for (int i = 0; i < n; i++)
+            Queue<string> q = new Queue<string>();
+            Bag<string> b = new Bag<string>();
+            while (!StdIn.IsEmpty())
             {
-                StdOut.Printf("{0} ", StdRandom.Uniform(100));
-                StdOut.Printf("{0} ", StdRandom.Uniform(10.0, 99.0));
-                StdOut.Printf("{0} ", StdRandom.Bernoulli(0.5));
-                StdOut.Printf("{0} ", StdRandom.Gaussian(9.0, 0.2));
-                StdOut.Printf("{0} ", StdRandom.Discrete(probabilities));
-                StdOut.Printf("{0} ", StdRandom.Discrete(frequencies));
-                StdOut.Printf("{0} ", StdRandom.Uniform(100000));
-                StdRandom.Shuffle(a);
-                foreach (string s in a)
-                    StdOut.Print(s);
-                StdOut.Println();
+                string item = StdIn.ReadString();
+                b.Add(item);
+                if (!item.Equals("-"))
+                    q.Enqueue(item);
+                else if (!q.IsEmpty)
+                    StdOut.Print(q.Dequeue() + " ");
             }
+
+            foreach (var item in b)
+                StdOut.Print(item + " ");
         }
     }
 }

@@ -38,6 +38,8 @@ namespace StandardLibraries
 
         public static bool? ReadBoolean() => scanner.ReadBool();
 
+        public static string ReadString() => scanner.Read();
+
         public static string[] ReadAllStrings() => scanner.ReadStrings();
 
         public static string[] ReadAllLines() => scanner.ReadAllLines();
