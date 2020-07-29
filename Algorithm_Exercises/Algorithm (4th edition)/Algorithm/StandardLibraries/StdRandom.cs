@@ -8,15 +8,11 @@ namespace StandardLibraries
 {
     public static class StdRandom
     {
-        private static int seed = CurrentTimeMillis();
+        private static int seed = StopWatch.CurrentTimeMillis;
         private static Random random=new Random(seed);
-        private static readonly DateTime Jan1st1970 = new DateTime
-    (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        
 
-        public static int CurrentTimeMillis()
-        {
-            return (int)(DateTime.UtcNow - Jan1st1970).TotalMilliseconds;
-        }
+        
 
         public static void  SetSeed(int s)
         {
