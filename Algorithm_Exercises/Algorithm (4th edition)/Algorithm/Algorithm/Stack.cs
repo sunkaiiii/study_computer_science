@@ -11,6 +11,23 @@ namespace Chapter1
         private int N { get; set; }
         public bool IsEmpty { get { return first == null; } }
         public int Size { get { return N; } }
+
+        public Stack() { }
+
+        public Stack(Stack<T> oldStack)
+        {
+            T[] items = new T[oldStack.Size];
+            int index = oldStack.Size - 1;
+            while(!oldStack.IsEmpty)
+            {
+                items[index--] = oldStack.Pop();
+            }
+            foreach(var item in items)
+            {
+                oldStack.Push(item);
+                Push(item);
+            }
+        }
         
         public void Push(T item)
         {
@@ -21,7 +38,7 @@ namespace Chapter1
             N++;
         }
 
-        public T pop()
+        public T Pop()
         {
             T item = first.Item;
             first = first.Next;
@@ -36,6 +53,20 @@ namespace Chapter1
                 return first.Next.Item;
             }
             return default(T);
+        }
+
+        public void Reverse()
+        {
+            var first = this.first;
+            Node<T> reverse = null;
+            while(first != null)
+            {
+                var second = first.Next;
+                first.Next = reverse;
+                reverse = first;
+                first = second;
+            }
+            this.first = reverse;
         }
     }
 }

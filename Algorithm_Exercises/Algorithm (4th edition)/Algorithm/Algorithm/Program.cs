@@ -46,18 +46,41 @@ namespace Algorithm
         }
         static void Main(string[] args)
         {
+            Stack<string> stack = new Stack<string>();
             Queue<string> q = new Queue<string>();
             Bag<string> b = new Bag<string>();
+            Deque<string> deque = new Deque<string>();
             while (!StdIn.IsEmpty())
             {
                 string item = StdIn.ReadString();
                 b.Add(item);
+                stack.Push(item);
+                deque.PushLeft(item);
                 if (!item.Equals("-"))
                     q.Enqueue(item);
-                else if (!q.IsEmpty)
-                    StdOut.Print(q.Dequeue() + " ");
+                //else if (!q.IsEmpty)
+                    //StdOut.Print(q.Dequeue() + " ");
             }
+            
+            stack.Reverse();
+            Queue<string> q2 = new Queue<string>(q);
+            q.Reverse();
+            while (!q2.IsEmpty)
+                StdOut.Print(q2.Dequeue() + " ");
+            while (!q.IsEmpty)
+                StdOut.Print(q.Dequeue() + " ");
 
+            Stack<string> stack2 = new Stack<string>(stack);
+            while (!stack.IsEmpty)
+                StdOut.Print(stack.Pop() + " ");
+            while (!stack2.IsEmpty)
+                StdOut.Print(stack2.Pop() + " ");
+
+            StdOut.Println();
+
+            while (!deque.IsEmpty)
+                StdOut.Print(deque.PopRight() + " ");
+            StdOut.Println();
             foreach (var item in b)
                 StdOut.Print(item + " ");
         }

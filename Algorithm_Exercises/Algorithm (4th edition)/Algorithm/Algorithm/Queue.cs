@@ -11,6 +11,23 @@ namespace Chapter1
         private int N { get; set; }
         public bool IsEmpty { get { return N == 0; } }
         public int Size { get { return N; } }
+
+        public Queue() { }
+        public Queue(Queue<T> oldQeue)
+        {
+            T[] nodes = new T[oldQeue.Size];
+            int index = 0;
+            while(!oldQeue.IsEmpty)
+            {
+                var current = oldQeue.Dequeue();
+                nodes[index++] = current;
+            }
+            foreach(var node in nodes)
+            {
+                oldQeue.Enqueue(node);
+                Enqueue(node);
+            }
+        }
         
         public void Enqueue(T item)
         {
@@ -33,6 +50,21 @@ namespace Chapter1
                 last = null;
             N--;
             return item;
+        }
+
+        public void Reverse()
+        {
+            var first = this.first;
+            last = this.first;
+            Node<T> reverse = null;
+            while (first != null)
+            {
+                var second = first.Next;
+                first.Next = reverse;
+                reverse = first;
+                first = second;
+            }
+            this.first = reverse;
         }
     }
 }
