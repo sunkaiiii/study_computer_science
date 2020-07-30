@@ -8,7 +8,7 @@ namespace StandardLibraries
 {
     public static class StdRandom
     {
-        private static int seed = StopWatch.CurrentTimeMillis;
+        private static int seed = (int)(StopWatch.CurrentTimeMillis%int.MaxValue);
         private static Random random=new Random(seed);
         
 

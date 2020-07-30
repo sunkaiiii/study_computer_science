@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter1", "Algorithm\Chapt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardLibraries", "StandardLibraries\StandardLibraries.csproj", "{3ACC8C4B-4CF1-4336-91B1-F8C0AE56CAE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter2", "Chapter2\Chapter2.csproj", "{5DEAEABA-6FB8-4B19-B886-CC97FDB6468C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3ACC8C4B-4CF1-4336-91B1-F8C0AE56CAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ACC8C4B-4CF1-4336-91B1-F8C0AE56CAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ACC8C4B-4CF1-4336-91B1-F8C0AE56CAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DEAEABA-6FB8-4B19-B886-CC97FDB6468C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DEAEABA-6FB8-4B19-B886-CC97FDB6468C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DEAEABA-6FB8-4B19-B886-CC97FDB6468C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DEAEABA-6FB8-4B19-B886-CC97FDB6468C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
