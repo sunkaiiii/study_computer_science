@@ -77,9 +77,73 @@ namespace Chapter2
                 h /= 3;
             }
         }
-        public static double Time<T>(AlgorithmOptions options, ref T[] a) where T : IComparable<T>
+
+        public static void MergeSort<T>(ref T[] a)where T: IComparable<T>
+        {
+            T[] aux =new T[a.Length];
+            MergeSort(ref a, ref aux, 0, a.Length-1);
+        }
+
+        private static void MergeSort<T>(ref T[] a, ref T[] aux, int lo, int hi) where T : IComparable<T>
+        {
+            if (hi<=lo)
+                return;
+            int mid = lo + (hi - lo) / 2;
+            MergeSort(ref a,ref aux, lo, mid);
+            MergeSort(ref a, ref aux, mid+1, hi);
+            Merge(ref a, ref aux, lo, mid, hi);
+
+        }
+
+        private static void MergeSortNonRecursive<T>(ref T[] a)where T:IComparable<T>
+        {
+            int N = a.Length;
+            T[] aux = new T[a.Length];
+            for (int sz = 1; sz < N; sz = sz + sz) //子数组大小
+                for (int lo = 0; lo < N - sz; lo += sz + sz) //子数组索引
+                    Merge(ref a, ref aux, lo, lo + sz - 1, Math.Min(lo + sz + sz - 1, N - 1));
+         }
+
+        private static void ImprovedMerge<T>(ref T[] a) where T:IComparable<T>
+        {
+            T[] aux = new T[a.Length];
+            ImprovedMerge(ref a, ref aux, 0, a.Length - 1);
+        }
+
+        private static void ImprovedMerge<T>(ref T[] a, ref T[] aux, int lo, int hi) where T : IComparable<T>
+        {
+            if (hi <= lo)
+                return;
+            int mid = lo + (hi - lo) / 2;
+            ImprovedMerge(ref a, ref aux, lo, mid);
+            ImprovedMerge(ref a, ref aux, mid + 1, hi);
+            if (a[mid].CompareTo(a[mid + 1]) <= 0) //当[mid]小于等于a[mid+1]的时候，可以认为数组已经有序了，跳过merge方法
+                return;
+            Merge(ref a, ref aux, lo, mid, hi);
+        }
+
+        private static void Merge<T>(ref T[] a, ref T[] aux, int lo, int mid, int hi) where T : IComparable<T>
+        {
+            int i = lo;
+            int j = mid + 1;
+            for (int k = lo; k <= hi; k++) //区间的所有元素a[lo..hi]复制到[lo..hi]
+                aux[k] = a[k];
+            for (int k = lo; k <= hi; k++) //归并到a[lo..hi]
+                if (i > mid) //左边条件用完
+                    a[k] = aux[j++];
+                else if (j > hi) //右边条件用完
+                    a[k] = aux[i++];
+                else if (Less(aux[j], aux[i])) //右边小 
+                    a[k] = aux[j++];
+                else //左边小
+                    a[k] = aux[i++];
+        }
+
+        public static double Time<T>(AlgorithmOptions options, ref T[] a,bool showResult) where T : IComparable<T>
         {
             StopWatch stopWatch = new StopWatch();
+            if(showResult)
+                Show(a);
             switch(options)
             {
                 case AlgorithmOptions.Insertion:
@@ -91,11 +155,22 @@ namespace Chapter2
                 case AlgorithmOptions.Shell:
                     ShellSort(ref a);
                     break;
+                case AlgorithmOptions.Merge:
+                    MergeSort(ref a);
+                    break;
+                case AlgorithmOptions.NonRecursiveMerge:
+                    MergeSortNonRecursive(ref a);
+                    break;
+                case AlgorithmOptions.ImprovedMerge:
+                    ImprovedMerge(ref a);
+                    break;
             }
+            if(showResult)
+                Show(a);
             return stopWatch.ElapsedTime;
         }
 
-        public static double TimeRandomInput(AlgorithmOptions options, int N, int T)
+        public static double TimeRandomInput(AlgorithmOptions options, int N, int T,bool showResult=false)
         {
             double total = 0.0;
             double[] a = new double[N];
@@ -104,7 +179,7 @@ namespace Chapter2
                 //进行一次测试
                 for (int i = 0; i < N; ++i)
                     a[i] = StdRandom.Uniform();
-                total += Time(options, ref a);
+                total += Time(options, ref a,showResult);
             }
             return total;
         }

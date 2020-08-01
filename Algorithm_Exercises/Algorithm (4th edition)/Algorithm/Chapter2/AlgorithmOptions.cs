@@ -7,6 +7,8 @@ namespace Chapter2
         Selection,
         Shell,
         Merge,
+        NonRecursiveMerge,
+        ImprovedMerge,
         Quick,
         Heap
     }

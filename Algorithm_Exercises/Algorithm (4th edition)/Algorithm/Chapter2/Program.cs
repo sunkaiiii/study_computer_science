@@ -7,9 +7,12 @@ namespace Chapter2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Insertion, 30000, 3));
-            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Selection, 30000, 3));
-            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Shell, 30000, 3));
+            //Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Insertion, 30000, 3));
+            //Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Selection, 30000, 3));
+            //Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Shell, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Merge, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.ImprovedMerge, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.NonRecursiveMerge, 3000000, 3));
         }
     }
 }
