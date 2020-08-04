@@ -279,6 +279,9 @@ namespace Chapter2
                 case AlgorithmOptions.Heap:
                     HeapSort(ref a);
                     break;
+                case AlgorithmOptions.System:
+                    Array.Sort(a);
+                    break;
             }
             if (showResult)
                 Show(a);

@@ -18,21 +18,21 @@ namespace Chapter2
             Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.ImprovedQuick, 3000000, 3));
             Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.ImprovedThreeWayQuick, 3000000, 3));
             Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Heap, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.System, 3000000, 3));
+            //int M = StdIn.ReadInt();
+            //MaxPQ<int> qp = new MaxPQ<int>(M + 1);
+            //while (!StdIn.IsEmpty())
+            //{
+            //    qp.Insert(StdIn.ReadInt());
+            //    if (qp.Size > M)
+            //        qp.Delete();
+            //}
 
-            int M = StdIn.ReadInt();
-            MaxPQ<int> qp = new MaxPQ<int>(M + 1);
-            while (!StdIn.IsEmpty())
-            {
-                qp.Insert(StdIn.ReadInt());
-                if (qp.Size > M)
-                    qp.Delete();
-            }
-
-            Stack<int> stack = new Stack<int>();
-            while (!qp.IsEmpty)
-                stack.Push(qp.Delete());
-            while (!stack.IsEmpty)
-                StdOut.Println(stack.Pop());
+            //Stack<int> stack = new Stack<int>();
+            //while (!qp.IsEmpty)
+            //    stack.Push(qp.Delete());
+            //while (!stack.IsEmpty)
+            //    StdOut.Println(stack.Pop());
         }
     }
 }

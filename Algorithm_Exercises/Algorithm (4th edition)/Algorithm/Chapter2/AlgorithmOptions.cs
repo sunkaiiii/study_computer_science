@@ -12,6 +12,7 @@ namespace Chapter2
         Quick,
         Heap,
         ImprovedQuick,
-        ImprovedThreeWayQuick
+        ImprovedThreeWayQuick,
+        System
     }
 }
