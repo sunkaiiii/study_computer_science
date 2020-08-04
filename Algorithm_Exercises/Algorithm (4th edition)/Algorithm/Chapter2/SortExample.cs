@@ -8,23 +8,23 @@ namespace Chapter2
 {
     public static class SortExample
     {
-        private static bool Less<T>(T v, T w) where T:IComparable<T> => v.CompareTo(w) < 0;
+        private static bool Less<T>(T v, T w) where T : IComparable<T> => v.CompareTo(w) < 0;
 
-        private static void Exchange<T>(ref T[] a, int i, int j)where T:IComparable<T>
+        private static void Exchange<T>(ref T[] a, int i, int j) where T : IComparable<T>
         {
             var t = a[i];
             a[i] = a[j];
             a[j] = t;
         }
 
-        public static void Show<T>(T[] a)where T:IComparable<T>
+        public static void Show<T>(T[] a) where T : IComparable<T>
         {
             foreach (var item in a)
                 StdOut.Print(item + " ");
             StdOut.Println();
         }
 
-        public static bool IsSorted<T>(T[] a) where T:IComparable<T>
+        public static bool IsSorted<T>(T[] a) where T : IComparable<T>
         {
             for (int i = 1; i > a.Length; i++)
                 if (Less(a[i], a[i - 1]))
@@ -37,10 +37,10 @@ namespace Chapter2
         private static void SelectedSort<T>(ref T[] a) where T : IComparable<T>
         {
             int N = a.Length;
-            for(int i=0;i<N;++i)
+            for (int i = 0; i < N; ++i)
             {
                 int min = i;
-                for(int j=i+1;j<N;++j)
+                for (int j = i + 1; j < N; ++j)
                 {
                     if (Less(a[j], a[min]))
                         min = j;
@@ -53,33 +53,33 @@ namespace Chapter2
         private static void InsertionSort<T>(ref T[] a) where T : IComparable<T>
         {
             int N = a.Length;
-            for(int i=1;i<N;++i)
+            for (int i = 1; i < N; ++i)
             {
                 for (int j = i; j > 0 && Less(a[j], a[j - 1]); --j)
                     Exchange(ref a, j, j - 1);
             }
         }
 
-        private static void InsertionSort<T>(ref T[] a,int lo,int hi) where T : IComparable<T>
+        private static void InsertionSort<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
         {
             int N = hi;
-            for (int i = lo+1; i < hi; ++i)
+            for (int i = lo + 1; i < hi; ++i)
             {
                 for (int j = i; j > lo && Less(a[j], a[j - 1]); --j)
                     Exchange(ref a, j, j - 1);
             }
         }
 
-        public static void ShellSort<T>(ref T[] a) where T:IComparable<T>
+        public static void ShellSort<T>(ref T[] a) where T : IComparable<T>
         {
             int N = a.Length;
             int h = 1;
-            while(h<N/3)
+            while (h < N / 3)
                 h = 3 * h + 1;//确定小数组的规模
-            while(h>=1)
+            while (h >= 1)
             {
                 //将数组按照不同的规模和间隔 部分有序
-                for(int i=h;i<N;++i)
+                for (int i = h; i < N; ++i)
                 {
                     //将a[i]插入到a[i-h],a[i-2*h]之中
                     for (int j = i; j >= h && Less(a[j], a[j - h]); j -= h)
@@ -89,33 +89,33 @@ namespace Chapter2
             }
         }
 
-        public static void MergeSort<T>(ref T[] a)where T: IComparable<T>
+        public static void MergeSort<T>(ref T[] a) where T : IComparable<T>
         {
-            T[] aux =new T[a.Length];
-            MergeSort(ref a, ref aux, 0, a.Length-1);
+            T[] aux = new T[a.Length];
+            MergeSort(ref a, ref aux, 0, a.Length - 1);
         }
 
         private static void MergeSort<T>(ref T[] a, ref T[] aux, int lo, int hi) where T : IComparable<T>
         {
-            if (hi<=lo)
+            if (hi <= lo)
                 return;
             int mid = lo + (hi - lo) / 2;
-            MergeSort(ref a,ref aux, lo, mid);
-            MergeSort(ref a, ref aux, mid+1, hi);
+            MergeSort(ref a, ref aux, lo, mid);
+            MergeSort(ref a, ref aux, mid + 1, hi);
             Merge(ref a, ref aux, lo, mid, hi);
 
         }
 
-        private static void MergeSortNonRecursive<T>(ref T[] a)where T:IComparable<T>
+        private static void MergeSortNonRecursive<T>(ref T[] a) where T : IComparable<T>
         {
             int N = a.Length;
             T[] aux = new T[a.Length];
             for (int sz = 1; sz < N; sz = sz + sz) //子数组大小
                 for (int lo = 0; lo < N - sz; lo += sz + sz) //子数组索引
                     Merge(ref a, ref aux, lo, lo + sz - 1, Math.Min(lo + sz + sz - 1, N - 1));
-         }
+        }
 
-        private static void ImprovedMerge<T>(ref T[] a) where T:IComparable<T>
+        private static void ImprovedMerge<T>(ref T[] a) where T : IComparable<T>
         {
             T[] aux = new T[a.Length];
             ImprovedMerge(ref a, ref aux, 0, a.Length - 1);
@@ -133,7 +133,7 @@ namespace Chapter2
             Merge(ref a, ref aux, lo, mid, hi);
         }
 
-        private static void QuickSort<T>(ref T[] a) where T:IComparable<T>
+        private static void QuickSort<T>(ref T[] a) where T : IComparable<T>
         {
             StdRandom.Shuffle(ref a); //消除对于输入的依赖
             QuickSort(ref a, 0, a.Length - 1);
@@ -144,19 +144,19 @@ namespace Chapter2
             if (hi <= lo)
                 return;
             int j = Partitioner(ref a, lo, hi); //切分
-            QuickSort(ref a, lo, j-1); //左半部分排序
-            QuickSort(ref a, j +1, hi); //右半部分排序
+            QuickSort(ref a, lo, j - 1); //左半部分排序
+            QuickSort(ref a, j + 1, hi); //右半部分排序
         }
 
         private static void ImprovedQuickSort<T>(ref T[] a) where T : IComparable<T>
         {
             StdRandom.Shuffle(ref a);
-            ImprovedQuickSort(ref a,0, a.Length - 1);
+            ImprovedQuickSort(ref a, 0, a.Length - 1);
         }
-        private static void ImprovedQuickSort<T>(ref T[] a,int lo,int hi) where T : IComparable<T>
+        private static void ImprovedQuickSort<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
         {
-             int M = 10; //选择小数组的大小，一般5-15都可以做到比较令人满意的提升
-            if(hi<=lo+M)
+            int M = 10; //选择小数组的大小，一般5-15都可以做到比较令人满意的提升
+            if (hi <= lo + M)
             {
                 InsertionSort(ref a, lo, hi); //排序小数组，应该使用插入排序
                 return;
@@ -165,17 +165,17 @@ namespace Chapter2
             ImprovedQuickSort(ref a, lo, j - 1); //左半部分排序
             ImprovedQuickSort(ref a, j + 1, hi); //右半部分排序
         }
-        private static void ImprovedThreeWayQuickSort<T>(ref T[] a)where T:IComparable<T>
+        private static void ImprovedThreeWayQuickSort<T>(ref T[] a) where T : IComparable<T>
         {
             StdRandom.Shuffle(ref a);
             ImprovedThreeWayQuickSort(ref a, 0, a.Length - 1);
         }
-        private static void ImprovedThreeWayQuickSort<T>(ref T[] a, int lo,int hi)where T:IComparable<T>
+        private static void ImprovedThreeWayQuickSort<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
         {
-            int M = 10; 
+            int M = 10;
             if (hi <= lo + M)
             {
-                InsertionSort(ref a, lo, hi); 
+                InsertionSort(ref a, lo, hi);
                 return;
             }
             //三向切分快速排序,对于大量重复的数组元素，这个效率快很多
@@ -199,7 +199,7 @@ namespace Chapter2
             int i = lo;
             int j = hi + 1; //左右扫描的指针
             T v = a[lo]; //切分元素
-            while(true)
+            while (true)
             {
                 //扫描左右，检查扫描是否结束并交换元素
                 while (Less(a[++i], v))
@@ -233,12 +233,21 @@ namespace Chapter2
                     a[k] = aux[i++];
         }
 
-        public static double Time<T>(AlgorithmOptions options, ref T[] a,bool showResult) where T : IComparable<T>
+        public static void HeapSort<T>(ref T[] a) where T : IComparable<T>
+        {
+            MaxPQ<T> maxPQ = new MaxPQ<T>(a);
+            maxPQ.Sort();
+            T[] pq = maxPQ.Get();
+            for (int i = 1; i < pq.Length; i++)
+                a[i - 1] = pq[i];
+        }
+
+        public static double Time<T>(AlgorithmOptions options, ref T[] a, bool showResult) where T : IComparable<T>
         {
             StopWatch stopWatch = new StopWatch();
-            if(showResult)
+            if (showResult)
                 Show(a);
-            switch(options)
+            switch (options)
             {
                 case AlgorithmOptions.Insertion:
                     InsertionSort(ref a);
@@ -267,22 +276,26 @@ namespace Chapter2
                 case AlgorithmOptions.ImprovedThreeWayQuick:
                     ImprovedThreeWayQuickSort(ref a);
                     break;
+                case AlgorithmOptions.Heap:
+                    HeapSort(ref a);
+                    break;
             }
-            if(showResult)
+            if (showResult)
                 Show(a);
             return stopWatch.ElapsedTime;
         }
 
-        public static double TimeRandomInput(AlgorithmOptions options, int N, int T,bool showResult=false)
+        public static double TimeRandomInput(AlgorithmOptions options, int N, int T, bool showResult = false)
         {
+            StdOut.Print("Algorithm: " + options.ToString() + " "+"Sorting "+N+" number for "+T+" times ");
             double total = 0.0;
             double[] a = new double[N];
-            for(int t=0;t<T;++t)
+            for (int t = 0; t < T; ++t)
             {
                 //进行一次测试
                 for (int i = 0; i < N; ++i)
                     a[i] = StdRandom.Uniform();
-                total += Time(options, ref a,showResult);
+                total += Time(options, ref a, showResult);
             }
             return total;
         }
