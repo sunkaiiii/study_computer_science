@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using StandardLibraries;
@@ -55,6 +56,16 @@ namespace Chapter2
             for(int i=1;i<N;++i)
             {
                 for (int j = i; j > 0 && Less(a[j], a[j - 1]); --j)
+                    Exchange(ref a, j, j - 1);
+            }
+        }
+
+        private static void InsertionSort<T>(ref T[] a,int lo,int hi) where T : IComparable<T>
+        {
+            int N = hi;
+            for (int i = lo+1; i < hi; ++i)
+            {
+                for (int j = i; j > lo && Less(a[j], a[j - 1]); --j)
                     Exchange(ref a, j, j - 1);
             }
         }
@@ -122,6 +133,89 @@ namespace Chapter2
             Merge(ref a, ref aux, lo, mid, hi);
         }
 
+        private static void QuickSort<T>(ref T[] a) where T:IComparable<T>
+        {
+            StdRandom.Shuffle(ref a); //消除对于输入的依赖
+            QuickSort(ref a, 0, a.Length - 1);
+        }
+
+        private static void QuickSort<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
+        {
+            if (hi <= lo)
+                return;
+            int j = Partitioner(ref a, lo, hi); //切分
+            QuickSort(ref a, lo, j-1); //左半部分排序
+            QuickSort(ref a, j +1, hi); //右半部分排序
+        }
+
+        private static void ImprovedQuickSort<T>(ref T[] a) where T : IComparable<T>
+        {
+            StdRandom.Shuffle(ref a);
+            ImprovedQuickSort(ref a,0, a.Length - 1);
+        }
+        private static void ImprovedQuickSort<T>(ref T[] a,int lo,int hi) where T : IComparable<T>
+        {
+             int M = 10; //选择小数组的大小，一般5-15都可以做到比较令人满意的提升
+            if(hi<=lo+M)
+            {
+                InsertionSort(ref a, lo, hi); //排序小数组，应该使用插入排序
+                return;
+            }
+            int j = Partitioner(ref a, lo, hi); //切分
+            ImprovedQuickSort(ref a, lo, j - 1); //左半部分排序
+            ImprovedQuickSort(ref a, j + 1, hi); //右半部分排序
+        }
+        private static void ImprovedThreeWayQuickSort<T>(ref T[] a)where T:IComparable<T>
+        {
+            StdRandom.Shuffle(ref a);
+            ImprovedThreeWayQuickSort(ref a, 0, a.Length - 1);
+        }
+        private static void ImprovedThreeWayQuickSort<T>(ref T[] a, int lo,int hi)where T:IComparable<T>
+        {
+            int M = 10; 
+            if (hi <= lo + M)
+            {
+                InsertionSort(ref a, lo, hi); 
+                return;
+            }
+            //三向切分快速排序,对于大量重复的数组元素，这个效率快很多
+            int lt = lo, i = lo + 1, gt = hi;
+            T v = a[lo];
+            while (i <= gt)
+            {
+                int cmp = a[i].CompareTo(v);
+                if (cmp < 0)
+                    Exchange(ref a, lt++, i++);
+                else if (cmp > 0)
+                    Exchange(ref a, i, gt--);
+                else
+                    i++;
+            }
+            ImprovedThreeWayQuickSort(ref a, lo, lt - 1);
+            ImprovedThreeWayQuickSort(ref a, gt + 1, hi);
+        }
+        private static int Partitioner<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
+        {
+            int i = lo;
+            int j = hi + 1; //左右扫描的指针
+            T v = a[lo]; //切分元素
+            while(true)
+            {
+                //扫描左右，检查扫描是否结束并交换元素
+                while (Less(a[++i], v))
+                    if (i == hi)
+                        break;
+                while (Less(v, a[--j]))
+                    if (j == lo)
+                        break;
+                if (i >= j)
+                    break;
+                Exchange(ref a, i, j);
+            }
+            Exchange(ref a, lo, j); //将v=a[j]放入正确的位置
+            return j;
+        }
+
         private static void Merge<T>(ref T[] a, ref T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
             int i = lo;
@@ -163,6 +257,15 @@ namespace Chapter2
                     break;
                 case AlgorithmOptions.ImprovedMerge:
                     ImprovedMerge(ref a);
+                    break;
+                case AlgorithmOptions.Quick:
+                    QuickSort(ref a);
+                    break;
+                case AlgorithmOptions.ImprovedQuick:
+                    ImprovedQuickSort(ref a);
+                    break;
+                case AlgorithmOptions.ImprovedThreeWayQuick:
+                    ImprovedThreeWayQuickSort(ref a);
                     break;
             }
             if(showResult)

@@ -114,7 +114,18 @@ namespace StandardLibraries
 
         public static double Exp(double lambda) => -Math.Log(1 - Uniform()) / lambda;
 
-        public static void Shuffle(object[] a)
+        public static void Shuffle<T>(ref T[] a)
+        {
+            int n = a.Length;
+            for(int i=0;i<n;i++)
+            {
+                int r = i + Uniform(n - i);
+                T temp = a[i];
+                a[i] = a[r];
+                a[r] = temp;
+            }
+        }
+        public static void Shuffle(ref object[] a)
         {
             ValidateNotNull(a);
             int n = a.Length;
@@ -126,7 +137,7 @@ namespace StandardLibraries
                 a[r] = temp;
             }
         }
-        public static void Shuffle(double[] a)
+        public static void Shuffle(ref double[] a)
         {
             ValidateNotNull(a);
             int n = a.Length;
@@ -139,7 +150,7 @@ namespace StandardLibraries
             }
         }
 
-        public static void Shuffle(int[] a)
+        public static void Shuffle(ref int[] a)
         {
             ValidateNotNull(a);
             int n = a.Length;
@@ -152,7 +163,7 @@ namespace StandardLibraries
             }
         }
 
-        public static void Shuffle(char[] a)
+        public static void Shuffle(ref char[] a)
         {
             ValidateNotNull(a);
             int n = a.Length;
@@ -165,7 +176,7 @@ namespace StandardLibraries
             }
         }
 
-        public static void Shuffle(object[] a, int lo, int hi)
+        public static void Shuffle(ref object[] a, int lo, int hi)
         {
             ValidateNotNull(a);
             ValidateSubarrayIndices(lo, hi, a.Length);
@@ -179,7 +190,7 @@ namespace StandardLibraries
             }
         }
 
-        public static void Shuffle(double[] a, int lo, int hi)
+        public static void Shuffle(ref double[] a, int lo, int hi)
         {
             ValidateNotNull(a);
             ValidateSubarrayIndices(lo, hi, a.Length);
@@ -193,7 +204,7 @@ namespace StandardLibraries
             }
         }
 
-        public static void Shuffle(int[] a, int lo, int hi)
+        public static void Shuffle(ref int[] a, int lo, int hi)
         {
             ValidateNotNull(a);
             ValidateSubarrayIndices(lo, hi, a.Length);
@@ -212,7 +223,7 @@ namespace StandardLibraries
             int[] perm = new int[n];
             for (int i = 0; i < n; i++)
                 perm[i] = i;
-            Shuffle(perm);
+            Shuffle(ref perm);
             return perm;
         }
 

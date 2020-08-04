@@ -10,6 +10,8 @@ namespace Chapter2
         NonRecursiveMerge,
         ImprovedMerge,
         Quick,
-        Heap
+        Heap,
+        ImprovedQuick,
+        ImprovedThreeWayQuick
     }
 }

@@ -13,6 +13,9 @@ namespace Chapter2
             Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Merge, 3000000, 3));
             Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.ImprovedMerge, 3000000, 3));
             Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.NonRecursiveMerge, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.Quick, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.ImprovedQuick, 3000000, 3));
+            Console.WriteLine(SortExample.TimeRandomInput(AlgorithmOptions.ImprovedThreeWayQuick, 3000000, 3));
         }
     }
 }
