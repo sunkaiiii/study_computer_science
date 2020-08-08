@@ -5,12 +5,12 @@ using System.Text;
 
 namespace StandardLibraries
 {
-    internal class Scanner
+    public class Scanner
     {
         string currentWord;
         string currentLine;
         System.IO.TextReader reader;
-        internal Scanner(System.IO.TextReader reader)
+        public Scanner(System.IO.TextReader reader)
         {
             this.reader = reader;
         }
@@ -52,13 +52,13 @@ namespace StandardLibraries
         }
 
 
-        internal bool HasNextChar()
+        public bool HasNextChar()
         {
             ReadNextWord();
             return currentWord != null && currentWord.Length > 0 && !char.IsWhiteSpace(currentWord[0]);
         }
 
-        internal bool HasNextLine()
+        public bool HasNextLine()
         {
             ReadNextLine();
             return currentLine != null;
@@ -70,7 +70,7 @@ namespace StandardLibraries
             currentLine = null;
         }
 
-        internal string ReadLine()
+        public string ReadLine()
         {
             try
             {
@@ -83,18 +83,18 @@ namespace StandardLibraries
             }
         }
 
-        internal bool IsEmpty()
+        public bool IsEmpty()
         {
             return reader.Peek() >= 0;
         }
 
-        internal string ReadAll()
+        public string ReadAll()
         {
             ClearCache();
             return reader.ReadToEnd();
         }
 
-        internal bool HasNextInt()
+        public bool HasNextInt()
         {
             ReadNextWord();
             if (currentWord == null)
@@ -103,7 +103,7 @@ namespace StandardLibraries
             return int.TryParse(currentWord, out dummy);
         }
 
-        internal int ReadInt()
+        public int ReadInt()
         {
             try
             {
@@ -117,7 +117,7 @@ namespace StandardLibraries
 
         }
 
-        internal bool HasNextDouble()
+        public bool HasNextDouble()
         {
             ReadNextWord();
             if (currentWord == null)
@@ -126,7 +126,7 @@ namespace StandardLibraries
             return double.TryParse(currentWord, out dummy);
         }
 
-        internal bool HasNextLong()
+        public bool HasNextLong()
         {
             ReadNextWord();
             if(currentWord==null)
@@ -137,7 +137,7 @@ namespace StandardLibraries
             return long.TryParse(currentWord, out dummy);
         }
 
-        internal double ReadDouble()
+        public double ReadDouble()
         {
             try
             {
@@ -150,7 +150,7 @@ namespace StandardLibraries
 
         }
 
-        internal short ReadShort()
+        public short ReadShort()
         {
             try
             {
@@ -163,7 +163,7 @@ namespace StandardLibraries
 
         }
 
-        internal long ReadLong()
+        public long ReadLong()
         {
             try
             {
@@ -176,7 +176,7 @@ namespace StandardLibraries
 
         }
 
-        internal float ReadFloat()
+        public float ReadFloat()
         {
             try
             {
@@ -189,7 +189,7 @@ namespace StandardLibraries
  
         }
 
-        internal bool? ReadBool()
+        public bool? ReadBool()
         {
             ReadNextWord();
             try
@@ -207,7 +207,7 @@ namespace StandardLibraries
 
         }
 
-        internal char ReadChar()
+        public char ReadChar()
         {
             ReadNextWord();
             char returnValue = currentWord[0];
@@ -215,7 +215,7 @@ namespace StandardLibraries
             return returnValue;
         }
 
-        internal string[] ReadAllLines()
+        public string[] ReadAllLines()
         {
             ClearCache();
             List<string> result = new List<string>();
@@ -227,7 +227,7 @@ namespace StandardLibraries
             return result.ToArray() ;
         }
 
-        internal int[] ReadInts()
+        public int[] ReadInts()
         {
             List<int> result = new List<int>();
             while(HasNextInt())
@@ -237,7 +237,7 @@ namespace StandardLibraries
             return result.ToArray();
         }
 
-        internal double[] ReadDoubles()
+        public double[] ReadDoubles()
         {
             List<double> result = new List<double>();
             while(HasNextDouble())
@@ -247,7 +247,7 @@ namespace StandardLibraries
             return result.ToArray();
         }
 
-        internal long[] ReadLongs()
+        public long[] ReadLongs()
         {
             List<long> result = new List<long>();
             while(HasNextLong())
@@ -257,7 +257,7 @@ namespace StandardLibraries
             return result.ToArray();
         }
 
-        internal string[] ReadStrings()
+        public string[] ReadStrings()
         {
             List<string> result = new List<string>();
             while(HasNext())
@@ -267,7 +267,7 @@ namespace StandardLibraries
             return result.ToArray();
         }
 
-        internal string Read()
+        public string Read()
         {
             try
             {
@@ -279,7 +279,7 @@ namespace StandardLibraries
                 ClearCache();
             }
         }
-        internal bool HasNext()
+        public bool HasNext()
         {
             ReadNextWord();
             return currentWord != null;

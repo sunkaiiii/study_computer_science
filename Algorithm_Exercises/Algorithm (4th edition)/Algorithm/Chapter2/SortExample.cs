@@ -302,5 +302,22 @@ namespace Chapter2
             }
             return total;
         }
+
+        //找到一组数组中的第k小元素
+        //线性时间
+        public static T Select<T>(ref T[] a, int k)where T: IComparable<T>
+        {
+            StdRandom.Shuffle(ref a);
+            int lo = 0, hi = a.Length - 1;
+            while(hi>lo)
+            {
+                int j = Partitioner(ref a, lo, hi);
+                if (j == k) //如果切分正合适，问题解决
+                    return a[k];
+                else if (j > k) hi = j - 1; //需要继续切分左子数组
+                else if (j < k) lo = j + 1; //需要继续切分右子数组
+            }
+            return a[k];
+        }
     }
 }
