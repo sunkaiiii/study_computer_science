@@ -8,20 +8,9 @@ namespace Chapter3
     {
         void Put(Key key, Value value);
         Value Get(Key key);
-        void Delete(Key key)
-        {
-            Put(key, default(Value)); //延迟删除的默认实现
-        }
-        bool Contains(Key key)
-        {
-            return Get(key) != null;
-        }
-        bool IsEmpty { get
-            {
-                return Size == 0;
-            }
-        }
-        int Size { get; }
         IEnumerable<Key> Keys();
+        bool Contains(Key key);
+        void Delete(Key key);
+        bool IsEmpty { get; }
     }
 }

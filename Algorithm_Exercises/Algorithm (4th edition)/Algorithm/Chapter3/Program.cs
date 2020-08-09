@@ -7,31 +7,7 @@ using System.Linq;
 namespace Chapter3
 {
     class Program
-    {
-
-        void SequantialSearchST()
-        {
-            var file = File.OpenRead("tale.txt");
-            Scanner scanner = new Scanner(new StreamReader(file));
-            ISearchTable<string, int> dic = new SequantialSearchST<string, int>();
-            StopWatch stopWatch = new StopWatch();
-            while (scanner.HasNext())
-            {
-                var word = scanner.Read();
-                //if (word.Length <= 4)
-                //    continue;
-                if (!dic.Contains(word))
-                    dic.Put(word, 1);
-                else
-                    dic.Put(word, dic.Get(word) + 1);
-            }
-            Console.WriteLine(stopWatch.ElapsedTime);
-            foreach(string s in dic.Keys())
-            {
-                //StdOut.Println(s);
-            }
-        }
-
+    { 
         void FrequencyCounter()
         {
            ISearchTable<string, int> searchTable = null;
@@ -62,7 +38,8 @@ namespace Chapter3
         }
         static void Main(string[] args)
         {
-            new Program().SequantialSearchST();
+            StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.SequantialST));
+            StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.BinarySearchST));
         }
     }
 }

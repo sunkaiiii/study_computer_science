@@ -9,6 +9,9 @@ namespace Chapter3
     {
         private Node first;
         public int Size { get; private set; } = 0;
+
+        public bool IsEmpty => Size == 0;
+
         class Node
         {
             public Key Key { get; set; }
@@ -102,6 +105,16 @@ namespace Chapter3
             }
             first = new Node(key, value, first); //未命中，创建新节点
             Size++;
+        }
+
+        public bool Contains(Key key)
+        {
+            return Get(key) != null;
+        }
+
+        public void Delete(Key key)
+        {
+            Put(key, default(Value)); //延迟删除的默认实现
         }
     }
 }
