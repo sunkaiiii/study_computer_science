@@ -38,8 +38,9 @@ namespace Chapter3
         }
         static void Main(string[] args)
         {
-            StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.SequantialST));
-            StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.BinarySearchST));
+            //StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.SequantialST));
+           // StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.BinarySearchST));
+            StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.BST,true));
         }
     }
 }

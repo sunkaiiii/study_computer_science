@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Chapter1
 {
-    public class Queue<T>
+    public class Queue<T>: IEnumerable<T>
     {
         private Node<T> first;
         private Node<T> last;
@@ -65,6 +66,53 @@ namespace Chapter1
                 first = second;
             }
             this.first = reverse;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new QueueEnumerator<T>(first, last);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new QueueEnumerator<T>(first, last);
+        }
+
+        private class QueueEnumerator<T>:IEnumerator<T>
+        {
+            private Node<T> first;
+            private Node<T> current;
+            private Node<T> last;
+            public QueueEnumerator(Node<T> first, Node<T> last)
+            {
+                this.first = first;
+                this.last = last;
+            }
+
+            public T Current => current.Item;
+
+            object IEnumerator.Current => current.Item;
+
+            public void Dispose()
+            {
+                first = null;
+                current = null;
+                last = null;
+            }
+
+            public bool MoveNext()
+            {
+                if (current == null)
+                    current = first;
+                else
+                    current = current.Next;
+                return current != last;
+            }
+
+            public void Reset()
+            {
+                current = first;
+            }
         }
     }
 }

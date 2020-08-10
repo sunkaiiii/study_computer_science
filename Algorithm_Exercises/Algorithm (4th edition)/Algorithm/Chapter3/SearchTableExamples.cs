@@ -12,39 +12,39 @@ namespace Chapter3
         {
             var file = File.OpenRead("tale.txt");
             Scanner scanner = new Scanner(new StreamReader(file));
-            ISearchTable<string, int> dic;
-            new SequantialSearchST<string, int>();
-            switch (options)
-            {
-                case SearchTableOptions.SequantialST:
-                    dic = new SequantialSearchST<string,int>();
-                    break;
-                case SearchTableOptions.BinarySearchST:
-                    dic = new BinarySearchST<string, int>();
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
+            ISearchTable<string, int> searchTable = CreateSearchTable<string,int>(options);
             StopWatch stopWatch = new StopWatch();
             while (scanner.HasNext())
             {
                 var word = scanner.Read();
                 //if (word.Length <= 4)
                 //    continue;
-                if (!dic.Contains(word))
-                    dic.Put(word, 1);
+                if (!searchTable.Contains(word))
+                    searchTable.Put(word, 1);
                 else
-                    dic.Put(word, dic.Get(word) + 1);
+                    searchTable.Put(word, searchTable.Get(word) + 1);
             }
             double time =  stopWatch.ElapsedTime;
             if(showItems)
             {
-                foreach(var key in dic.Keys())
+                foreach(var key in searchTable.Keys())
                 {
                     StdOut.Print(key + ",");
                 }
             }
             return time;
+        }
+
+        private static ISearchTable<Key,Value> CreateSearchTable<Key,Value>(SearchTableOptions options) where Key:IComparable<Key>
+        {
+            ISearchTable<Key, Value> table = options switch
+            {
+                SearchTableOptions.SequantialST => new SequantialSearchST<Key, Value>(),
+                SearchTableOptions.BinarySearchST => new BinarySearchST<Key, Value>(),
+                SearchTableOptions.BST => new BST<Key, Value>(),
+                _ => throw new NotImplementedException(),
+            };
+            return table;
         }
     }
 }

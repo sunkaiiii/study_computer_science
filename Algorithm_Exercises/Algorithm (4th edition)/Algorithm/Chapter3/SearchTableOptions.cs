@@ -7,6 +7,7 @@ namespace Chapter3
     public enum SearchTableOptions
     {
         SequantialST,
-        BinarySearchST
+        BinarySearchST,
+        BST
     }
 }
