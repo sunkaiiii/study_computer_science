@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Chapter3
 {
-    abstract class AbsOrderedSearchST<Key, Value> : IOrderedSearchTable<Key, Value> where Key:IComparable<Key>
+    abstract public class AbsOrderedSearchST<Key, Value> : IOrderedSearchTable<Key, Value> where Key:IComparable<Key>
     {
         public bool Contains(Key key)
         {

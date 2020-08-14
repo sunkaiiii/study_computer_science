@@ -24,14 +24,15 @@ namespace Chapter3
                 else
                     searchTable.Put(word, searchTable.Get(word) + 1);
             }
-            double time =  stopWatch.ElapsedTime;
+           
             if(showItems)
             {
                 foreach(var key in searchTable.Keys())
                 {
-                    StdOut.Print(key + ",");
+                    searchTable.Get(key);
                 }
             }
+            double time = stopWatch.ElapsedTime;
             return time;
         }
 
@@ -42,6 +43,7 @@ namespace Chapter3
                 SearchTableOptions.SequantialST => new SequantialSearchST<Key, Value>(),
                 SearchTableOptions.BinarySearchST => new BinarySearchST<Key, Value>(),
                 SearchTableOptions.BST => new BST<Key, Value>(),
+                SearchTableOptions.RedBlack=>new RedBlackBST<Key,Value>(),
                 _ => throw new NotImplementedException(),
             };
             return table;

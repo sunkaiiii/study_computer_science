@@ -4,30 +4,22 @@ using System.Collections.Generic;
 
 namespace Chapter3
 {
-    class BST<Key,Value>:AbsOrderedSearchST<Key,Value>where Key:IComparable<Key>
+    public class BST<Key,Value>:AbsOrderedSearchST<Key,Value>where Key:IComparable<Key>
     {
-        public Node Root { get; private set; }
+        private Node<Key, Value> _root;
+        public Node<Key,Value> Root { get { return GetRoot(); } set { _root = value; } }
 
-        public class Node
+        private Node<Key, Value> GetRoot()
         {
-            public Key Key { get; }
-            public Value Val { get; internal set; }
-            public Node Left { get; internal set; }
-            public Node Right { get; internal set; }
-            public int N { get; internal set; } //以该节点为根的子树中的节点总数
-            public Node(Key key, Value val, int N)
-            {
-                this.Key = key;
-                this.Val = val;
-                this.N = N;
-            }
+            return _root;
         }
+
         public new int Size { get
             {
                 return GetNodeSize(Root);
             } }
 
-        private int GetNodeSize(Node node)
+        protected int GetNodeSize(Node<Key,Value> node)
         {
             if (node == null)
                 return 0;
@@ -36,7 +28,7 @@ namespace Chapter3
 
         public override Key Min => FindMin(Root).Key;
 
-        private Node FindMin(Node x)
+        private Node<Key,Value> FindMin(Node<Key,Value> x)
         {
             if (x.Left == null)
                 return x;
@@ -45,7 +37,7 @@ namespace Chapter3
 
         public override Key Max => FindMax(Root).Key;
 
-        private Node FindMax(Node x)
+        private Node<Key,Value> FindMax(Node<Key, Value> x)
         {
             if (x.Right == null)
                 return x;
@@ -54,13 +46,13 @@ namespace Chapter3
 
         public override Key Ceiling(Key key)
         {
-            Node x = Ceiling(Root, key);
+            var x = Ceiling(Root, key);
             if (x == null)
                 return default;
             return x.Key;
         }
 
-        private Node Ceiling(Node x, Key key)
+        private Node<Key, Value> Ceiling(Node<Key,Value> x, Key key)
         {
             if (x == null)
                 return null;
@@ -69,7 +61,7 @@ namespace Chapter3
                 return x;
             if (cmp < 0)
                 return Ceiling(x.Right, key);
-            Node t = Ceiling(x.Left, key);
+            var t = Ceiling(x.Left, key);
             if (t != null)
                 return t;
             return x;
@@ -80,7 +72,7 @@ namespace Chapter3
             Root = Delete(Root, key);
         }
 
-        private Node Delete(Node x, Key key)
+        private Node<Key, Value> Delete(Node<Key, Value> x, Key key)
         {
             if(x==null)
             {
@@ -97,7 +89,7 @@ namespace Chapter3
                     return x.Left;
                 if (x.Left == null)
                     return x.Right;
-                Node t = x;
+                var t = x;
                 x = FindMin(t.Right);
                 x.Right = DeleteMin(t.Right);
                 x.Left = t.Left;
@@ -111,7 +103,7 @@ namespace Chapter3
         {
             Root = DeleteMin(Root);
         }
-        private Node DeleteMin(Node x)
+        private Node<Key, Value> DeleteMin(Node<Key, Value> x)
         {
             if (x.Left == null)
                 return x.Right;
@@ -125,7 +117,7 @@ namespace Chapter3
             Root = DeleteMax(Root);
         }
 
-        private Node DeleteMax(Node x)
+        private Node<Key, Value> DeleteMax(Node<Key, Value> x)
         {
             if (x.Right == null)
                 return x.Left;
@@ -136,13 +128,13 @@ namespace Chapter3
 
         public override Key Floor(Key key)
         {
-            Node x = Floor(Root, key);
+            Node<Key, Value> x = Floor(Root, key);
             if (x == null)
                 return default;
             return x.Key;
         }
 
-        private Node Floor(Node x, Key key)
+        private Node<Key, Value> Floor(Node<Key, Value> x, Key key)
         {
             if (x == null)
                 return null;
@@ -151,7 +143,7 @@ namespace Chapter3
                 return x;
             if (cmp < 0)
                 return Floor(x.Left, key);
-            Node t = Floor(x.Right, key);
+            var t = Floor(x.Right, key);
             if (t != null)
                 return t;
             return x;
@@ -162,7 +154,7 @@ namespace Chapter3
             return Get(Root, key);
         }
 
-        private Value Get(Node x, Key key)
+        private Value Get(Node<Key, Value> x, Key key)
         {
             if (x == null)
                 return default;
@@ -182,7 +174,7 @@ namespace Chapter3
             return queue;
         }
 
-        private void Keys(Node x, Chapter1.Queue<Key> queue, Key lo, Key hi)
+        private void Keys(Node<Key, Value> x, Chapter1.Queue<Key> queue, Key lo, Key hi)
         {
             //使用中序遍历进行二叉树的范围查找
             if (x == null)
@@ -202,12 +194,12 @@ namespace Chapter3
             Root = Put(Root, key, value);
         }
 
-        private Node Put(Node x, Key key, Value value)
+        private Node<Key, Value> Put(Node<Key, Value> x, Key key, Value value)
         {
             //如果key存在于x为根节点的子树中，则更新
             //否则将以key和val为键值对的新节点插入到子树中
             if (x == null)
-                return new Node(key, value, 1);
+                return new Node<Key, Value>(key, value, 1);
             int cmp = key.CompareTo(x.Key);
             if (cmp < 0)
                 x.Left = Put(x.Left, key, value);
@@ -224,7 +216,7 @@ namespace Chapter3
             return Rank(key, Root);
         }
 
-        private int Rank(Key key, Node x)
+        private int Rank(Key key, Node<Key, Value> x)
         {
             if (x == null)
                 return 0;
@@ -242,7 +234,7 @@ namespace Chapter3
             return Select(Root, k).Key;
         }
 
-        private Node Select(Node x, int k)
+        private Node<Key, Value> Select(Node<Key, Value> x, int k)
         {
             if (x == null)
                 return null;

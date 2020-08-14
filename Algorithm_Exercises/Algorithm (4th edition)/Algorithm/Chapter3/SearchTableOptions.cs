@@ -8,6 +8,7 @@ namespace Chapter3
     {
         SequantialST,
         BinarySearchST,
-        BST
+        BST,
+        RedBlack
     }
 }
