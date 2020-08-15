@@ -42,6 +42,9 @@ namespace Chapter3
            //StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.BinarySearchST));
             StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.BST,true));
             StdOut.Println(SearchTableExamples.TimeInput(SearchTableOptions.RedBlack,true));
+
+            StdOut.Println(SearchTableExamples.TimeInputForHashST(HashTableOptions.LinearProbiningHash));
+            StdOut.Println(SearchTableExamples.TimeInputForHashST(HashTableOptions.SeparateChainingHash));
         }
     }
 }

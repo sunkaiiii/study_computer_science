@@ -8,6 +8,25 @@ namespace Chapter3
 {
    public static class SearchTableExamples
     {
+        public static double TimeInputForHashST(HashTableOptions options)
+        {
+            var file = File.OpenRead("tale.txt");
+            Scanner scanner = new Scanner(new StreamReader(file));
+            StopWatch stopWatch = new StopWatch();
+            IHashTable<string, int> hashTable = options switch
+            {
+                HashTableOptions.LinearProbiningHash => new LinearProbingHashST<string, int>(),
+                HashTableOptions.SeparateChainingHash => new SeparateChainingHashST<string, int>(),
+                _ => throw new Exception("Cannot find the options")
+            };
+            while (scanner.HasNext())
+            {
+                var word = scanner.Read();
+                hashTable.Put(word, hashTable.Get(word) + 1);
+            }
+            double time = stopWatch.ElapsedTime;
+            return time;
+        }
         public static double TimeInput(SearchTableOptions options,bool showItems=false)
         {
             var file = File.OpenRead("tale.txt");
