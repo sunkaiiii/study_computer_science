@@ -14,10 +14,10 @@ namespace Chapter3
             return _root;
         }
 
-        public new int Size { get
+        public override int Size { get
             {
                 return GetNodeSize(Root);
-            } }
+            } protected set { } }
 
         protected int GetNodeSize(Node<Key,Value> node)
         {

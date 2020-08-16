@@ -55,7 +55,7 @@ namespace Chapter3
             return time;
         }
 
-        private static ISearchTable<Key,Value> CreateSearchTable<Key,Value>(SearchTableOptions options) where Key:IComparable<Key>
+        public static ISearchTable<Key,Value> CreateSearchTable<Key,Value>(SearchTableOptions options) where Key:IComparable<Key>
         {
             ISearchTable<Key, Value> table = options switch
             {

@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Chapter3
 {
-    interface ISearchTable<Key,Value>
+    public interface ISearchTable<Key,Value>
     {
+        public int Size { get; }
         void Put(Key key, Value value);
         Value Get(Key key);
         IEnumerable<Key> Keys();

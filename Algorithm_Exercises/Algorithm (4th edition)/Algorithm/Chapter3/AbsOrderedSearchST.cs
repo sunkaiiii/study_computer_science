@@ -8,7 +8,7 @@ namespace Chapter3
     {
         public bool Contains(Key key)
         {
-            return Get(key) != null;
+            return Get(key) != null && !Get(key).Equals(default(Value));
         }
 
         public bool IsEmpty
@@ -46,8 +46,7 @@ namespace Chapter3
 
         public abstract Key Min { get; }
         public abstract Key Max { get; }
-
-        public int Size { get; protected set; } = 0;
+        public abstract int Size { get; protected set; }
 
         public abstract void Put(Key key, Value value);
         public abstract Value Get(Key key);

@@ -109,12 +109,12 @@ namespace Chapter3
 
         public bool Contains(Key key)
         {
-            return Get(key) != null;
+            return Get(key)!=null&&!Get(key).Equals(default(Value));
         }
 
         public void Delete(Key key)
         {
-            Put(key, default(Value)); //延迟删除的默认实现
+            Put(key, default); //延迟删除的默认实现
         }
     }
 }

@@ -11,6 +11,8 @@ namespace Chapter3
         public override Key Max => keys[Size - 1];
         public override Key Min => keys[0];
 
+        public override int Size { get; protected set; } = 0;
+
         public BinarySearchST(int capacity=16)
         {
             keys = new Key[capacity];

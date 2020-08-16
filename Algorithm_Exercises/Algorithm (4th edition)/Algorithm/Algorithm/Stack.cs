@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Chapter1
 {
     //下压堆栈，链表实现
-    public class Stack<T>
+    public class Stack<T>:IEnumerable<T>
     {
         private Node<T> first;
         private int N { get; set; }
@@ -67,6 +68,56 @@ namespace Chapter1
                 first = second;
             }
             this.first = reverse;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new StackEnumerator(first);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new StackEnumerator(first);
+        }
+
+        class StackEnumerator : IEnumerator<T>
+        {
+            Node<T> first;
+            Node<T> current;
+            bool start = true;
+            public StackEnumerator(Node<T> node)
+            {
+                first = node;
+            }
+            public T Current => current.Item;
+
+            object IEnumerator.Current => current.Item;
+
+            public void Dispose()
+            {
+                first = null;
+                current = null;
+            }
+
+            public bool MoveNext()
+            {
+                if(current==null&&start)
+                {
+                    current = first;
+                    start = false;
+                }
+                else
+                {
+                    current = current.Next;
+                }
+                return current!=null;
+            }
+
+            public void Reset()
+            {
+                current = null;
+                start = true;
+            }
         }
     }
 }
