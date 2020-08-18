@@ -1,14 +1,16 @@
 ﻿using Chapter1;
 using Chapter3;
+using Chapter4.DiGraph;
 using StandardLibraries;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Chapter4
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Graph()
         {
             Graph graph = new Graph(new Scanner(new StreamReader(File.OpenRead("tinyG.txt"))));
             Graph graph2 = new Graph(new Scanner(new StreamReader(File.OpenRead("tinyCG.txt"))));
@@ -71,7 +73,39 @@ namespace Chapter4
                 foreach (int w in g.Adj(sg.Index(source)))
                     StdOut.Println("   " + sg.Name(w));
             }
+        }
 
+        private static void DiGraph()
+        {
+            IDiGraph G = new DiGraph.DiGraph(new Scanner(new StreamReader(File.OpenRead("tinyDG.txt"))));
+            Bag<int> sources = new Bag<int>();
+            StdOut.Println("搜索几个结点：");
+            int i = StdIn.ReadInt();
+            while (i-- > 0)
+            {
+                sources.Add(StdIn.ReadInt());
+            }
+            DirectedDFS reachable = new DirectedDFS(G, sources);
+            for (int v = 0; v < G.V; v++)
+                if (reachable.Marked(v))
+                    StdOut.Print(v + " ");
+
+            //string filename = "jobs.txt"; //文件有问题
+            //string seperator = "/";
+            //SymbolDiGraph sg = new SymbolDiGraph(filename, seperator);
+            //Topological topological = new Topological(sg.G);
+            //foreach (int v in topological.Order)
+            //    StdOut.Println(sg.Name(v));
+
+            StdOut.Println();
+            StdOut.Println("强连通分量的数量");
+            ISCC scc = new KosarajuSCC(G);
+            StdOut.Println(scc.Count);
+        }
+        static void Main(string[] args)
+        {
+            //Graph();
+            DiGraph();
         }
     }
 }
