@@ -14,8 +14,8 @@ namespace Chapter4
         private ICC cc;
         public DepthFirstSearch(IGraph graph,int s) : base(graph, s)
         {
-            marked = new bool[graph.V()];
-            edgeTo = new int[graph.V()];
+            marked = new bool[graph.V];
+            edgeTo = new int[graph.V];
             Dfs(graph, s);
         }
 

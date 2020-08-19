@@ -13,8 +13,8 @@ namespace Chapter4
         
         public BreadthFirstPaths(IGraph g,int s):base(g,s)
         {
-            marked = new bool[g.V()];
-            edgeTo = new int[g.V()];
+            marked = new bool[g.V];
+            edgeTo = new int[g.V];
             Bfs(g, s);
         }
 

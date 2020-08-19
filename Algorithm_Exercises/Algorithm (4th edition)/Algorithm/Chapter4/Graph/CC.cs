@@ -13,9 +13,9 @@ namespace Chapter4
         public bool HasCycle { get; private set; } = false;
         public CC(IGraph G)
         {
-            marked = new bool[G.V()];
-            id = new int[G.V()];
-            for(int s=0;s<G.V();s++)
+            marked = new bool[G.V];
+            id = new int[G.V];
+            for(int s=0;s<G.V;s++)
             {
                 if(!marked[s])
                 {

@@ -1,6 +1,7 @@
 ﻿using Chapter1;
 using Chapter3;
 using Chapter4.DiGraph;
+using Chapter4.MinimalSpanningTree;
 using StandardLibraries;
 using System;
 using System.IO;
@@ -17,7 +18,7 @@ namespace Chapter4
             StdOut.Println("输入一个数字: ");
             int s = StdIn.ReadInt();
             ISearch search = new DepthFirstSearch(graph, s);
-            for (int v = 0; v < graph.V(); v++)
+            for (int v = 0; v < graph.V; v++)
                 if (search.Marked(v))
                     StdOut.Print(v + " ");
             StdOut.Println();
@@ -30,7 +31,7 @@ namespace Chapter4
             Bag<int>[] components = new Bag<int>[M];
             for (int i = 0; i < M; i++)
                 components[i] = new Bag<int>();
-            for (int v = 0; v < graph.V(); v++)
+            for (int v = 0; v < graph.V; v++)
                 components[cc.Id(v)].Add(v);
             for (int i = 0; i < M; i++)
             {
@@ -40,12 +41,12 @@ namespace Chapter4
             }
             StdOut.Println(cc.HasCycle);
 
-            if (search.Count() != graph.V())
+            if (search.Count() != graph.V)
                 StdOut.Print("Not ");
             StdOut.Println("connected");
 
             IPath path = new DepthFirstSearch(graph2, s);
-            for (int v = 0; v < graph2.V(); v++)
+            for (int v = 0; v < graph2.V; v++)
             {
                 StdOut.Print(s + " to " + v + ": ");
                 if (path.HasPathTo(v))
@@ -102,10 +103,42 @@ namespace Chapter4
             ISCC scc = new KosarajuSCC(G);
             StdOut.Println(scc.Count);
         }
+
+        private static void MST()
+        {
+            int i = 0;
+            StdOut.Println("输入选择：0，1");
+            i = StdIn.ReadInt();
+            string filename = i switch
+            {
+                0 => "tinyEWG.txt",
+                1 => "mediumEWG.txt",
+                _ => throw new Exception("no file name is assigned"),
+            };
+            IEdgeWeightGraph G = new EdgeWeightGraph(new Scanner(new StreamReader(File.OpenRead(filename))));
+            IMST mst = new LazyPrimMST(G);
+            IMST mst2 = new PrimeMST(G);
+            ShowMSTResult(G, mst);
+            ShowMSTResult(G, mst2);
+        }
+
+        private static void ShowMSTResult(IEdgeWeightGraph G, IMST mst)
+        {
+            //StdOut.Println(G.ToString());
+            foreach (var edge in mst.Edges())
+            {
+                StdOut.Println(edge);
+            }
+            StdOut.Println(mst.Weight);
+        }
+
         static void Main(string[] args)
         {
             //Graph();
-            DiGraph();
+            //DiGraph();
+            MST();
         }
+
+
     }
 }

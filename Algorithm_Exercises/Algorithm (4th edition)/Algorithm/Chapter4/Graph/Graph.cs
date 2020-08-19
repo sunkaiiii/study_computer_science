@@ -8,8 +8,6 @@ namespace Chapter4
 {
     public class Graph : IGraph
     {
-        private int _v;
-        private int _e;
         private Bag<int>[] adj;
         public Graph(int V)
         {
@@ -18,8 +16,8 @@ namespace Chapter4
 
         private void Init(int V)
         {
-            this._v = V;
-            this._e = 0;
+            this.V = V;
+            this.E = 0;
             adj = new Bag<int>[V];
             for (int v = 0; v < V; v++)
                 adj[v] = new Bag<int>();
@@ -41,17 +39,17 @@ namespace Chapter4
         {
             adj[v].Add(w);
             adj[w].Add(v);
-            _e++;
+            E++;
         }
         public IEnumerable<int> Adj(int v) => adj[v];
-        public int E() => _e;
-        public  int V() => _v;
+        public int E { get; private set; }
+        public  int V { get; private set; }
 
         //图的邻接表示法的字符串表示
         public override string ToString()
         {
-            string s = V() + " vertices, " + E() + " edges\n";
-            for(int v=0;v<V();v++)
+            string s = V + " vertices, " + E + " edges\n";
+            for(int v=0;v<V;v++)
             {
                 s += v + ": ";
                 foreach (int w in this.Adj(v))
