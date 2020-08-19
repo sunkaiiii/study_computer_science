@@ -117,9 +117,11 @@ namespace Chapter4
             };
             IEdgeWeightGraph G = new EdgeWeightGraph(new Scanner(new StreamReader(File.OpenRead(filename))));
             IMST mst = new LazyPrimMST(G);
-            IMST mst2 = new PrimeMST(G);
+            IMST mst2 = new PrimeMST(G); 
+            IMST mst3 = new KruskalMST(G);
             ShowMSTResult(G, mst);
             ShowMSTResult(G, mst2);
+            ShowMSTResult(G, mst3);
         }
 
         private static void ShowMSTResult(IEdgeWeightGraph G, IMST mst)

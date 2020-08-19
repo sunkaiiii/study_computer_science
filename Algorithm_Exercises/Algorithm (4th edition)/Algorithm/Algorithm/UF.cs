@@ -22,7 +22,7 @@ namespace Chapter1
             return p;
         }
 
-        public void union(int p, int q)
+        public void Union(int p, int q)
         {
             int pRoot = Find(p);
             int qRoot = Find(q);

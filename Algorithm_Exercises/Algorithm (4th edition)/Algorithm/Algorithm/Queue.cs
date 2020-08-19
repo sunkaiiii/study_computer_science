@@ -70,23 +70,21 @@ namespace Chapter1
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new QueueEnumerator<T>(first, last);
+            return new QueueEnumerator<T>(first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return new QueueEnumerator<T>(first, last);
+            return new QueueEnumerator<T>(first);
         }
 
         private class QueueEnumerator<T>:IEnumerator<T>
         {
             private Node<T> first;
             private Node<T> current;
-            private Node<T> last;
-            public QueueEnumerator(Node<T> first, Node<T> last)
+            public QueueEnumerator(Node<T> first)
             {
                 this.first = first;
-                this.last = last;
             }
 
             public T Current => current.Item;
@@ -97,7 +95,6 @@ namespace Chapter1
             {
                 first = null;
                 current = null;
-                last = null;
             }
 
             public bool MoveNext()
@@ -106,7 +103,7 @@ namespace Chapter1
                     current = first;
                 else
                     current = current.Next;
-                return current != last;
+                return current != null;
             }
 
             public void Reset()
