@@ -2,6 +2,7 @@
 using Chapter3;
 using Chapter4.DiGraph;
 using Chapter4.MinimalSpanningTree;
+using Chapter4.ShortestPath;
 using StandardLibraries;
 using System;
 using System.IO;
@@ -134,11 +135,68 @@ namespace Chapter4
             StdOut.Println(mst.Weight);
         }
 
+        private static void ShortestPath()
+        {
+            string filename = "mediumEWD.txt";
+            Scanner scanner = new Scanner(new StreamReader(File.OpenRead(filename)));
+            IEdgeWeightedDIgraph G = new EdgeWeightedDigraph(scanner);
+            StdOut.Print("输入一个边：");
+            int s = StdIn.ReadInt();
+            IShortestPath sp = new DijkstraSP(G,s);
+            for (int t = 0; t < G.V; t++)
+            {
+                StdOut.Print(s + " to " + t);
+                StdOut.Printf(" ({0}): ", sp.DistTo(t));
+                if(sp.HasPathTo(t))
+                    foreach (var e in sp.PathTo(t))
+                    {
+                        StdOut.Print(e + "  ");
+                    }
+                StdOut.Println();
+            }
+            DijkstraAllPairsSP allPairsSP = new DijkstraAllPairsSP(G);
+            StdOut.Println();
+            StdOut.Println(allPairsSP.Dist(1, 28));
+
+            //string filename2 = "tinyEWDAG.txt";
+            //scanner = new Scanner(new StreamReader(File.OpenRead(filename2)));
+            //G = new EdgeWeightedDigraph(scanner);
+            //IShortestPath sp2 = new AcyclicSP(G, s);
+            //for (int t = 0; t < G.V; t++)
+            //{
+            //    StdOut.Print(s + " to " + t);
+            //    StdOut.Printf(" ({0}): ", sp2.DistTo(t));
+            //    if (sp2.HasPathTo(t))
+            //        foreach (var e in sp.PathTo(t))
+            //        {
+            //            StdOut.Print(e + "  ");
+            //        }
+            //    StdOut.Println();
+            //}
+
+            //filename = "tinyEWDnc.txt";
+            //scanner = new Scanner(new StreamReader(File.OpenRead(filename)));
+            //G = new EdgeWeightedDigraph(scanner);
+            //sp = new BellmanFordSP(G, s);
+            //for (int t = 0; t < G.V; t++)
+            //{
+            //    StdOut.Print(s + " to " + t);
+            //    StdOut.Printf(" ({0}): ", sp.DistTo(t));
+            //    if (sp.HasPathTo(t))
+            //        foreach (var e in sp.PathTo(t))
+            //        {
+            //            StdOut.Print(e + "  ");
+            //        }
+            //    StdOut.Println();
+            //}
+        }
+
         static void Main(string[] args)
         {
-            //Graph();
-            //DiGraph();
+            Graph();
+            DiGraph();
             MST();
+            ShortestPath();
         }
 
 
