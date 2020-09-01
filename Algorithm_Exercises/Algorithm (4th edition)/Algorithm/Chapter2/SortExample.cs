@@ -50,7 +50,7 @@ namespace Chapter2
         }
 
         //插入排序
-        private static void InsertionSort<T>(ref T[] a) where T : IComparable<T>
+        public static void InsertionSort<T>(ref T[] a) where T : IComparable<T>
         {
             int N = a.Length;
             for (int i = 1; i < N; ++i)
@@ -60,7 +60,7 @@ namespace Chapter2
             }
         }
 
-        private static void InsertionSort<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
+        public static void InsertionSort<T>(ref T[] a, int lo, int hi) where T : IComparable<T>
         {
             int N = hi;
             for (int i = lo + 1; i < hi; ++i)
