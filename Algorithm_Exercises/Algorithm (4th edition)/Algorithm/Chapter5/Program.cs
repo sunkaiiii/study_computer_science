@@ -58,7 +58,5 @@ namespace Chapter5
             MSDSort();
             Q3String();
         }
-
-
     }
 }
