@@ -1,4 +1,5 @@
-﻿using Chapter5.StringSort;
+﻿using Chapter5.StringSearch;
+using Chapter5.StringSort;
 using StandardLibraries;
 using System;
 using System.IO;
@@ -52,11 +53,27 @@ namespace Chapter5
             }
         }
 
+        private static void KMP()
+        {
+            string pat = "AACAA";
+            string text = "AABRAACADABRAACAADABRA";
+            KMP kmp = new KMP(pat);
+            StdOut.Println("text:    " + text);
+            int offset = kmp.Saerch(text);
+            StdOut.Print("pattern: ");
+            for (int i = 0; i < offset; i++)
+            {
+                StdOut.Print(" ");
+            }
+            StdOut.Println(pat);
+        }
+
         static void Main(string[] args)
         {
             LSDSort();
             MSDSort();
             Q3String();
+            KMP();
         }
     }
 }
