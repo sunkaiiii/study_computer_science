@@ -53,13 +53,35 @@ namespace Chapter5
             }
         }
 
-        private static void KMP()
+
+        private static void StringSearch()
         {
             string pat = "AACAA";
             string text = "AABRAACADABRAACAADABRA";
-            KMP kmp = new KMP(pat);
+            IStringSearch kmp = GenerateSearch(StringSearchType.KMP, pat);
+            DoSearch(kmp,pat,text);
+            IStringSearch boyer = GenerateSearch(StringSearchType.BoyerMoore, pat);
+            DoSearch(boyer, pat, text);
+            IStringSearch rabin = GenerateSearch(StringSearchType.Robin, pat);
+            DoSearch(rabin, pat, text);
+        }
+
+        private static IStringSearch GenerateSearch(StringSearchType type, string pat)
+        {
+            IStringSearch search = type switch
+            {
+                StringSearchType.KMP => new KMP(pat),
+                StringSearchType.BoyerMoore => new BoyerMoore(pat),
+                StringSearchType.Robin=>new RabinKarp(pat),
+                _ => null,
+            };
+            return search;
+        }
+
+        private static void DoSearch(IStringSearch stringSearch,string pat,string text)
+        {
             StdOut.Println("text:    " + text);
-            int offset = kmp.Saerch(text);
+            int offset = stringSearch.Search(text);
             StdOut.Print("pattern: ");
             for (int i = 0; i < offset; i++)
             {
@@ -73,7 +95,9 @@ namespace Chapter5
             LSDSort();
             MSDSort();
             Q3String();
-            KMP();
+            StringSearch();
         }
+
+
     }
 }

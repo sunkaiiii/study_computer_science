@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Chapter5.StringSearch
 {
-    public class KMP
+    public class KMP:IStringSearch
     {
         private string Pat { get; set; }
-        private int[,] Dfa { get; set; }
+        private int[,] Dfa { get;  }
         public KMP(string pat)
         {
             //由模式构造DFA
@@ -28,7 +28,7 @@ namespace Chapter5.StringSearch
             }
         }
 
-        public int Saerch(string txt)
+        public int Search(string txt)
         {
             int i, j, N = txt.Length, M = Pat.Length;
             for (i = 0,j=0; i < N&&j<M; i++)
