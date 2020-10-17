@@ -8,6 +8,21 @@
   <ItemGroup>
     <ProjectReference Include="..\Chapter2\Chapter2.csproj" />
     <ProjectReference Include="..\StandardLibraries\StandardLibraries.csproj" />
+    <ProjectReference Include="..\Chapter4\Chapter4.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Regax\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Regax\Template.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>tinyL.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Regax\Template.cs">
+      <DependentUpon>tinyL.txt</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

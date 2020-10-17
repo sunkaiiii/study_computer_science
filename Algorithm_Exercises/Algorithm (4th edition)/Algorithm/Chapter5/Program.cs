@@ -1,4 +1,5 @@
-﻿using Chapter5.StringSearch;
+﻿using Chapter5.Regax;
+using Chapter5.StringSearch;
 using Chapter5.StringSort;
 using StandardLibraries;
 using System;
@@ -90,12 +91,28 @@ namespace Chapter5
             StdOut.Println(pat);
         }
 
+        private static void Regax()
+        {
+            var scanner = new Scanner(new StreamReader(File.OpenRead("tinyL.txt")));
+            string pattern = "(A*B|AC)D";
+            NFARegex regex = new NFARegex(pattern);
+            while (scanner.HasNextLine())
+            {
+                string txt = scanner.ReadLine();
+                if(regex.Recognizes(txt))
+                {
+                    StdOut.Println(txt);
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
-            LSDSort();
-            MSDSort();
-            Q3String();
-            StringSearch();
+            //LSDSort();
+            //MSDSort();
+            //Q3String();
+            //StringSearch();
+            Regax();
         }
 
 
