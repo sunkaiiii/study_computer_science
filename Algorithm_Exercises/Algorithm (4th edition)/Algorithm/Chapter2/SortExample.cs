@@ -133,7 +133,7 @@ namespace Chapter2
             Merge(ref a, ref aux, lo, mid, hi);
         }
 
-        private static void QuickSort<T>(ref T[] a) where T : IComparable<T>
+        public static void QuickSort<T>(ref T[] a) where T : IComparable<T>
         {
             StdRandom.Shuffle(ref a); //消除对于输入的依赖
             QuickSort(ref a, 0, a.Length - 1);
@@ -148,7 +148,7 @@ namespace Chapter2
             QuickSort(ref a, j + 1, hi); //右半部分排序
         }
 
-        private static void ImprovedQuickSort<T>(ref T[] a) where T : IComparable<T>
+        public static void ImprovedQuickSort<T>(ref T[] a) where T : IComparable<T>
         {
             StdRandom.Shuffle(ref a);
             ImprovedQuickSort(ref a, 0, a.Length - 1);
@@ -165,7 +165,7 @@ namespace Chapter2
             ImprovedQuickSort(ref a, lo, j - 1); //左半部分排序
             ImprovedQuickSort(ref a, j + 1, hi); //右半部分排序
         }
-        private static void ImprovedThreeWayQuickSort<T>(ref T[] a) where T : IComparable<T>
+        public static void ImprovedThreeWayQuickSort<T>(ref T[] a) where T : IComparable<T>
         {
             StdRandom.Shuffle(ref a);
             ImprovedThreeWayQuickSort(ref a, 0, a.Length - 1);

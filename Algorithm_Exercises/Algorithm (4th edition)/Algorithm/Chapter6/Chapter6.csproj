@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="B-Tree\" />
+    <Folder Include="SuffixArray\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chapter2\Chapter2.csproj" />
+  </ItemGroup>
+</Project>
