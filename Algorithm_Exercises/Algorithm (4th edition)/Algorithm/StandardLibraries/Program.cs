@@ -8,7 +8,7 @@ namespace StandardLibraries
     {
         static void Main(string[] args)
         {
-  
+
         }
     }
 }

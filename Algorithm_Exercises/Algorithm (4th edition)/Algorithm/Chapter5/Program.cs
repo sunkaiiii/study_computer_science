@@ -112,7 +112,15 @@ namespace Chapter5
             //MSDSort();
             //Q3String();
             //StringSearch();
-            Regax();
+            //Regax();
+
+            for (; !BinaryStdIn.IsEmpty(); )
+            {
+                if (BinaryStdIn.ReadBoolean())
+                    StdOut.Print("1");
+                else StdOut.Print("0");
+            }
+            StdOut.Println();
         }
 
 
