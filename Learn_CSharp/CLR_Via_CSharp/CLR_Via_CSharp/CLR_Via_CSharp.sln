@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter26", "Chapter26\Chap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter27", "Chapter27\Chapter27.csproj", "{FE39EC75-AE5C-4433-93CF-9BB27D080E66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter29", "Chapter29\Chapter29.csproj", "{26E7FAF8-B704-455E-A21F-98F85B9A80D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter29", "Chapter29\Chapter29.csproj", "{26E7FAF8-B704-455E-A21F-98F85B9A80D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter30", "Chapter30\Chapter30.csproj", "{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +183,14 @@ Global
 		{26E7FAF8-B704-455E-A21F-98F85B9A80D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{26E7FAF8-B704-455E-A21F-98F85B9A80D0}.Release|x86.ActiveCfg = Release|x86
 		{26E7FAF8-B704-455E-A21F-98F85B9A80D0}.Release|x86.Build.0 = Release|x86
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Debug|x86.Build.0 = Debug|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Release|x86.ActiveCfg = Release|Any CPU
+		{ABB463CC-7831-4C9F-BD5A-E8FAB100003F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
