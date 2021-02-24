@@ -37,7 +37,7 @@ namespace Chapter24
         public class MyType
         {
             int x, y;[NonSerialized] int sum;
-            public MyType(int x,int y)
+            public MyType(int x, int y)
             {
                 this.x = x;
                 this.y = y;
@@ -97,7 +97,7 @@ namespace Chapter24
                 //为基类获取可序列化的成员集合
                 Type baseType = this.GetType().BaseType;
                 MemberInfo[] mi = FormatterServices.GetSerializableMembers(baseType, context);
-                for(int i=0;i<mi.Length;i++)
+                for (int i = 0; i < mi.Length; i++)
                 {
                     FieldInfo fi = (FieldInfo)mi[i];
                     fi.SetValue(this, info.GetValue(baseType.FullName + "+" + fi.Name, fi.FieldType));
@@ -106,7 +106,7 @@ namespace Chapter24
                 m_date = info.GetDateTime("Date");
             }
 
-            [SecurityPermissionAttribute(SecurityAction.Demand,SerializationFormatter = true)]
+            [SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter = true)]
             public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
             {
                 info.AddValue("Date", m_date);
@@ -141,6 +141,25 @@ namespace Chapter24
             }
         }
 
+        //使用SerializationBinder类来将对象反序列化成不同的类型
+        internal sealed class Ver1ToVer2SerialisationBinder : SerializationBinder
+        {
+            public override Type BindToType(string assemblyName, string typeName)
+            {
+                AssemblyName assemVer1 = Assembly.GetExecutingAssembly().GetName();
+                assemVer1.Version = new Version(1, 0, 0, 0);
+
+                //如果从v1.0.0.0反序列化ver1对象，就把他转换为ver2对象
+                if (assemblyName == assemVer1.ToString() && typeName == "Ver1")
+                {
+                    //return typeof(Ver2);
+                }
+
+
+                return Type.GetType(string.Format("{0}, {1}", typeName, assemblyName));
+            }
+        }
+
         static void Main(string[] args)
         {
             var objectGraph = new List<string> { "Jeff", "Kristin", "Aidan", "Grant" };
@@ -150,7 +169,7 @@ namespace Chapter24
 
             //反序列化
             objectGraph = (List<string>)DeserialiseFromMemory(stream);
-            foreach(var s in objectGraph)
+            foreach (var s in objectGraph)
             {
                 Console.WriteLine(s);
             }
