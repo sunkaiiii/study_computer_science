@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/ELAPSED_REALTIME_CLOCK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一次性闹钟:ELAPSED_REALTIME" />
+
+    <Button
+        android:id="@+id/ELAPSED_REALTIME_WAKEUP_CLOCK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一次性闹钟:ELAPSED_REALTIME_WAKEUP " />
+
+    <Button
+        android:id="@+id/RTC_CLOCK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一次性闹钟:RTC  " />
+
+    <Button
+        android:id="@+id/RTC_WAKEUP_CLOCK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一次性闹钟:RTC_WAKEUP_CLOCK" />
+
+    <Button
+        android:id="@+id/repeating_clock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置重复闹钟" />
+
+    <Button
+        android:id="@+id/cancel_clock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消闹钟" />
+
+</LinearLayout>
