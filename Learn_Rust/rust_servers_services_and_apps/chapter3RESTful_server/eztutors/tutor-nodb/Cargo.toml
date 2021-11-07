@@ -1,0 +1,22 @@
+[package]
+name = "tutor-nodb"
+version = "0.1.0"
+edition = "2021"
+default-run = "tutor-service"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "3.3.2"
+actix-rt = "1.1.1"
+# Data serialization library
+serde = { version = "1.0.130", features = ["derive"] }
+# Other utilities
+chrono = {version = "0.4.19", features = ["serde"]}
+
+# Specify the binary declaration
+[[bin]]
+name = "basic-server"
+
+[[bin]]
+name = "tutor-service"
