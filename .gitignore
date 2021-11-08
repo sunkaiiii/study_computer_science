@@ -352,3 +352,4 @@ healthchecksdb
 
 *.exe
 Learn_Rust/rust_servers_services_and_apps/chapter5error_handling/eztutors/tutor-db/.env
+Learn_Rust/rust_servers_services_and_apps/chapter6refactoring/eztutors/tutor-db/.env
