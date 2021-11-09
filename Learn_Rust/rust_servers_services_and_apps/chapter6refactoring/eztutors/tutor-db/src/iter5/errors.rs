@@ -7,6 +7,7 @@ pub enum EzyTutorError {
     DBError(String),
     ActixError(String),
     NotFound(String),
+    InvalidInput(String),
 }
 #[derive(Debug, Serialize)]
 pub struct MyErrorResponse {
@@ -44,11 +45,13 @@ impl EzyTutorError {
                 println!("Not found error occurred: {:?}", msg);
                 msg.into()
             }
+            EzyTutorError::InvalidInput(msg) => {
+                println!("Invalid parameters received: {:?}", msg);
+                msg.into()
+            }
         }
     }
 }
-
-
 
 impl error::ResponseError for EzyTutorError {
     fn status_code(&self) -> StatusCode {
@@ -57,6 +60,7 @@ impl error::ResponseError for EzyTutorError {
                 StatusCode::INTERNAL_SERVER_ERROR
             }
             EzyTutorError::NotFound(msg) => StatusCode::NOT_FOUND,
+            EzyTutorError::InvalidInput(_msg) => StatusCode::BAD_REQUEST,
         }
     }
     fn error_response(&self) -> HttpResponse {
